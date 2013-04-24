@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>Great Walks - Whanganui Journey</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="x-rim-auto-match" content="none">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="cordova.js"></script>
+        <script>
+            var nz_map_dimensions = {"width":752,"height":1056,"ratio":0.7121212121212122};
+            var maps_details = {"whanganui-journey":{"map_id":"whanganui-journey","latitude":-38.864053084012156,"longitude":174.5366521487492,"map_pixel_width":1562,"map_pixel_height":1016,"degrees_per_pixel":0.000632707374232,"extent_latitude":-39.50688377623187,"extent_longitude":175.52494106729958,"map_initial_scale":0.1},"lake-waikaremoana":{"map_id":"lake-waikaremoana","latitude":-38.69996653229696,"longitude":176.95114126114987,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000137073340468,"extent_latitude":-38.84307109974555,"extent_longitude":177.18992302024512,"map_initial_scale":0.1},"tongariro-northern-circuit":{"map_id":"tongariro-northern-circuit","latitude":-39.043598354843745,"longitude":175.44773655679015,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000234666432478,"extent_latitude":-39.288590110350775,"extent_longitude":175.85652548216683,"map_initial_scale":0.1},"rakiura-track---stewart-island":{"map_id":"rakiura-track---stewart-island","latitude":-46.82703931382569,"longitude":167.99939428698806,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000110980608744,"extent_latitude":-46.94290306935443,"extent_longitude":168.19272250742011,"map_initial_scale":0.1},"milford-track":{"map_id":"milford-track","latitude":-44.65180781421633,"longitude":167.65907612771002,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-44.94994232973389,"extent_longitude":168.15653812582457,"map_initial_scale":0.1},"abel-tasman-coast-track":{"map_id":"abel-tasman-coast-track","latitude":-40.77160911578638,"longitude":172.68815992588924,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285453325972,"extent_latitude":-41.06962238810115,"extent_longitude":173.18541961973247,"map_initial_scale":0.1},"heaphy-track":{"map_id":"heaphy-track","latitude":-40.82923160495061,"longitude":172.02760098235598,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-41.12736612046816,"extent_longitude":172.52506298047052,"map_initial_scale":0.1},"wellington":{"map_id":"wellington","latitude":-41.21341136987253,"longitude":174.72217539068876,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000142358133316,"extent_latitude":-41.362033261054435,"extent_longitude":174.97016325892523,"map_initial_scale":0.1},"routeburn-track":{"map_id":"routeburn-track","latitude":-44.68512592255184,"longitude":168.06155744219296,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.00015647401239,"extent_latitude":-44.848484791487,"extent_longitude":168.33413517177635,"map_initial_scale":0.1},"kepler-track":{"map_id":"kepler-track","latitude":-45.34650584038335,"longitude":167.46068593304253,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000174704669218,"extent_latitude":-45.52889751504694,"extent_longitude":167.7650214668203,"map_initial_scale":0.1}};
+        </script>
+    </head>
+    <body class="map">
+        <input type="checkbox" id="show_slideout_navigation">
+        <div id="wrapper">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a href="index.html" id="logo">Department of Conservation - Great Walks</a>
+                        <ul class="nav">
+                            <li>
+                                <label for="show_slideout_navigation"><span class="header-sprite header-threebar">Menu</span></label>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="info.html"><span class="header-sprite header-info">Info</span></a>
+                            </li>
+                            <li id="share-social">
+                                <a href="#social-share"><span class="header-sprite header-share">Share</span></a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div id="debug"></div>
+
+               </div>
+            </div>
+            <div id="slideout_navigation">
+                <ul class="menu">
+                    <li><label for="show_slideout_navigation">Menu</label></li>
+                    <li><a href="book.html" class="booking">Make a booking</a></li>
+                    <li><a href="offers.html" class="offers">Special offers</a></li>
+                </ul>
+                <ul class="walks">
+                    <li><a href="walk-lake-waikaremoana.html">Lake Waikaremoana</a></li><li><a href="walk-tongariro-northern-circuit.html">Tongariro Northern Circuit</a></li><li><a href="walk-whanganui-journey.html">Whanganui Journey</a></li><li><a href="walk-abel-tasman-coast-track.html">Abel Tasman Coast Track</a></li><li><a href="walk-heaphy-track.html">Heaphy Track</a></li><li><a href="walk-kepler-track.html">Kepler Track</a></li><li><a href="walk-milford-track.html">Milford Track</a></li><li><a href="walk-routeburn-track.html">Routeburn Track</a></li><li><a href="walk-rakiura-track---stewart-island.html">Rakiura Track - Stewart Island</a></li>
+                </ul>
+                <ul class="maps">
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </div>
+            <div id="page1">
+                <div class="social-links">
+                    <a href='mailto:enquiries@doc.govt.nz?subject=I%27m%20going%20on%20a%20Great%20Walk%20in%20New%20Zealand%2C%20the%20WHANGANUI%20JOURNEY&amp;body=I%27m%20going%20on%20a%20Great%20Walk%20in%20New%20Zealand%2C%20the%20WHANGANUI%20JOURNEY%20http%3A%2F%2Fwww.greatwalks.co.nz%2Fwhanganui-journey' class='email'>Email</a> <a href='http://www.facebook.com/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fwww.greatwalks.co.nz%2Fwhanganui-journey&amp;p[title]=I%27m%20going%20on%20a%20Great%20Walk%20in%20New%20Zealand%2C%20the%20WHANGANUI%20JOURNEY&amp;p[images][0]=http%3A%2F%2Fwww.greatwalks.co.nz%2Fsites%2Fall%2Fthemes%2Fsparks_responsive%2Flogo.png&amp;p[summary]=.' class='facebook'>Facebook</a> <a href='http://twitter.com/share?url=http%3A%2F%2Fbit.ly%2FRf9sL6&amp;text=I%27m%20going%20on%20a%20Great%20Walk%20in%20New%20Zealand%2C%20the%20WHANGANUI%20JOURNEY%20@NZGreatWalks' class='twitter'>Twitter</a>
+                </div>
+                <!--
+                <div id="viewable-area" style="border: solid 2px red"></div>
+                <div id="absolute-map" style="border: solid 2px green"></div>
+                -->
+    	        <a id="weta" rel="popover" data-placement="right" data-content="<h3>Weta</h3><b class='distance_away'>Distance: really close!</b>Seriously big nocturnal creatures that live in a variety of habitats including: pasture, shrub, forests, and caves. Weta excavate holes under stones, rotting logs, or in trees. They sometimes occupy pre-formed burrows.">Weta</a>
+
+<div style="background-image: url(img/walks/whanganui-journey/map.jpg); background-size: 1562px 1016px; width:1562px; height:1016px; position:relative; display:none" id="map" class="have-transition">
+	<div id="youarehere">
+		<div class="dot"></div>
+		<div class="offmap">offmap</div>
+	</div>
+		<a class="location location-icon location-generic-poi" rel="popover" style="position:absolute; left: 758px; top:899px;" data-longitude="175.016144" data-latitude="-39.432618" data-content-template="<h3>The river Drop Scene **What&#39;s that? Needs explanation or else remove</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-generic-poi" rel="popover" style="position:absolute; left: 807px; top:946px;" data-longitude="175.047119" data-latitude="-39.478103" data-content-template="<h3>Visit riverside villages by canoe i.e. Whakahoro &amp; Pipiriki **Shouldn&#39;t these be actual markers on these villages instead? seems a bit useless in this current format</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-side-trip" rel="popover" style="position:absolute; left: 692px; top:652px;" data-longitude="174.974622" data-latitude="-39.276647" data-content-template="<h3>Bridge to Nowhere walk</h3>[DISTANCE]Visit the famous Bridge to Nowhere  a bridge left behind by returned World War One Serviceman in the valley of abandoned dreams. A gentle 40 minute walk from the Mangapurua Landing on the Whanganui river will take you there.">Click to toggle popover</a>
+		<a class="location location-icon location-historic-site" rel="popover" style="position:absolute; left: 722px; top:745px;" data-longitude="174.993312" data-latitude="-39.33571" data-content-template="<h3>Staying at Tieke Kainga</h3>[DISTANCE]Enjoy a unique stay at Tieke Kainga on a marae that is also used as a Great Walks hut. Tieke was one of many old pa sites on the Whanganui River and has been revived as a kainga (village).">Click to toggle popover</a>
+		<a class="location location-icon location-campsite" rel="popover" style="position:absolute; left: 963px; top:120px;" data-longitude="175.146203" data-latitude="-38.939834" data-content-template="<h3>Ohinepane Campsite</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-campsite" rel="popover" style="position:absolute; left: 922px; top:200px;" data-longitude="175.120203" data-latitude="-38.990335" data-content-template="<h3>Poukaria Campsite</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-campsite" rel="popover" style="position:absolute; left: 731px; top:417px;" data-longitude="174.999204" data-latitude="-39.127738" data-content-template="<h3>Managpapa Campsite</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-campsite" rel="popover" style="position:absolute; left: 597px; top:580px;" data-longitude="174.914205" data-latitude="-39.23124" data-content-template="<h3>John Coull Campsite</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-campsite" rel="popover" style="position:absolute; left: 804px; top:328px;" data-longitude="175.045203" data-latitude="-39.071837" data-content-template="<h3>Maharanui Campsite</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-campsite" rel="popover" style="position:absolute; left: 845px; top:385px;" data-longitude="175.071204" data-latitude="-39.107437" data-content-template="<h3>Whakahoro Campsite</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-shelter" rel="popover" style="position:absolute; left: 843px; top:414px;" data-longitude="175.070204" data-latitude="-39.107037" data-content-template="<h3>Whakahoro Shelter</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-campsite" rel="popover" style="position:absolute; left: 668px; top:483px;" data-longitude="174.959204" data-latitude="-39.169339" data-content-template="<h3>Ohauora Campsite</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-hut" rel="popover" style="position:absolute; left: 597px; top:580px;" data-longitude="174.914205" data-latitude="-39.23094" data-content-template="<h3>John Coull Hut</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-campsite" rel="popover" style="position:absolute; left: 583px; top:661px;" data-longitude="174.905206" data-latitude="-39.28234" data-content-template="<h3>Mangawaiiti Campsite</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-campsite" rel="popover" style="position:absolute; left: 650px; top:626px;" data-longitude="174.967206" data-latitude="-39.27894" data-content-template="<h3>Mangapurua Campsite</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-camphut" rel="popover" style="position:absolute; left: 722px; top:746px;" data-longitude="174.993206" data-latitude="-39.33574" data-content-template="<h3>Tieke Kainga Marae and Tieke Campsite</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-campsite" rel="popover" style="position:absolute; left: 790px; top:883px;" data-longitude="175.036207" data-latitude="-39.423041" data-content-template="<h3>Ngaporo Campsite</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-feature" rel="popover" style="position:absolute; left: 793px; top:299px;" data-longitude="175.038203" data-latitude="-39.052937" data-content-template="<h3>Ohura Falls</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-feature" rel="popover" style="position:absolute; left: 807px; top:849px;" data-longitude="175.047207" data-latitude="-39.401441" data-content-template="<h3>Managanui O Te Ao River</h3>[DISTANCE] ">Click to toggle popover</a>
+</div>
+
+<div id="user_actions" class="hidden">
+	<p class="take-photo"><a href="#camera" class="btn" id="take-photo">Take Photo</a></p>
+	<p class="refresh-geolocation"><a class="btn" id="refresh-geolocation">Refresh Geolocation</a></p>
+	<p class="last-updated"></p>
+</div>
+
+<div id="map_id">whanganui-journey</div>
+ 
+<img src="img/camera-placeholder.jpg" id="photo-preview">
+
+<div id="no-touch-zoom">
+	<a href="#zoom-out" class="zoom-out">-</a>
+	<a href="#zoom-in" class="zoom-in">+</a>
+</div>
+
+<a id="toggle-map-key" href="#map-key">Key</a>
+
+<div id="map-key">
+	<ul>
+		<li class="greatwalk">Great Walk<span></span></li>
+		<li class="sidetrack">Side Track<span></span></li>
+		<li class="road">Road<span></span></li>
+	</ul>
+	<table>
+		<tr>
+			<td>
+				<img src="img/icon-map-information.png" alt=""> Information
+			</td>
+			<td>
+				<img src="img/icon-map-alert.png" alt=""> Alert
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-plantspecies.png" alt=""> Plant Species
+			</td>
+			<td>
+				<img src="img/icon-map-shelter.png" alt=""> Shelter
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-side_trail.png" alt=""> Side-trail
+			</td>
+			<td>
+				<img src="img/icon-map-swimming.png" alt=""> Swimming
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-toilets.png" alt=""> Toilets
+			</td>
+			<td>
+				<img src="img/icon-map-trailhead.png" alt=""> Trailhead
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-viewpoints.png" alt=""> Viewpoints
+			</td>
+			<td>
+				<img src="img/icon-map-volcano.png" alt=""> Volcano
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-waterfall.png" alt=""> Waterfall
+			</td>
+			<td>	
+				<img src="img/icon-map-airport.png" alt=""> Airport
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-bird-or-animal-species.png" alt=""> Birds or Animals
+			</td>
+			<td>
+				<img src="img/icon-map-camping.png" alt=""> Camping
+			</td>
+		</tr>
+		<tr>	
+			<td>
+				<img src="img/icon-map-camp_hut.png" alt=""> Camp/Hut
+			</td>
+			<td>
+				<img src="img/icon-map-carpark.png" alt=""> Carpark
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-generic_nature.png" alt=""> Misc. Nature
+			</td>
+			<td>
+				<img src="img/icon-map-hotsprings.png" alt=""> Hotsprings
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-huts.png" alt=""> Hut
+			</td>
+		</tr>
+	</table>
+</div>
+            </div>
+            <div id="page2">
+            </div>
+        </div>
+        <!-- Why jQuery and not Zepto? Well there's not much difference http://www.codefessions.com/2012/08/performance-of-jquery-compatible-mobile.html -->
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/hammer.js"></script>
+        <script src="js/vendor/jquery.hammer.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

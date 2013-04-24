@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>Great Walks - Whanganui Journey</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="x-rim-auto-match" content="none">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="cordova.js"></script>
+        <script>
+            var nz_map_dimensions = {"width":752,"height":1056,"ratio":0.7121212121212122};
+            var maps_details = {"whanganui-journey":{"map_id":"whanganui-journey","latitude":-38.864053084012156,"longitude":174.5366521487492,"map_pixel_width":1562,"map_pixel_height":1016,"degrees_per_pixel":0.000632707374232,"extent_latitude":-39.50688377623187,"extent_longitude":175.52494106729958,"map_initial_scale":0.1},"lake-waikaremoana":{"map_id":"lake-waikaremoana","latitude":-38.69996653229696,"longitude":176.95114126114987,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000137073340468,"extent_latitude":-38.84307109974555,"extent_longitude":177.18992302024512,"map_initial_scale":0.1},"tongariro-northern-circuit":{"map_id":"tongariro-northern-circuit","latitude":-39.043598354843745,"longitude":175.44773655679015,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000234666432478,"extent_latitude":-39.288590110350775,"extent_longitude":175.85652548216683,"map_initial_scale":0.1},"rakiura-track---stewart-island":{"map_id":"rakiura-track---stewart-island","latitude":-46.82703931382569,"longitude":167.99939428698806,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000110980608744,"extent_latitude":-46.94290306935443,"extent_longitude":168.19272250742011,"map_initial_scale":0.1},"milford-track":{"map_id":"milford-track","latitude":-44.65180781421633,"longitude":167.65907612771002,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-44.94994232973389,"extent_longitude":168.15653812582457,"map_initial_scale":0.1},"abel-tasman-coast-track":{"map_id":"abel-tasman-coast-track","latitude":-40.77160911578638,"longitude":172.68815992588924,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285453325972,"extent_latitude":-41.06962238810115,"extent_longitude":173.18541961973247,"map_initial_scale":0.1},"heaphy-track":{"map_id":"heaphy-track","latitude":-40.82923160495061,"longitude":172.02760098235598,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-41.12736612046816,"extent_longitude":172.52506298047052,"map_initial_scale":0.1},"wellington":{"map_id":"wellington","latitude":-41.21341136987253,"longitude":174.72217539068876,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000142358133316,"extent_latitude":-41.362033261054435,"extent_longitude":174.97016325892523,"map_initial_scale":0.1},"routeburn-track":{"map_id":"routeburn-track","latitude":-44.68512592255184,"longitude":168.06155744219296,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.00015647401239,"extent_latitude":-44.848484791487,"extent_longitude":168.33413517177635,"map_initial_scale":0.1},"kepler-track":{"map_id":"kepler-track","latitude":-45.34650584038335,"longitude":167.46068593304253,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000174704669218,"extent_latitude":-45.52889751504694,"extent_longitude":167.7650214668203,"map_initial_scale":0.1}};
+        </script>
+    </head>
+    <body class="walk">
+        <input type="checkbox" id="show_slideout_navigation">
+        <div id="wrapper">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a href="index.html" id="logo">Department of Conservation - Great Walks</a>
+                        <ul class="nav">
+                            <li>
+                                <label for="show_slideout_navigation"><span class="header-sprite header-threebar">Menu</span></label>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="info.html"><span class="header-sprite header-info">Info</span></a>
+                            </li>
+                            <li id="share-social">
+                                <a href="#social-share"><span class="header-sprite header-share">Share</span></a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div id="debug"></div>
+
+               </div>
+            </div>
+            <div id="slideout_navigation">
+                <ul class="menu">
+                    <li><label for="show_slideout_navigation">Menu</label></li>
+                    <li><a href="book.html" class="booking">Make a booking</a></li>
+                    <li><a href="offers.html" class="offers">Special offers</a></li>
+                </ul>
+                <ul class="walks">
+                    <li><a href="walk-lake-waikaremoana.html">Lake Waikaremoana</a></li><li><a href="walk-tongariro-northern-circuit.html">Tongariro Northern Circuit</a></li><li><a href="walk-whanganui-journey.html">Whanganui Journey</a></li><li><a href="walk-abel-tasman-coast-track.html">Abel Tasman Coast Track</a></li><li><a href="walk-heaphy-track.html">Heaphy Track</a></li><li><a href="walk-kepler-track.html">Kepler Track</a></li><li><a href="walk-milford-track.html">Milford Track</a></li><li><a href="walk-routeburn-track.html">Routeburn Track</a></li><li><a href="walk-rakiura-track---stewart-island.html">Rakiura Track - Stewart Island</a></li>
+                </ul>
+                <ul class="maps">
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </div>
+            <div id="page1">
+                <div class="social-links">
+                    <a href='mailto:enquiries@doc.govt.nz?subject=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;body=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20http%3A%2F%2Fgreatwalks.co.nz%2F' class='email'>Email</a> <a href='http://www.facebook.com/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fgreatwalks.co.nz%2F&amp;p[title]=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;p[images][0]=http%3A%2F%2Fwww.greatwalks.co.nz%2Fsites%2Fall%2Fthemes%2Fsparks_responsive%2Flogo.png&amp;p[summary]=.' class='facebook'>Facebook</a> <a href='http://twitter.com/share?url=http%3A%2F%2Fbit.ly%2FSLFPlX&amp;text=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20@NZGreatWalks' class='twitter'>Twitter</a>
+                </div>
+                <!--
+                <div id="viewable-area" style="border: solid 2px red"></div>
+                <div id="absolute-map" style="border: solid 2px green"></div>
+                -->
+    	        <div class="text-column1 whanganui-journey">
+    <h1>
+      Whanganui Journey
+    </h1>
+    <p class="info">
+      <span class="days">3-5 days</span>
+      <span class="duration">145km / 90mi</span>
+      <a href="map-whanganui-journey.html" class="icon-map">Map</a>
+    </p>
+    <p class="intro">
+      The Whanganui River winds its way from the mountains to the Tasman Sea
+      through countless hills and valleys. This journey takes you on a multi-day canoe or
+      kayak trip to experience its most remote scenic beauty, history and cultural
+      significance. <a href="#" class="icon icon-culture" data-content="Learn about the intimate connection the Whanganui iwi share with their awa (river) and imagine the times when traditional waka (canoe) and steam-driven riverboats plied the river.<br>Early M&#257;ori cultivated the sheltered terraces and built elaborate eel weirs along river channels where eels and lamprey were known to converge. Every bend of the river had kaitiaki (guardian) which controlled the mauri (life force) of that place. The mana (prestige) of a settlement depended upon the way in which food supplies and living areas were looked after for the benefit of the tribe."></a>
+    </p>
+    <div class="youtube" data-youtube-id="hcb5VvWXmwY"></div>
+    <div id="carousel" class="carousel slide">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+          <div class="item active">
+            <ul>
+              <li><a href="#carousel-apple-time-whanganui-river-nove-09-074jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/whanganui-journey/carousel-apple-time-whanganui-river-nove-09-074.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-img_6302_whanganui_processedjpg" role="button" data-toggle="modal" style="background-image: url('img/walks/whanganui-journey/carousel-img6302whanganuiprocessed.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-whanganui-journey-alternative-homejpg" role="button" data-toggle="modal" style="background-image: url('img/walks/whanganui-journey/carousel-whanganui-journey-alternative-home.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+          <div class="item ">
+            <ul>
+              <li><a href="#carousel-img_3813_whanganui_processedjpg" role="button" data-toggle="modal" style="background-image: url('img/walks/whanganui-journey/carousel-img3813whanganuiprocessed.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+      </div>
+      <a class="carousel-control left" href="#carousel" data-slide="prev">&#8249;</a>
+      <a class="carousel-control right" href="#carousel" data-slide="next">&#8250;</a>
+    </div>
+</div>
+<div class="below-fold">
+    <div class="text-column1 whanganui-journey">
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header dont-miss"><a href="#expand-walk-detail"><span>Don't miss</span></a></h2><div class="walk-detail dont-miss">    <p>
+      <img src="img/dont-miss-background-paper.png" class="paper" alt="">
+      <img src="img/dont-miss-background-paper-shadow.png" class="shadow" alt="">
+      
+      <a class="kiwi" href="#" data-content="Listen for the call of the brown kiwi, often heard at night. If         you&rsquo;re lucky, you may see long-tailed or short-tailed bats fluttering overhead at dusk. Look out for the whio (blue duck) in the clean fast-flowing river habitats, with eels, freshwater crayfish, black flounder and native fish species inhabiting the river.">
+          <img src="img/walks/whanganui-journey/dont-miss-kiwi.png" alt="Kiwi">
+      </a>
+      <a class="tikidude" href="#" data-content="Soak up the M&#257;ori history as you journey through this otherwise remote area by canoe down the Whanganui River. Discover how M&#257;ori cultivated the sheltered river terraces and built elaborate eel traps along the river to feed their tribe.">
+          <img src="img/walks/whanganui-journey/dont-miss-tikidude.png" alt="tikidude">
+      </a>
+      <a class="scenic-river" href="#" data-content="Take the shorter, scenic 3 day river journey from Whakahoro to Pipiriki.
+        Paddle through deep gorges and pass cascading waterfalls, the Tarepokioere (whirlpool) rapid and the large overhang known as Tamatea&rsquo;s Cave.">
+          <img src="img/walks/whanganui-journey/dont-miss-scenic_river.png" alt="Scenic river">
+      </a>
+      <a class="culture" href="#" data-content="Enjoy a unique stay at Tieke Kainga, a Great Walks hut that is also used as a marae (meeting place.) Tieke was one of many old p&#257; (M&#257;ori village) sites on the Whanganui River and has been revived as a kainga (village).">
+          <img src="img/walks/whanganui-journey/dont-miss-culture.png" alt="Culture">
+      </a>
+      
+
+      <a class="bridge" href="#" data-content="Visit the famous Bridge to Nowhere, a bridge left behind by returned World War I servicemen in the valley of abandoned dreams. A gentle 40 minute walk from the Mangapurua Landing on the Whanganui river will take you there.">
+        <img src="img/walks/whanganui-journey/dont-miss-bridge.png" alt="Bridge">
+      </a>
+    </p>
+   </div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header offers"><a href="#expand-walk-detail"><span>Offers</span></a></h2><div class="walk-detail offers">    <ul>
+      <li>
+        <a href="http://bookings.bookitsecure.com/pub/supplier.aspx?b=DEPART"><img src="img&#x2F;walks&#x2F;whanganui-journey&#x2F;doc-banner1.png" alt=""></a>
+      </li>
+      <li>
+        <a href=
+        "http://www.airnewzealand.co.nz/special-deals-new-zealand#special-deals-great-walks"><img src="img&#x2F;walks&#x2F;whanganui-journey&#x2F;airnz-banner1.png" alt=""></a>
+      </li>
+    </ul></div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header before-you-go"><a href="#expand-walk-detail"><span>Before you go</span></a></h2><div class="walk-detail before-you-go">    <p>
+      It is important&nbsp;to plan and prepare
+      so that you are well equipped to enjoy your <a href="#Whanganui" data-audio="audio/speech-whanganui.mp3" class="audio">Whanganui</a> Journey.
+    </p>
+    
+     <p>
+      Before you go, know <strong>The Outdoor Safety Code</strong> - 5 simple rules to help you stay
+      safe:
+    </p>
+    
+    <ol>
+      <li>
+        Plan your trip
+      </li>
+      <li>
+        Tell someone
+      </li>
+      <li>
+        Be aware of the weather
+      </li>
+      <li>
+        Know your limits
+      </li>
+      <li>
+        Take sufficient supplies
+      </li>
+    </ol>
+    <h3>
+      Whanganui Journey safety
+    </h3>
+    <ul>
+      <li>
+        Heavy rain and flooding can occur at any time of year on the Whanganui
+        River and the weather can change quickly, so you&rsquo;ll need to be prepared for
+        rain, cold and windy conditions.
+      </li>
+      <li>
+        Don&rsquo;t canoe the river when water levels are predicted to rise or
+        it&rsquo;s in flood. If you capsize you may not be able to get back in, or swim
+        to the river&rsquo;s edge.
+      </li>
+      <li>
+        Always pull your canoe up high on the bank and tie it to something secure.
+        It may not be raining on the river, but rain elsewhere in the large catchment can
+        cause the river to rise several metres overnight.
+      </li>
+      <li>
+        Cell phone coverage on the Whanganui Journey is limited.
+      </li>
+    </ul>
+    
+    <h3>
+      Things to know before you
+      go
+    </h3>
+    <ul>
+      <li>
+        
+          A good level of fitness
+          and the right outdoor clothing and equipment will greatly improve the enjoyment
+          of your trip.
+        
+      </li>
+      <li>
+          Safety is your
+          responsibility - Cell phone coverage is limited and it is recommended that you
+          leave your trip details with a trusted contact. Intention forms are available
+          at <a 
+          href=
+          "http://adventuresmart.org.nz/Outdoors-Intentions/Default.asp">adventuresmart.org.nz</a>.
+        
+      </li>
+      <li>
+          Book your trip well in
+          advance including your accommodation, transport and transfers to the start/end
+          of the Whanganui Journey.
+        </h3>
+      </li>
+      <li>
+        
+          Pack all necessary
+          equipment, your own food, drinks and any personal items for your trip including
+          an extra day's supply of food and water.
+        
+      </li>
+      <li>
+        
+          For a full list of
+          equipment and preparation required, plus updates for the Whanganui Journey,
+          please visit <a href=
+          "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/manawatu-whanganui/whanganui/whanganui-journey/plan-and-prepare/">the
+          DOC website</a>.
+        
+      </li>
+    </ul>
+    <h3>
+      When to go
+    </h3>
+    <p>
+      The Whanganui Journey can be completed at any time of the year, however the
+      most popular time to paddle down the river is during the summer months (December -
+      February) when the weather is warmer and the days are longer. There are also many
+      other recreational opportunities available in Whanganui National Park to enjoy
+      including swimming, rafting, camping and fishing.
+    </p>
+    
+    <h3>
+      What to
+      bring
+    </h3>
+    <p>
+      Your basic equipment needs to include
+    </p>
+    <ul>
+      <li>
+        Backpack
+      </li>
+      <li>
+        Sleeping bag and liner
+      </li>
+      <li>
+        Portable cooking stove
+      </li>
+      <li>
+        Cooking utensils
+      </li>
+      <li>
+        Food, incl. high-energy food
+      </li>
+      <li>
+        Waterproof rain jacket and overtrousers
+      </li>
+      <li>
+        Warm/thermal clothing
+      </li>
+      <li>
+        Hiking boots
+      </li>
+      <li>
+        Map and compass
+      </li>
+      <li>
+        Lighter and matches
+      </li>
+      <li>
+        Drink bottle &amp; water
+      </li>
+    </ul>
+    
+    <p>
+      Add camping gear to your list if you&rsquo;re staying at a
+      campsite.
+    </p>
+    
+    <h3>
+      Travelling with
+      children
+    </h3>
+    <p>
+Although the Whanganui Journey is suitable for beginners the trip is not recommended for 
+children under 12. The river can fill up rapidly if the weather changes and a good level of 
+fitness and the ability to make sound decisions around health and safety are often required.
+    </p>
+    
+    <h3>
+      Nearest DOC visitor
+      centre
+    </h3>
+    <p>
+      <a href="#Ruapehu" data-audio="audio/speech-ruapehu.mp3" class="audio">Ruapehu</a> i-SITE Visitor Centre<br />
+      54 Clyde Street<br />
+      Ohakune<br />
+      <a href="tel:+6463858427" class="btn phone"></a>+64 6 385 8427<br>
+      <a class="btn email" href=
+      "mailto:ohakunevc@doc.govt.nz">ohakunevc@doc.govt.nz</a>
+    </p>
+    <h4>
+      Hours
+    </h4>
+    <p>
+      9:00 am - 3:00 pm <br />
+      Mon - Fri and public holiday weekends <br />
+      Closed 12:30 - 1:00 pm
+    </p>
+    <h4>
+      Services
+    </h4>
+    <p>
+      Great Walks bookings and recreation information for the area.
+    </p>
+</div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header getting-there"><a href="#expand-walk-detail"><span>Getting there</span></a></h2><div class="walk-detail getting-there">    <h3>
+      Nearest airports
+    </h3>
+    <ul>
+      <li>
+        Wanganui - 164km / 102mi, 2 hours (to Taumarunui)
+      </li>
+      <li>
+        Taupo - 116km / 72mi, 1 hour 30 min (to Taumarunui)
+      </li>
+    </ul>
+    
+    <p>
+  Wanganui and Taupo Airports are about the same driving distance from the start of the 
+  shorter 3 day river journey in <a href="#Whakahoro" data-audio="audio/speech-whakahoro.mp3" class="audio">Whakahoro</a>, approximately 2.5 hours. Canoe hire, 
+  drop off and secure parking are packaged together by tour operators. 
+  Some tour operators are based along the Whanganui River Road in <a href="#Pipiriki" data-audio="audio/speech-pipiriki.mp3" class="audio">Pipiriki</a>, <a href="#Raetihi" data-audio="audio/speech-raetihi.mp3" class="audio">Raetihi</a> and 
+  Ohakune and in this instance driving from Wanganui would be the best option. 
+  For those keen to complete the longer 5 day river journey driving from Taupo to 
+  <a href="#Taumarunui" data-audio="audio/speech-taumarunui.mp3" class="audio">Taumarunui</a> is quicker, however this depends on where you hire your canoes. 
+    </p>
+    
+    <p>
+      Flights to these airports typically connect from Auckland and Wellington. The
+      above driving times are indicative only - always allow for extra time to get to
+      your destination.
+    </p>
+    <h3>
+      How to get to the
+      trailhead
+    </h3>
+    <p>
+   Traditional entry or exit points for journeys on the river are Taumarunui, <a href="#Ohinepane" data-audio="audio/speech-ohinepane.mp3" class="audio">Ohinepane</a>, 
+   Whakahoro and Pipiriki. Most facilities and services that cater for river travellers 
+   are found in Taumarunui, Raetihi, Pipiriki and Ohakune although some facilities are 
+   found along the Whanganui River Road to Whanganui. Accommodation is available at 
+   all of these places.
+    </p>
+    
+    <h3>
+      Transport and
+      accommodation 
+    </h3>
+    <p>
+      <a href=
+      "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/manawatu-whanganui/whanganui/whanganui-journey/plan-and-prepare/guides-and-commercial-tourism-providers/">
+      Guides and commercial tourism providers</a> - find accommodation,
+      transport, and activities in the area.
+    </p>
+    </div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header where-to-stay"><a href="#expand-walk-detail"><span>Where to stay</span></a></h2><div class="walk-detail where-to-stay">    <p>
+      DOC provides two huts, a bunkroom and eleven campsites on the Whanganui
+      Journey.
+    </p>
+    <h3>
+      Huts
+    </h3>
+    <p>
+      Whanganui Journey huts have heating, toilets, bunks, mattresses and cold
+      running water and some have cooking facilities. There are no cooking facilities and
+      only limited heating available in the huts during the off peak season (1 May - 30
+      Sep). Note: Huts do not provide lighting, pots and pans, cooking utensils, linen or
+      food for purchase. Make sure you put these things on your checklist before you
+      go.
+    </p>
+    
+    <ul>
+      <li>
+        John Coull Hut: 24 bunks
+      </li>
+      <li>
+        Tieke Kainga: 20 bunks
+      </li>
+      <li>
+        Whakahoro Bunkroom (part of the Whakahoro campsite): 10 bunks
+      </li>
+    </ul>
+    <h3>Campsites
+    </h3>
+    <p>
+      The Whakahoro and <a href="#Ohauora" data-audio="audio/speech-ohauora.mp3" class="audio">Ohauora</a> campsites are the only campsites along the
+      Whanganui Journey that are accessible by road. All other campsites and huts are
+      only accessible from the river.
+    </p>
+    
+    <p>
+      Campsites offer basic facilities including tap water, toilets and picnic
+      tables and shelter for cooking. Campers are not permitted to use hut facilities.
+    </p>
+    <h3>
+      Cost and booking
+    </h3>
+    <p>
+      Fees are charged per person, per night to stay in huts and campsites.
+    </p>
+    <p>
+      Bookings are essential! Use the <a href="https://booking.doc.govt.nz/Menu.aspx?sg=WJY">DOC online booking system</a> prior to travel or
+      call <a href="tel:0800694732" class="btn phone"></a>0800 NZ GREATWALKS.
+    </p>
+</div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header on-the-track"><a href="#expand-walk-detail"><span>On the track</span></a></h2><div class="walk-detail on-the-track"> <h3>
+      Track description
+    </h3>
+    <p>
+      The river journey from Taumaranui to Pipiriki takes 5 days to complete by
+      canoe (145km / 90mi) or a shorter 3 day journey from Whakahoro to Pipiriki is also
+      possible (83km / 52mi).
+    </p>
+    
+    <p>
+      <a href="map-whanganui-journey.html" class="btn">View map</a>
+    </p>
+    
+    <h3>Walking guide</h3>
+    
+    <h4>
+      Day 1 and 2: Cherry Grove, Taumaranui to Whakahoro
+    </h4>
+    <p><strong>
+      57km / 35mi</strong>
+    </p>
+    <p>
+      Travelling the upper reaches of the Whanganui River, you&rsquo;ll pass
+      through a mixture of farmland and patches of native bush. A steeper section of the
+      river, it features more frequent rapids so enjoy a bit of excitement as you shoot
+      down them. You can put your canoe in at <a href="#Ngahuinga" data-audio="audio/speech-ngahuinga.mp3" class="audio">Ngahuinga</a> (Cherry Grove) in Taumarunui or
+      further downstream at Ohinepane, accessed from River Road (SH 43). Camp beside the
+      murmuring river at Ohinepane, <a href="#Poukaria" data-audio="audio/speech-poukaria.mp3" class="audio">Poukaria</a> or <a href="#Maharanui" data-audio="audio/speech-maharanui.mp3" class="audio">Maharanui</a> Campsites. From here you get
+      the feeling of venturing into the heart of a rich and rugged landscape.
+    </p>
+    
+    <h4>
+      Day 3: Whakahoro to John Coull Hut
+    </h4>
+    <p><strong>
+      37.5km / 14.5mi</strong>
+    </p>
+    <p>
+      Below Whakahoro, where many begin their river journey, you&rsquo;ll enter the
+      scenic middle reaches of the river. Many begin their journey here. Paddle through
+      deep gorges draped in vegetation and often featuring numerous waterfalls after
+      heavy rain. Past <a href="#Mangapapa" data-audio="audio/speech-mangapapa.mp3" class="audio">Mangapapa</a> Campsite, take a long loop around the Kirikiriroa
+      Peninsula, pass the <a href="#Tarepokioere" data-audio="audio/speech-tarepokioere.mp3" class="audio">Tarepokioere</a> (whirlpool) rapid, which used to pose a danger to
+      riverboats, and then the large overhang known as Tamatea&rsquo;s Cave. Please do
+      not enter the cave as it is <a href="#wahi tapu" data-audio="audio/speech-wahi_tapu.mp3" class="audio">wahi tapu</a> (a sacred place). Below Ohauora Campsite,
+      enter the long <a href="#Otaihanga" data-audio="audio/speech-otaihanga.mp3" class="audio">Otaihanga</a> Reach, which leads you to your overnight stop at John
+      Coull Hut and Campsite. If you are lucky you may see long-tailed bats fluttering
+      overhead at dusk.
+    </p>
+    
+    <h4>
+      Day 4: John Coull Hut to Tieke Kainga
+    </h4>
+    <p><strong>
+      29km / 18mi</strong>
+    </p>
+    <p>
+      On this section, follow the river as it meanders through bush-covered hills,
+      passing the mouths of the <a href="#Tangarakau" data-audio="audio/speech-tangarakau.mp3" class="audio">Tangarakau</a> and <a href="#Whangamomona" data-audio="audio/speech-whangamomona.mp3" class="audio">Whangamomona</a> Rivers where they join the
+      Whanganui. Perched high above the river, <a href="#Mangawaiiti" data-audio="audio/speech-mangawaiiti.mp3" class="audio">Mangawaiiti</a> is an attractive spot to camp
+      or stop for lunch. At <a href="#Mangapurua" data-audio="audio/speech-mangapurua.mp3" class="audio">Mangapurua</a> Landing, where the old riverboats used to tie up,
+      hop out of your canoe and take a 40 minute bush walk to the historic Bridge to
+      Nowhere, a poignant reminder of the Mangapurua Valley farm settlement, carved out
+      of the bush and then abandoned between the two World Wars. Look out for cyclists -
+      the track is also part of the Mountains to Sea Cycle Trail. Back in your canoe,
+      continue your trip downstream to <a href="#Tieke Kainga" data-audio="audio/speech-tieke_kainga.mp3" class="audio">Tieke Kainga</a> where you can examine the intricately
+      carved pou whenua and learn about the history of Tieke and the <a href="#tikanga" data-audio="audio/speech-tikanga.mp3" class="audio">tikanga</a> (protocol)
+      of the marae.
+    </p>
+    
+    <h4>
+      Day 5: Tieke Kainga to Pipiriki
+    </h4>
+    <p><strong>
+      21.5km / 8.3mi</strong>
+    </p>
+    <p>
+      This is the homeward stretch, but the river still has a few surprises. You
+      can explore the scenic gorge of the <a href="#Manganui o te Ao" data-audio="audio/speech-manganui_o_te_ao.mp3" class="audio">Manganui o te Ao</a> River where it enters the
+      Whanganui after its journey from the slopes of Mount Ruapehu. The standing waves of
+      the large <a href="#Ngaporo" data-audio="audio/speech-ngaporo.mp3" class="audio">Ngaporo</a> and <a href="#Autapu" data-audio="audio/speech-autapu.mp3" class="audio">Autapu</a> rapids can also provide plenty of excitement and
+      perhaps a cool dip on a hot day! More exotic trees and farmland indicate
+      you&rsquo;re getting close to Pipiriki and the end of your time on the <a href="#awa" data-audio="audio/speech-awa.mp3" class="audio">awa</a>. Pass an
+      eel weir on your left, shoot the <a href="#Paparoa" data-audio="audio/speech-paparoa.mp3" class="audio">Paparoa</a> rapid and you will see the boat ramp below
+      Pipiriki village up ahead.
+    </p>
+    
+
+</div>
+    </div>
+</div>
+
+<!-- No elevation profile -->
+
+<div id="carousel-apple-time-whanganui-river-nove-09-074jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;whanganui-journey&#x2F;carousel-apple-time-whanganui-river-nove-09-074.jpg" style="width:100%">
+</div>
+<div id="carousel-img_6302_whanganui_processedjpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;whanganui-journey&#x2F;carousel-img6302whanganuiprocessed.jpg" style="width:100%">
+</div>
+<div id="carousel-whanganui-journey-alternative-homejpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;whanganui-journey&#x2F;carousel-whanganui-journey-alternative-home.jpg" style="width:100%">
+</div>
+<div id="carousel-img_3813_whanganui_processedjpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;whanganui-journey&#x2F;carousel-img3813whanganuiprocessed.jpg" style="width:100%">
+</div>
+
+            </div>
+            <div id="page2">
+            </div>
+        </div>
+        <!-- Why jQuery and not Zepto? Well there's not much difference http://www.codefessions.com/2012/08/performance-of-jquery-compatible-mobile.html -->
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/hammer.js"></script>
+        <script src="js/vendor/jquery.hammer.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

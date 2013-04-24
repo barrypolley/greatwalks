@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>Great Walks - Heaphy Track</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="x-rim-auto-match" content="none">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="cordova.js"></script>
+        <script>
+            var nz_map_dimensions = {"width":752,"height":1056,"ratio":0.7121212121212122};
+            var maps_details = {"whanganui-journey":{"map_id":"whanganui-journey","latitude":-38.864053084012156,"longitude":174.5366521487492,"map_pixel_width":1562,"map_pixel_height":1016,"degrees_per_pixel":0.000632707374232,"extent_latitude":-39.50688377623187,"extent_longitude":175.52494106729958,"map_initial_scale":0.1},"lake-waikaremoana":{"map_id":"lake-waikaremoana","latitude":-38.69996653229696,"longitude":176.95114126114987,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000137073340468,"extent_latitude":-38.84307109974555,"extent_longitude":177.18992302024512,"map_initial_scale":0.1},"tongariro-northern-circuit":{"map_id":"tongariro-northern-circuit","latitude":-39.043598354843745,"longitude":175.44773655679015,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000234666432478,"extent_latitude":-39.288590110350775,"extent_longitude":175.85652548216683,"map_initial_scale":0.1},"rakiura-track---stewart-island":{"map_id":"rakiura-track---stewart-island","latitude":-46.82703931382569,"longitude":167.99939428698806,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000110980608744,"extent_latitude":-46.94290306935443,"extent_longitude":168.19272250742011,"map_initial_scale":0.1},"milford-track":{"map_id":"milford-track","latitude":-44.65180781421633,"longitude":167.65907612771002,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-44.94994232973389,"extent_longitude":168.15653812582457,"map_initial_scale":0.1},"abel-tasman-coast-track":{"map_id":"abel-tasman-coast-track","latitude":-40.77160911578638,"longitude":172.68815992588924,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285453325972,"extent_latitude":-41.06962238810115,"extent_longitude":173.18541961973247,"map_initial_scale":0.1},"heaphy-track":{"map_id":"heaphy-track","latitude":-40.82923160495061,"longitude":172.02760098235598,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-41.12736612046816,"extent_longitude":172.52506298047052,"map_initial_scale":0.1},"wellington":{"map_id":"wellington","latitude":-41.21341136987253,"longitude":174.72217539068876,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000142358133316,"extent_latitude":-41.362033261054435,"extent_longitude":174.97016325892523,"map_initial_scale":0.1},"routeburn-track":{"map_id":"routeburn-track","latitude":-44.68512592255184,"longitude":168.06155744219296,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.00015647401239,"extent_latitude":-44.848484791487,"extent_longitude":168.33413517177635,"map_initial_scale":0.1},"kepler-track":{"map_id":"kepler-track","latitude":-45.34650584038335,"longitude":167.46068593304253,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000174704669218,"extent_latitude":-45.52889751504694,"extent_longitude":167.7650214668203,"map_initial_scale":0.1}};
+        </script>
+    </head>
+    <body class="walk">
+        <input type="checkbox" id="show_slideout_navigation">
+        <div id="wrapper">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a href="index.html" id="logo">Department of Conservation - Great Walks</a>
+                        <ul class="nav">
+                            <li>
+                                <label for="show_slideout_navigation"><span class="header-sprite header-threebar">Menu</span></label>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="info.html"><span class="header-sprite header-info">Info</span></a>
+                            </li>
+                            <li id="share-social">
+                                <a href="#social-share"><span class="header-sprite header-share">Share</span></a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div id="debug"></div>
+
+               </div>
+            </div>
+            <div id="slideout_navigation">
+                <ul class="menu">
+                    <li><label for="show_slideout_navigation">Menu</label></li>
+                    <li><a href="book.html" class="booking">Make a booking</a></li>
+                    <li><a href="offers.html" class="offers">Special offers</a></li>
+                </ul>
+                <ul class="walks">
+                    <li><a href="walk-lake-waikaremoana.html">Lake Waikaremoana</a></li><li><a href="walk-tongariro-northern-circuit.html">Tongariro Northern Circuit</a></li><li><a href="walk-whanganui-journey.html">Whanganui Journey</a></li><li><a href="walk-abel-tasman-coast-track.html">Abel Tasman Coast Track</a></li><li><a href="walk-heaphy-track.html">Heaphy Track</a></li><li><a href="walk-kepler-track.html">Kepler Track</a></li><li><a href="walk-milford-track.html">Milford Track</a></li><li><a href="walk-routeburn-track.html">Routeburn Track</a></li><li><a href="walk-rakiura-track---stewart-island.html">Rakiura Track - Stewart Island</a></li>
+                </ul>
+                <ul class="maps">
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </div>
+            <div id="page1">
+                <div class="social-links">
+                    <a href='mailto:enquiries@doc.govt.nz?subject=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;body=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20http%3A%2F%2Fgreatwalks.co.nz%2F' class='email'>Email</a> <a href='http://www.facebook.com/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fgreatwalks.co.nz%2F&amp;p[title]=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;p[images][0]=http%3A%2F%2Fwww.greatwalks.co.nz%2Fsites%2Fall%2Fthemes%2Fsparks_responsive%2Flogo.png&amp;p[summary]=.' class='facebook'>Facebook</a> <a href='http://twitter.com/share?url=http%3A%2F%2Fbit.ly%2FSLFPlX&amp;text=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20@NZGreatWalks' class='twitter'>Twitter</a>
+                </div>
+                <!--
+                <div id="viewable-area" style="border: solid 2px red"></div>
+                <div id="absolute-map" style="border: solid 2px green"></div>
+                -->
+    	        <div class="text-column1 heaphy-track">
+    <h1>
+      Heaphy Track
+    </h1>
+    <p class="info">
+      <span class="days">4-6 days</span>
+      <span class="duration">78.4km / 30.3mi</span>
+      <a href="map-heaphy-track.html" class="icon-map">Map</a>
+    </p>
+    <p class="intro">
+      From forest to coast, the Heaphy Track combines all of New Zealand&rsquo;s
+      magical natural beauty into one walk. Pass through diverse landscapes from
+      beautiful beech forest to expansive tussock grasslands, to lush forests, nikau
+      palms and the roaring seas of the wild West Coast.
+    </p>
+    <div class="youtube" data-youtube-id="jcPh43kDCjI"></div>
+    <div id="carousel" class="carousel slide">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+          <div class="item active">
+            <ul>
+              <li><a href="#carousel-heaphy-track---doc-10062390jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/heaphy-track/carousel-heaphy-track---doc-10062390.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-heaphy-track-354-003jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/heaphy-track/carousel-heaphy-track-354-003.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-heaphy-track-340-027-1jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/heaphy-track/carousel-heaphy-track-340-027-1.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+          <div class="item ">
+            <ul>
+              <li><a href="#carousel-heaphy_2jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/heaphy-track/carousel-heaphy2.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+      </div>
+      <a class="carousel-control left" href="#carousel" data-slide="prev">&#8249;</a>
+      <a class="carousel-control right" href="#carousel" data-slide="next">&#8250;</a>
+    </div>
+</div>
+<div class="below-fold">
+    <div class="text-column1 heaphy-track">
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header dont-miss"><a href="#expand-walk-detail"><span>Don't miss</span></a></h2><div class="walk-detail dont-miss">    <p>
+      <img src="img/dont-miss-background-paper.png" class="paper" alt="">
+      <img src="img/dont-miss-background-paper-shadow.png" class="shadow" alt="">
+
+      <a class="birds" href="#" data-content="
+        Kahurangi National Park is home to an abundance of native
+        birds. Weka, t&#363;&#299;, kerer&#363;; kea and k&#257;k&#257; can be found
+        along the way. With a bit of luck you might see, or at least hear, the great
+        spotted kiwi and morepork.">
+        <img src="img/walks/heaphy-track/dont-miss-birds.png" alt="birds">
+      </a>
+      <a class="flora" href="#" data-content="Fantastic flora! See
+          huge podocarps and giant northern r&#257;t&#257; in the lowland forest, a huge
+          variety of alpine and subalpine species on the Gouland Downs and karaka, ngaio
+          and n&#299;kau palms in the coastal forest.">
+          <img src="img/walks/heaphy-track/dont-miss-flora.png" alt="Flora">
+      </a>
+      <a class="heaphyhut" href="#" data-content="
+        The Heaphy Hut is located right next to one of New
+        Zealand&rsquo;s oldest and most interesting archaeological sites &ndash; an
+        ancient village situated on a nearby river bank, believed to have been settled by
+        Polynesians in the 13th - 14th century.">
+        <img src="img/walks/heaphy-track/dont-miss-heaphyhut.png" alt="Heaphy Hut">
+      </a>
+      <a class="mountainbiking" href="#" data-content="Get on your bike! Mountain biking is being trialled on the Heaphy Track until September 2013. It takes 2 - 3 days to ride. Riding from Aorere to Karamea is the most popular route.">
+        <img src="img/walks/heaphy-track/dont-miss-mountainbiking.png" alt="Mountain Biking">
+      </a>
+      <a class="snails" href="#" data-content="Kahurangi National Park harbours half of New Zealand’s 40 species of powelliphanta (carnivorous land snail.) Look out for one on the track,
+        particularly near limestone outcrops where there is enough calcium to nourish
+        their sizeable shells!">
+        <img src="img/walks/heaphy-track/dont-miss-snails.png" alt="Snails">
+      </a>
+    </p>
+    
+</div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header offers"><a href="#expand-walk-detail"><span>Offers</span></a></h2><div class="walk-detail offers">    <ul>
+      <li>
+        <a href="http://bookings.bookitsecure.com/pub/supplier.aspx?b=DEPART"><img src="img&#x2F;walks&#x2F;heaphy-track&#x2F;doc-banner1.png" alt=""></a>
+      </li>
+      <li>
+        <a href=
+        "http://www.airnewzealand.co.nz/special-deals-new-zealand#special-deals-great-walks"><img src="img&#x2F;walks&#x2F;heaphy-track&#x2F;airnz-banner1.png" alt=""></a>
+      </li>
+    </ul></div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header before-you-go"><a href="#expand-walk-detail"><span>Before you go</span></a></h2><div class="walk-detail before-you-go">    <p>
+      It is important to plan and prepare
+      so that you are well equipped to enjoy your Great Walk.
+    </p>
+    
+    <p>
+      Before you go, know <strong>The Outdoor Safety Code</strong> - 5 simple rules to help you stay
+      safe:
+    </p>
+    
+    <ol>
+      <li>
+        Plan your trip
+      </li>
+      <li>
+        Tell someone
+      </li>
+      <li>
+        Be aware of the weather
+      </li>
+      <li>
+        Know your limits
+      </li>
+      <li>
+        Take sufficient supplies
+      </li>
+    </ol>
+    <h3>
+      Heaphy
+      Track safety
+    </h3>
+    <ul>
+      <li>
+        
+          Weather on the Heaphy
+          Track is changeable with annual rainfall averaging over 4000 mm. Heavy rain can
+          occur with little warning and even small streams are dangerous in flood. Be
+          prepared for rain, snow and wind especially on the exposed sections of the
+          track.
+        
+      </li>
+      <li>
+        
+          Most major streams are
+          bridged, but at Crayfish (Koura) Point the route can be impassable two hours
+          either side of high tide when sea conditions are rough. Ensure you check the
+          tide timetable when planning your trip.
+        
+      </li>
+      <li>
+        
+          Sand flies can be
+          present during your walk. It is recommended you take insect repellent.
+        
+      </li>
+      <li>
+        During winter, adverse
+          weather can change the track significantly. These will be marked by signage and
+          warning tape although you may want to check with the <a href="http://www.doc.govt.nz/footer-links/contact-us/visitor-centres/#nelson">
+          DOC Visitor Centre</a> prior to your
+          walk.
+        
+      </li>
+      <li>
+        Cell phone coverage on the track is limited.
+      </li>
+    </ul>
+    <h3>
+      Things to know before you
+      go
+    </h3>
+    <ul>
+      <li>
+        
+          A good level of fitness
+          and the right outdoor clothing and equipment will greatly improve the enjoyment
+          of your trip.
+        
+      </li>
+      <li>
+        Safety is your
+          responsibility - Cell phone coverage is limited and it is recommended that you
+          leave your trip details with a trusted contact. Intention forms are available
+          at <a href=
+          "http://adventuresmart.org.nz/Outdoors-Intentions/Default.asp">adventuresmart.org.nz</a>.
+        
+      </li>
+      <li>
+       
+ Book your trip well in
+          advance including your accommodation, transport and transfers to the start/end
+          of the Great Walk.
+      </li>
+      <li>
+ 
+          Pack all necessary
+          equipment, your own food and drinks and any personal items for your trip
+          including an extra day's supply of food and water.
+ 
+      </li>
+      <li>
+        For a full list of
+          equipment and preparation required for this walk, plus updates for the Heaphy
+          Track, please visit <a href=
+          "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/nelson-tasman/golden-bay/heaphy-track/plan-and-prepare/"> the DOC website</a>.
+        
+      </li>
+    </ul>
+    <h3>
+      When to go
+    </h3>
+    <p>
+      You can walk the Heaphy Track all year. The most popular period is during the
+      summer from Christmas through to Easter (December - April), however walking the track in autumn can be a good option as there are fewer people on the track and the weather is often calm and settled. Mountain biking is being trialled on the Heaphy Track in the winter season only, 1 May to 30 September, until 2013. 
+    </p>
+    
+    <h3>
+      What to
+      bring
+    </h3>
+    <p>
+      Your basic equipment needs to include
+    </p>
+    <ul>
+      <li>
+        Backpack
+      </li>
+      <li>
+        Sleeping bag and liner
+      </li>
+      <li>
+        Portable cooking stove
+      </li>
+      <li>
+        Cooking utensils
+      </li>
+      <li>
+        Food, incl. high-energy food
+      </li>
+      <li>
+        Waterproof rain jacket and overtrousers
+      </li>
+      <li>
+        Warm/thermal clothing
+      </li>
+      <li>
+        Hiking boots
+      </li>
+      <li>
+        Map and compass
+      </li>
+      <li>
+        Lighter and matches
+      </li>
+      <li>
+        Drink bottle &amp; water
+      </li>
+    </ul>
+    
+    <p>
+      Add camping gear to your list if you&rsquo;re staying at a
+      campsite.
+    </p>
+    
+    <h3>
+      Travelling with
+      children
+    </h3>
+    <p>
+      For those with limited time or families with young children we recommend
+      completing a day walk or staying overnight at a hut to experience some of the track
+      and spend time exploring. A popular two-day, one-night
+      trip starting from the western side of the track is from <a href="#Kohaihai" data-audio="audio/speech-kohaihai.mp3" class="audio">Kohaihai</a> to
+      Heaphy Hut, returning to Kohaihai. The longest of the Great Walks at 78.4km / 30.3mi, to
+      walk the whole of the Heaphy Track you will need to be fit and have good equipment.
+      We recommend that walkers start a fitness programme at least two months before
+      departure and practise carrying a full pack (15kg / 33lbs) up and down stairs or hills.
+      For a 4 day trip you can expect to walk up to 24km / 15mi per day or 21km / 13mi per day for a
+      5 day trip.
+    </p>
+<h3>Nearest DOC visitor centre
+    </h3>
+    <p>
+      DOC Nelson Regional Visitor Centre<br>
+      79 Trafalgar Street<br>
+      Nelson 7010<br>
+      <a href="tel:+6435469339" class="btn phone"></a>+64 3 546 9339<br>
+      <a href="mailto:nelsonvc@doc.govt.nz" class="btn email">nelsonvc@doc.govt.nz</a>
+    </p>
+    <h4>Hours</h4>
+    <p>
+      Open daily 8:30 am - 4:30 pm
+<br>
+      Closed daily 12:00 pm - 1:00 pm
+    </p>
+    <h4>Services</h4>
+    <p>
+      Great Walks bookings and recreation information for the area.
+    </p>
+
+</div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header getting-there"><a href="#expand-walk-detail"><span>Getting there</span></a></h2><div class="walk-detail getting-there">    <h3>
+      Nearest
+      airports
+    </h3>
+    <ul>
+      <li>
+        Nelson - 156km / 97mi, 2 hours 30 min
+      </li>
+      <li>
+        Westport - 115km / 71mi, 1 hour 45 min
+      </li>
+    </ul>
+    
+    <p>
+      Flights to these airports typically connect from Auckland, Wellington and
+      Christchurch. The above driving times are indicative only - always allow for extra
+      time to get to your destination.
+    </p>
+    <h3>How to get to the
+      trailhead
+    </h3>
+    <p>
+      The Heaphy Track is not a circuit track; the start/end of the track at Brown
+      Hut in Golden Bay and Kohaihai on the West Coast are 463km / 288mi apart by
+      road.
+    </p>
+    
+    <p>
+      Air New Zealand flies into Nelson, the closest regional airport to the Brown
+      Hut, and into Westport, the closest regional airport to Kohaihai. Brown Hut is 156
+      km and a 2 hour 25 min drive from Nelson. Kohaihai is 110km / 68mi and a
+      1 hour 45 min drive from Westport.
+    </p>
+    
+    <h3>
+      Transport and
+      accommodation
+    </h3>
+    <p>
+      <a href=
+      "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/nelson-tasman/golden-bay/heaphy-track/plan-and-prepare/guides-and-commercial-tourism-providers/">
+      Guides and commercial tourism providers</a> - find accommodation,
+      transport, and activities in the area.
+    </p>
+</div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header where-to-stay"><a href="#expand-walk-detail"><span>Where to stay</span></a></h2><div class="walk-detail where-to-stay">    <p>
+      DOC provides seven huts and nine campsites on the Heaphy Track.
+    </p>
+    <h3>
+      Huts
+    </h3>
+    <p>
+      Heaphy Track huts have heating, toilets, bunks, mattresses and cold running
+      water. Note: Huts do not provide lighting, pots and pans, cooking utensils, linen
+      or food for purchase. Make sure you put these things on your checklist before you
+      go.
+    </p>
+    
+    <ul >
+      <li>
+        Brown Hut: 16 bunks
+      </li>
+      <li>
+        Perry Saddle Hut: 28 bunks
+      </li>
+      <li>
+        Gouland Downs Hut: 8 bunks
+      </li>
+      <li>
+        Saxon Hut: 16 bunks
+      </li>
+      <li>
+        James Mackay Hut: 26 bunks
+      </li>
+      <li>
+        Lewis Hut: 20 bunks
+      </li>
+      <li>
+        Heaphy Hut: 28 bunks
+      </li>
+    </ul>
+    <h3>
+      Campsites
+    </h3>
+    <p>
+      Campsites can be found beside each of the huts except Lewis Hut. There are
+      additional campsites at <a href="#Aorere" data-audio="audio/speech-aorere.mp3" class="audio">Aorere</a> Shelter, Katipo Creek Shelter, Scotts Beach and
+      Kohaihai. Campsites offer basic facilities including a water supply and toilets.
+      Open fires are only permitted where fireplaces are provided.
+    </p>
+    
+    <p>
+      Campers are not permitted to use the hut facilities
+    </p>
+
+    <h3>
+      Cost and booking
+    </h3>
+    <p>
+      Fees are charged per person, per night to stay in huts and campsites.
+    </p>
+    <p>
+      Bookings are essential! Use the <a href="https://booking.doc.govt.nz/Menu.aspx?sg=HEA">DOC online booking system</a> prior to travel or
+      call <a href="tel:0800694732" class="btn phone"></a>0800 NZ GREATWALKS.
+    </p>
+    
+</div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header on-the-track"><a href="#expand-walk-detail"><span>On the track</span></a></h2><div class="walk-detail on-the-track">    <h3>
+      Track description
+    </h3>
+    <p>
+      You can start the track from the eastern or western end - either from Brown
+      Hut, Golden Bay or from Kohaihai, West Coast. This track is not a circuit &ndash;
+      the beginning and end of the track are 463km / 288mi apart by road. Bus and taxi
+      services are available to reach either end of the track from nearby towns. The
+      track takes 4-6 days to walk, and 2-3 days to mountain bike.
+    </p>
+    
+    <p>
+      <a href="map-heaphy-track.html" class="btn">View map</a>
+    </p>
+    
+    <h3>
+      Elevation profile
+    </h3>
+    <p>
+      From Brown Hut to Aorere Shelter the track climbs gradually. From here, the
+      Aorere valley is seen extending northwards and on clear days it is possible to see
+      Mt <a href="#Taranaki" data-audio="audio/speech-taranaki.mp3" class="audio">Taranaki</a> / Egmont. 30 mins before reaching Perry Saddle Hut, 880m / 2887ft above sea
+      level, a short track leads to a viewpoint at Flanagans Corner. At 915m / 3002ft above sea
+      level, this is the highest point on the track.
+    </p>
+    
+    <p>
+      The track is suitable for walkers with moderate fitness and is mostly
+      well-formed but some sections may be steep, rough or muddy. The track is well
+      sign-posted and major stream and river crossings are bridged. Note the altitude
+      when you view the elevation profile.
+    </p>
+
+        <p><a href="#elevation-profile" id="elevation-profile-button" role="button" data-toggle="modal"><img src="img&#x2F;walks&#x2F;heaphy-track&#x2F;profile.jpg" class="elevation-profile"></a></p>
+
+    
+    <h3>Walking guide</h3>
+    
+    <h4>
+      Day 1: Brown Hut to Perry Saddle Hut
+    </h4>
+    <p><strong>
+      5 hours, 17.5km / 6.8mi</strong>
+    </p>
+    <p>
+      Climbing gradually, here you will follow a route once surveyed for a road.
+      Perry Hut Saddle is 880m / 2887ft above sea level. Near the hut in Gorge Creek is a deep
+      and cold pool, popular for swimming.
+    </p>
+    
+    <h4>
+      Day 2: Perry Saddle Hut to Gouland Downs Hut
+    </h4>
+    <p><strong>
+      2 hours, 7km / 4mi</strong>
+    </p>
+    <p>
+      Passing through tussock clearings and patches of beech trees this track
+      crosses one of several limestone arches which are the remnants of old caves.
+    </p>
+    
+    <h4>
+      Day 3: Gouland Downs Hut to Saxon Hut
+    </h4>
+    <p><strong>
+      1.5 hours, 5.4km / 2.1mi</strong>
+    </p>
+    <p>
+      Relatively level as it crosses the northern part of Gouland Downs, the
+      tussock country and riverbeds make it great for exploring. Be careful when the mist
+      lowers as the features can be confusing and it is easy to become
+      disoriented.
+    </p>
+    
+    <h4>
+      Day 4: Saxon Hut to James Mackay Hut
+    </h4>
+    <p><strong>
+      3 hours, 11.8km / 4.6mi</strong>
+    </p>
+    <p>
+      Dropping slightly to grassy flats beside the Saxton River, a section of this
+      track can flood. In wet conditions this can be potentially dangerous, and
+      walkers should wait for the water to recede before continuing.
+    </p>
+    
+    <h4>
+      Day 5: James Mackay Hut to Lewis Hut
+    </h4>
+    <p><strong>
+      3.5 hours, 12.5km / 4.8mi</strong>
+    </p>
+    <p>
+      The track soon leads into the richer and taller forest typical of the West
+      Coast. Glimpses of the Heaphy River can be spotted along the way. Be sure to apply
+      the insect repellent as this is where the sand flies start to appear!
+    </p>
+    
+    <h4>
+      Day 6: Lewis Hut to Kohaihai
+    </h4>
+    <p><strong>
+      7.5 hours, 24.2km / 9.3mi</strong>
+    </p>
+    <p>
+      The track crosses the Heaphy River and continues through a forest of native
+      <a href="#kahikatea" data-audio="audio/speech-kahikatea.mp3" class="audio">kahikatea</a>, <a href="#rimu" data-audio="audio/speech-rimu.mp3" class="audio">rimu</a> and <a href="#rata" data-audio="audio/speech-rata.mp3" class="audio">rata</a>. Be sure to listen out for the wildlife. The river mouth
+      is at the junction of two pounamu (greenstone) trails with archaeological evidence
+      that occupation from <a href="#Maori" data-audio="audio/speech-maori.mp3" class="audio">M&#257;ori</a> extends back 500 years. At the Heaphy River mouth the
+      river surges out through a narrow gap into the sea; the churning of fresh water
+      with the sea water is spectacular! Crossing at Crayfish (Koura) Point can be
+      impassable two hours either side of the high tide mark when conditions are rough.
+      Check the tide timetable before you leave the hut.
+    </p></div>
+    </div>
+</div>
+<div id="elevation-profile" style="width:98%;" class="modal hide fade horizscroll" tabindex="-1" role="dialog">
+  <img src="img/walks/heaphy-track/profile.jpg" style="width:px; height:px; max-width:none; max-height:none">
+</div>
+
+
+<div id="carousel-heaphy-track---doc-10062390jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;heaphy-track&#x2F;carousel-heaphy-track---doc-10062390.jpg" style="width:100%">
+</div>
+<div id="carousel-heaphy-track-354-003jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;heaphy-track&#x2F;carousel-heaphy-track-354-003.jpg" style="width:100%">
+</div>
+<div id="carousel-heaphy-track-340-027-1jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;heaphy-track&#x2F;carousel-heaphy-track-340-027-1.jpg" style="width:100%">
+</div>
+<div id="carousel-heaphy_2jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;heaphy-track&#x2F;carousel-heaphy2.jpg" style="width:100%">
+</div>
+
+            </div>
+            <div id="page2">
+            </div>
+        </div>
+        <!-- Why jQuery and not Zepto? Well there's not much difference http://www.codefessions.com/2012/08/performance-of-jquery-compatible-mobile.html -->
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/hammer.js"></script>
+        <script src="js/vendor/jquery.hammer.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
