@@ -1,0 +1,2442 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+body {
+  font-size: 1em;
+  line-height: 1.4;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  padding: 0px 0px 0px 0px;
+}
+a {
+  color: #00e;
+}
+a:hover {
+  color: #06e;
+}
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+img {
+  vertical-align: middle;
+}
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical;
+}
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+::selection {
+  background-color: Transparent;
+  color: #000;
+}
+html {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  user-drag: none;
+}
+body {
+  background: black;
+}
+label {
+  cursor: pointer;
+}
+@font-face {
+  font-family: CopseTTF;
+  src: url("../fonts/copse.ttf") format('truetype');
+}
+/* Need to supply both TTF and Woff http://caniuse.com/woff */
+@font-face {
+  font-family: CopseWoff;
+  src: url("../fonts/copse.woff") format('woff');
+}
+/* Looking for the homepage's bottom navbar? Try index.less */
+.navbar-fixed-top {
+  position: fixed;
+}
+.navbar-fixed-top .header-sprite {
+  display: inline-block;
+  background: transparent url('../img/header-icons.png') no-repeat;
+  text-indent: -10000px;
+  width: 25px;
+  height: 25px;
+  background-size: 25px 173px;
+}
+.navbar-fixed-top .header-threebar {
+  background-position: 0px 0px;
+  padding-right: 10px;
+}
+.navbar-fixed-top .header-bookmark {
+  /* note: currently unused - may be brought back */
+
+  background-position: 0px -50px;
+}
+.navbar-fixed-top .header-info {
+  background-position: 0px -100px;
+}
+.navbar-fixed-top .header-share {
+  background-position: 0px -150px;
+}
+.navbar-fixed-top label {
+  display: block;
+  padding: 10px 15px 10px;
+}
+.navbar .nav {
+  margin: 0px;
+}
+.navbar-fixed-top {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.navbar-fixed-bottom {
+  margin-top: 0px;
+}
+.social-links {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  width: 60px;
+  border: 2px solid white;
+  margin-left: -15px;
+  z-index: 1000;
+  background: rgba(50, 50, 50, 0.9);
+  border-radius: 8px;
+}
+.social-links .email,
+.social-links .facebook,
+.social-links .twitter {
+  background: url("../img/social-buttons.png") no-repeat;
+  width: 38px;
+  height: 38px;
+  display: block;
+  text-indent: -10000px;
+  padding: 10px;
+}
+.social-links .email {
+  background-position: 10px 10px;
+  margin-bottom: 10px;
+}
+.social-links .facebook {
+  background-position: 10px -61px;
+  margin-bottom: 10px;
+}
+.social-links .twitter {
+  background-position: 10px -129px;
+}
+#logo {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  text-indent: -10000px;
+  margin-left: -150px;
+  background-image: url("../img/logo-x600.png");
+  background-size: 300px 128px;
+  width: 300px;
+  height: 128px;
+}
+#wrapper {
+  padding-top: 138px;
+}
+@media (max-width: 500px), (max-height: 500px) {
+  #logo {
+    margin-left: -75px;
+    background-image: url("../img/logo-x300.png");
+    width: 150px;
+    height: 64px;
+    background-size: 150px 64px;
+  }
+  #wrapper {
+    padding-top: 70px;
+  }
+}
+@media (max-width: 340px) {
+  #logo {
+    margin-left: -105px;
+  }
+}
+.popover-modal {
+  padding: 10px;
+  background: #80c1dd;
+  /* Old browsers */
+
+  background: -webkit-linear-gradient(top, #80c1dd 0%, #e3eef4 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: linear-gradient(to bottom, #80c1dd 0%, #e3eef4 100%);
+  /* W3C */
+
+}
+.popover {
+  /* Looking for popovers on the walk info pages? See walk.less */
+
+  z-index: 10000;
+}
+.popover .popover-title {
+  display: none;
+}
+.popover .popover-content div,
+.popover .popover-content p {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+}
+.popover .popover-content b.distance_away {
+  font-size: 12px;
+  display: block;
+  text-transform: uppercase;
+}
+.popover .popover-content b.distance_away.with-description {
+  margin-bottom: 0.3em;
+}
+.popover .popover-content h3 {
+  margin: 0px 0px 4px 0px;
+  padding: 0px;
+  font-family: CopseWoff, CopseTTF, serif;
+  line-height: 90%;
+  font-size: 17px;
+}
+/*
+Making changes to Bootstrap Modals?
+Keep this in mind these two issues
+  http://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-background/11788713#11788713
+  http://stackoverflow.com/a/9953599
+AND also be sure to test the 'Elevation Profile' modal on the Samsung Galaxy Note tablet (GT-N8000)
+*/
+.modal {
+  font-family: CopseWoff, CopseTTF, serif;
+}
+.modal.fade {
+  left: 1%;
+  margin-left: 0px;
+}
+.modal.fade.in {
+  margin-top: 0px;
+  top: 10px;
+  z-index: 1100;
+}
+.modal.horizscroll {
+  width: 98%;
+  left: 1%;
+  top: 1%;
+  margin-left: 0px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translate3d(0, 0, 0);
+  /* Put stuff into memory http://stackoverflow.com/a/9953599 */
+
+}
+.modal.horizscroll * {
+  -webkit-transform: translate3d(0, 0, 0);
+  /* Put stuff into memory http://stackoverflow.com/a/9953599 */
+
+}
+body.find-an-adventure .modal.fade {
+  left: 50%;
+}
+.navbar {
+  transition: 0.2s ease-in;
+  -webkit-transition: 0.2s ease-in;
+}
+#show_slideout_navigation {
+  display: none;
+}
+#show_slideout_navigation:checked + #wrapper,
+#show_slideout_navigation:checked + #wrapper .navbar {
+  left: 300px;
+}
+#show_slideout_navigation:checked + #wrapper #slideout_navigation {
+  left: 0px;
+}
+#wrapper {
+  position: relative;
+  transition: 0.2s ease-in;
+  -webkit-transition: 0.2s ease-in;
+}
+#slideout_navigation {
+  position: fixed;
+  top: 0px;
+  left: -300px;
+  margin-right: -300px;
+  width: 300px;
+  min-height: 100%;
+  z-index: 10000;
+  background: #3d692a;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  transition: 0.2s ease-in;
+  -webkit-transition: 0.2s ease-in;
+}
+#slideout_navigation a,
+#slideout_navigation label {
+  color: white;
+  display: block;
+}
+#slideout_navigation a:hover {
+  text-decoration: none;
+}
+#slideout_navigation ul.menu {
+  background: #3eb4e4;
+  color: white;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+#slideout_navigation ul.menu li {
+  border-top: solid 1px #2b80a3;
+  border-bottom: solid 1px #7cc6e3;
+  border-left: solid 1px #32728d;
+  border-right: solid 1px #9ed9f1;
+  background: url("../img/slideout-menu.png") no-repeat right 13px;
+}
+#slideout_navigation ul.menu li a {
+  padding: 10px 0px 10px 30px;
+}
+#slideout_navigation ul.menu li a.booking {
+  background: url("../img/slideout-menu.png") no-repeat 5px -90px;
+}
+#slideout_navigation ul.menu li a.offers {
+  background: url("../img/slideout-menu.png") no-repeat 5px -140px;
+}
+#slideout_navigation ul.menu li:hover {
+  background-color: #6bc5ea;
+}
+#slideout_navigation ul.menu li:first-child {
+  padding: 0px;
+  border-right: solid 1px #1d546b;
+  background: none;
+}
+#slideout_navigation ul.menu li:first-child label {
+  color: #b3e1f5;
+  font-weight: bold;
+  padding: 0px 0px 0px 7px;
+  height: 48px;
+  line-height: 55px;
+  margin: 0px;
+  font-size: inherit;
+}
+#slideout_navigation ul.walks {
+  background: #60a342;
+  color: white;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  font-family: CopseWoff, CopseTTF, serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+#slideout_navigation ul.walks li {
+  border-top: solid 1px #40712d;
+  border-bottom: solid 1px #94be82;
+  border-right: solid 1px #90c5a0;
+  background: url("../img/slideout-menu.png") no-repeat right -236px;
+}
+#slideout_navigation ul.walks li a {
+  padding: 10px 0px 10px 7px;
+}
+#slideout_navigation ul.walks li:hover {
+  background-color: #79bd5b;
+}
+#slideout_navigation ul.maps {
+  color: white;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+#slideout_navigation ul.maps li {
+  background: url("../img/slideout-menu.png") no-repeat right -40px;
+}
+#slideout_navigation ul.maps li a {
+  padding: 10px 0px 10px 30px;
+  background: url("../img/slideout-menu.png") no-repeat 5px -195px;
+}
+#slideout_navigation ul.maps li:hover {
+  background-color: #528d39;
+}
+@media (max-height: 600px) {
+  #slideout_navigation ul.menu li {
+    background-position: right 9px;
+  }
+  #slideout_navigation ul.menu li a {
+    padding: 4px 0px 4px 30px;
+  }
+  #slideout_navigation ul.menu li a.booking {
+    background-position: 5px -95px;
+  }
+  #slideout_navigation ul.menu li a.offers {
+    background-position: 5px -145px;
+  }
+  #slideout_navigation ul.walks li {
+    background-position: right bottom;
+  }
+  #slideout_navigation ul.walks li a {
+    padding: 5px 0px 5px 7px;
+  }
+  #slideout_navigation ul.maps li a {
+    padding: 4px 0px 4px 30px;
+    background-position: 5px -191px;
+  }
+}
+@media (max-height: 420px) {
+  #slideout_navigation {
+    font-size: 11px;
+  }
+  #slideout_navigation ul.menu li:first-child label {
+    display: none;
+  }
+  #slideout_navigation ul.menu,
+  #slideout_navigation ul.walks,
+  #slideout_navigation ul.maps {
+    font-size: 13px;
+  }
+  #slideout_navigation ul.menu li,
+  #slideout_navigation ul.walks li,
+  #slideout_navigation ul.maps li {
+    line-height: normal;
+  }
+  #slideout_navigation ul.menu li a,
+  #slideout_navigation ul.walks li a,
+  #slideout_navigation ul.maps li a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  #slideout_navigation ul.menu li {
+    background-position: right 4px;
+  }
+  #slideout_navigation ul.walks li {
+    background-position: right -247px;
+  }
+  #slideout_navigation ul.maps li {
+    background-position: right -47px;
+  }
+}
+@media (max-height: 320px) {
+  #slideout_navigation {
+    font-size: 8px;
+  }
+  #slideout_navigation ul.menu li:first-child label {
+    display: none;
+  }
+  #slideout_navigation ul.menu,
+  #slideout_navigation ul.walks,
+  #slideout_navigation ul.maps {
+    font-size: 10px;
+  }
+  #slideout_navigation ul.menu li,
+  #slideout_navigation ul.walks li,
+  #slideout_navigation ul.maps li {
+    line-height: normal;
+  }
+  #slideout_navigation ul.menu li a,
+  #slideout_navigation ul.walks li a,
+  #slideout_navigation ul.maps li a {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  #slideout_navigation ul.menu li {
+    background-position: right 4px;
+  }
+  #slideout_navigation ul.walks li {
+    background-position: right -247px;
+  }
+  #slideout_navigation ul.maps li {
+    background-position: right -47px;
+  }
+}
+.text-column1 {
+  width: 70%;
+  max-width: 654px;
+  min-width: 300px;
+  margin: 0px auto 0px auto;
+  color: #333333;
+  padding-bottom: 100px;
+  font-family: CopseWoff, CopseTTF, serif;
+}
+.text-column1 h1 {
+  color: #ac9420;
+  font-weight: normal;
+  font-family: CopseWoff, CopseTTF, serif;
+}
+.text-column1 h2 {
+  color: #6c3400;
+  font-weight: normal;
+  font-family: CopseWoff, CopseTTF, serif;
+}
+.text-column1 a.audio {
+  color: black;
+  background-image: url("../img/speaker-icon.png");
+  background-size: 16px 12px;
+  background-repeat: no-repeat;
+  background-position: right;
+  padding-right: 20px;
+  display: inline-block;
+  whitespace: no-wrap;
+}
+.btn {
+  display: inline-block;
+  padding: 8px;
+  border-radius: 7px;
+  background-color: #15a5de;
+  background-image: none;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: CopseWoff, CopseTTF, serif;
+  font-size: 18px;
+  border: none;
+  border-color: none;
+  text-shadow: none;
+}
+.btn:hover {
+  text-decoration: none;
+  background-color: #3abaec;
+  color: white;
+}
+.btn.phone,
+.btn.email,
+.btn.vistorcenter,
+.btn.bookonline {
+  background-image: url("../img/content-buttons.png");
+  background-size: 16px 166px;
+  background-repeat: no-repeat;
+  padding: 0px 0px 0px 30px;
+  width: 0px;
+  height: 30px;
+  overflow: hidden;
+  text-indent: 100%;
+}
+.btn.phone {
+  background-position: 10px -143px;
+  margin-right: 10px;
+}
+.btn.email {
+  background-position: 8px 10px;
+  padding-left: 33px;
+}
+.btn.vistorcenter {
+  background-position: 10px -40px;
+}
+.btn.bookonline {
+  background-position: 10px -90px;
+  padding-left: 33px;
+}
+.btn + .btn,
+.btn + br + .btn {
+  margin-top: 10px;
+}
+@media (max-height: 400px) {
+  .text-column1 {
+    margin: 50px auto 0px auto;
+  }
+  .text-column1 .youtube iframe {
+    width: 100%;
+  }
+}
+body.info {
+  background: white;
+}
+body.offers {
+  background: white;
+}
+body.offers ul.banners {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+body.offers ul.banners li {
+  margin: 0px;
+  padding: 0px;
+}
+body.walk {
+  background: white;
+}
+body.walk .text-column1 {
+  font-famiy: serif;
+  line-height: 120%;
+  background-repeat: no-repeat;
+  background-size: 63px 91px;
+  padding-bottom: 0px;
+}
+body.walk .text-column1 h1 {
+  padding-top: 10px;
+  padding-left: 80px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 100%;
+}
+body.walk .text-column1.lake-waikaremoana {
+  background-image: url("../img/walks/lake-waikaremoana/national.gif");
+}
+body.walk .text-column1.wellington {
+  background-image: url("../img/walks/wellington/national.gif");
+}
+body.walk .text-column1.tongariro-northern-circuit {
+  background-image: url("../img/walks/tongariro-northern-circuit/national.gif");
+}
+body.walk .text-column1.tongariro-northern-circuit h1 {
+  font-size: 27px;
+}
+body.walk .text-column1.whanganui-journey {
+  background-image: url("../img/walks/whanganui-journey/national.gif");
+}
+body.walk .text-column1.abel-tasman-coast-track {
+  background-image: url("../img/walks/abel-tasman-coast-track/national.gif");
+}
+body.walk .text-column1.abel-tasman-coast-track h1 {
+  font-size: 27px;
+}
+body.walk .text-column1.heaphy-track {
+  background-image: url("../img/walks/heaphy-track/national.gif");
+}
+body.walk .text-column1.routeburn-track {
+  background-image: url("../img/walks/routeburn-track/national.gif");
+}
+body.walk .text-column1.milford-track {
+  background-image: url("../img/walks/milford-track/national.gif");
+}
+body.walk .text-column1.kepler-track {
+  background-image: url("../img/walks/kepler-track/national.gif");
+}
+body.walk .text-column1.rakiura-track---stewart-island {
+  background-image: url("../img/walks/rakiura-track---stewart-island/national.gif");
+}
+body.walk .text-column1.rakiura-track---stewart-island h1 {
+  font-size: 26px;
+}
+body.walk .text-column1 .info {
+  padding-left: 80px;
+  margin-top: -5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+body.walk .text-column1 .info span {
+  display: inline-block;
+}
+body.walk .text-column1 .info span.duration {
+  margin-left: 50px;
+}
+body.walk .text-column1 .intro {
+  clear: both;
+  line-height: 300%;
+  font-size: small;
+}
+body.walk .text-column1 .youtube {
+  text-align: center;
+}
+body.walk .text-column1 #carousel {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+body.walk .text-column1 #carousel .carousel-inner {
+  height: 220px;
+  padding: 0px;
+}
+body.walk .text-column1 #carousel .carousel-inner .item {
+  height: 220px;
+}
+body.walk .text-column1 #carousel .carousel-inner .item ul {
+  list-style: none;
+  margin: 0px;
+  padding: 10px;
+}
+body.walk .text-column1 #carousel .carousel-inner .item ul li {
+  float: left;
+  width: 31%;
+  margin-right: 2%;
+  margin-bottom: 10px;
+}
+body.walk .text-column1 #carousel .carousel-inner .item ul li a {
+  position: relative;
+  display: block;
+  height: 190px;
+  background-size: cover;
+  background-position: center 0px;
+  border: solid 8px white;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 0px 10px #8D8874;
+  -webkit-box-shadow: 0px 0px 10px #8D8874;
+  box-shadow: 0px 0px 10px #8D8874;
+}
+body.walk .text-column1 #carousel .carousel-inner .item ul li a img {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+}
+body.walk .text-column1 #carousel .carousel-control {
+  color: #666666;
+  background: none;
+  border: none;
+  top: 50%;
+}
+body.walk .text-column1 #carousel .carousel-control.left {
+  left: 0px;
+  margin-left: -10px;
+}
+body.walk .text-column1 #carousel .carousel-control.right {
+  right: 1%;
+  margin-right: 0px;
+}
+body.walk .text-column1 .walk-detail-header {
+  padding: 0.4em 0.5em;
+  margin-bottom: 10px;
+  font-size: 25px;
+  -moz-box-shadow: 3px 3px 10px #8d8874;
+  -webkit-box-shadow: 3px 3px 10px #8d8874;
+  box-shadow: 3px 3px 10px #8d8874;
+}
+body.walk .text-column1 .walk-detail-header a {
+  text-decoration: none;
+}
+body.walk .text-column1 .walk-detail-header a span {
+  display: block;
+  color: white;
+  background-image: url("../img/walk-icons.png");
+  background-position: right -90px;
+  background-repeat: no-repeat;
+  background-size: 40px 200px;
+}
+body.walk .text-column1 .walk-detail-header.open a span {
+  display: block;
+  background-image: url("../img/walk-icons.png");
+  background-repeat: no-repeat;
+  background-position: right -41px;
+  background-size: 40px 200px;
+}
+body.walk .text-column1 .walk-detail-header.dont-miss {
+  background: #ec9103;
+  padding-left: 40px;
+  background: #a96a00;
+  /* Old browsers */
+
+  background: -webkit-linear-gradient(left, #a96a00 0%, #f0b14a 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: linear-gradient(to right, #a96a00 0%, #f0b14a 100%);
+  /* W3C */
+
+}
+body.walk .text-column1 .walk-detail-header.dont-miss:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin-top: -0.7em;
+  margin-left: -50px;
+  border-top: 1.5em solid transparent;
+  border-left: 1.5em solid #e5dfbd;
+  border-bottom: 1.5em solid transparent;
+}
+body.walk .text-column1 .walk-detail-header.offers {
+  background: #44762f;
+  /* Old browsers */
+
+  background: -webkit-linear-gradient(left, #44762f 0%, #8abe74 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: linear-gradient(to right, #44762f 0%, #8abe74 100%);
+  /* W3C */
+
+}
+body.walk .text-column1 .walk-detail-header.offers > span {
+  display: block;
+  padding-left: 50px;
+  background-image: url("../img/walk-icons.png");
+  background-repeat: no-repeat;
+  background-position: left 5px;
+  background-size: 40px 200px;
+}
+body.walk .text-column1 .walk-detail-header.before-you-go {
+  background: #999966;
+  background: #706d4c;
+  /* Old browsers */
+
+  background: -webkit-linear-gradient(left, #706d4c 0%, #b4b48e 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: linear-gradient(to right, #706d4c 0%, #b4b48e 100%);
+  /* W3C */
+
+}
+body.walk .text-column1 .walk-detail-header.getting-there {
+  background: #ccb200;
+  background: #938000;
+  /* Old browsers */
+
+  background: -webkit-linear-gradient(left, #938000 0%, #dac746 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: linear-gradient(to right, #938000 0%, #dac746 100%);
+  /* W3C */
+
+}
+body.walk .text-column1 .walk-detail-header.where-to-stay {
+  background: #3b93c5;
+  background: #2a6a8e;
+  /* Old browsers */
+
+  background: -webkit-linear-gradient(left, #2a6a8e 0%, #71b1d5 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: linear-gradient(to right, #2a6a8e 0%, #71b1d5 100%);
+  /* W3C */
+
+}
+body.walk .text-column1 .walk-detail-header.on-the-track {
+  background: #026a5a;
+  background: #004c3f;
+  /* Old browsers */
+
+  background: -webkit-linear-gradient(left, #004c3f 0%, #479387 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: linear-gradient(to right, #004c3f 0%, #479387 100%);
+  /* W3C */
+
+}
+body.walk .text-column1 .walk-detail {
+  background: white;
+  margin-top: -10px;
+  max-height: 0px;
+  overflow: hidden;
+  padding: 0em 1em;
+  transition: 0.2s ease-in;
+  -webkit-transition: 0.2s ease-in;
+}
+body.walk .text-column1 .walk-detail.expanded {
+  padding: 0.5em 1em;
+  max-height: 3000px;
+}
+body.walk .text-column1 .walk-detail.dont-miss {
+  background: transparent;
+  position: relative;
+  width: 100%;
+  padding: 0px;
+}
+body.walk .text-column1 .walk-detail.dont-miss p {
+  margin: 0px;
+  padding: 0px;
+}
+body.walk .text-column1 .walk-detail.dont-miss p img {
+  width: 100%;
+}
+body.walk .text-column1 .walk-detail.dont-miss p img.shadow {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  opacity: 0;
+  transition: 0.2s ease-in;
+  -webkit-transition: 0.2s ease-in;
+}
+body.walk .text-column1 .walk-detail.dont-miss p img.shadow.shadow-visible {
+  opacity: 1;
+  z-index: 2;
+}
+body.walk .text-column1 .walk-detail.dont-miss p a {
+  display: block;
+  position: absolute;
+}
+body.walk .text-column1 .walk-detail.dont-miss p a img {
+  image-rendering: -webkit-optimize-contrast;
+  max-width: 100%;
+  height: auto;
+}
+body.walk .text-column1 .walk-detail.offers ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+body.walk .text-column1 .walk-detail.offers ul li {
+  padding: 0px;
+  margin: 0px 0px 10px 0px;
+}
+body.walk .text-column1 .walk-detail.offers ul li a {
+  display: block;
+  text-align: center;
+}
+body.walk .text-column1 .walk-detail.offers ul li a img {
+  max-width: 581px;
+  width: 100%;
+}
+body.walk .text-column1 .walk-detail.offers,
+body.walk .text-column1 .walk-detail.before-you-go,
+body.walk .text-column1 .walk-detail.getting-there,
+body.walk .text-column1 .walk-detail.where-to-stay,
+body.walk .text-column1 .walk-detail.on-the-track {
+  -moz-box-shadow: 3px 3px 10px #8d8874;
+  -webkit-box-shadow: 3px 3px 10px #8d8874;
+  box-shadow: 3px 3px 10px #8d8874;
+}
+body.walk .text-column1 .icon-map,
+body.walk .text-column1 .icon-maps-blue {
+  display: inline-block;
+  background-position: 0px 0px;
+  background-image: url("../img/icon-content-maps_blue.png");
+  background-size: 52px 50px;
+  width: 52px;
+  height: 50px;
+  float: right;
+  margin-right: 50px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+body.walk .text-column1 .icon-maps-gold {
+  display: inline-block;
+  background-position: 0px 0px;
+  background-image: url("../img/icon-content-maps_gold.png");
+  background-size: 52px 50px;
+  width: 52px;
+  height: 50px;
+  float: right;
+  margin-right: 50px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+body.walk .text-column1 .icon {
+  display: inline-block;
+  background-position: 0px 0px;
+  border: solid 10px red;
+  /* Used to identify unstyled icons */
+
+  vertical-align: top;
+}
+body.walk .text-column1 .icon.icon-lake,
+body.walk .text-column1 .icon.icon-lake2,
+body.walk .text-column1 .icon.icon-lakes {
+  background-image: url("../img/icon-content-lakes.png");
+  background-size: 58px 40px;
+  width: 58px;
+  height: 40px;
+  border: none;
+}
+body.walk .text-column1 .icon.icon-canoe {
+  background-image: url("../img/icon-content-canoe.png");
+  background-size: 58px 40px;
+  width: 58px;
+  height: 40px;
+  border: none;
+}
+body.walk .text-column1 .icon.icon-specials {
+  background-image: url("../img/icon-content-specials.png");
+  background-size: 58px 40px;
+  width: 58px;
+  height: 40px;
+  border: none;
+}
+body.walk .text-column1 .icon.icon-calendar {
+  background-image: url("../img/icon-content-calendar.png");
+  background-size: 58px 40px;
+  width: 58px;
+  height: 40px;
+  border: none;
+}
+body.walk .text-column1 .icon.icon-culture {
+  background-image: url("../img/icon-content-culture.png");
+  background-size: 58px 40px;
+  width: 58px;
+  height: 40px;
+  border: none;
+}
+body.walk .text-column1 .icon.icon-forest,
+body.walk .text-column1 .icon.icon-plants-trees {
+  background-image: url("../img/icon-content-plants_trees.png");
+  background-size: 58px 40px;
+  width: 58px;
+  height: 40px;
+  border: none;
+}
+body.walk .text-column1 .icon.icon-volcano {
+  background-image: url("../img/icon-content-volcano.png");
+  background-size: 58px 40px;
+  width: 58px;
+  height: 40px;
+  border: none;
+}
+body.walk .text-column1 .icon.icon-kiwi {
+  background-image: url("../img/icon-content-kiwi.png");
+  background-size: 58px 40px;
+  width: 58px;
+  height: 40px;
+  border: none;
+}
+body.walk .text-column1 .icon.icon-river {
+  background-image: url("../img/icon-content-river.png");
+  background-size: 58px 40px;
+  width: 58px;
+  height: 40px;
+  border: none;
+}
+body.walk .text-column1.abel-tasman-coast-track div.dont-miss .camping {
+  left: 5%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.abel-tasman-coast-track div.dont-miss .cleopatraspool {
+  right: 8%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.abel-tasman-coast-track div.dont-miss .tongamarine-reserve {
+  left: 10%;
+  top: 36%;
+  width: 80%;
+}
+body.walk .text-column1.abel-tasman-coast-track div.dont-miss .awesomeviews {
+  left: 5%;
+  bottom: 2%;
+  width: 50%;
+}
+body.walk .text-column1.abel-tasman-coast-track div.dont-miss .swimming {
+  right: 5px;
+  bottom: 3.2%;
+  width: 50%;
+}
+body.walk .text-column1.lake-waikaremoana div.dont-miss .counterclockwise {
+  left: 5%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.lake-waikaremoana div.dont-miss .falls {
+  right: 8%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.lake-waikaremoana div.dont-miss .awesomeviews {
+  right: 10%;
+  top: 38%;
+  width: 50%;
+}
+body.walk .text-column1.lake-waikaremoana div.dont-miss .notebook {
+  left: 8%;
+  bottom: 2%;
+  width: 45%;
+}
+body.walk .text-column1.lake-waikaremoana div.dont-miss .swimming {
+  right: 5px;
+  bottom: 3.5%;
+  width: 45%;
+}
+body.walk .text-column1.tongariro-northern-circuit div.dont-miss .hobbits {
+  left: 5%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.tongariro-northern-circuit div.dont-miss .culture {
+  right: 8%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.tongariro-northern-circuit div.dont-miss .lakes {
+  left: 8%;
+  top: 35%;
+  width: 45%;
+}
+body.walk .text-column1.tongariro-northern-circuit div.dont-miss .volcanoes {
+  left: 8%;
+  bottom: 3%;
+  width: 45%;
+}
+body.walk .text-column1.tongariro-northern-circuit div.dont-miss .taranakifalls {
+  right: 6%;
+  bottom: 4%;
+  width: 45%;
+}
+body.walk .text-column1.whanganui-journey div.dont-miss .kiwi {
+  left: 5%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.whanganui-journey div.dont-miss .tikidude {
+  right: 8%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.whanganui-journey div.dont-miss .scenic-river {
+  left: 8%;
+  top: 30%;
+  width: 40%;
+}
+body.walk .text-column1.whanganui-journey div.dont-miss .culture {
+  right: 8%;
+  top: 43%;
+  width: 40%;
+}
+body.walk .text-column1.whanganui-journey div.dont-miss .bridge {
+  left: 8%;
+  bottom: 4%;
+  width: 80%;
+}
+body.walk .text-column1.heaphy-track div.dont-miss .birds {
+  left: 5%;
+  top: 5%;
+  width: 35%;
+}
+body.walk .text-column1.heaphy-track div.dont-miss .flora {
+  right: 8%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.heaphy-track div.dont-miss .heaphyhut {
+  left: 8%;
+  top: 35%;
+  width: 70%;
+}
+body.walk .text-column1.heaphy-track div.dont-miss .mountainbiking {
+  left: 8%;
+  bottom: 2%;
+  width: 45%;
+}
+body.walk .text-column1.heaphy-track div.dont-miss .snails {
+  right: 3%;
+  bottom: 6%;
+  width: 45%;
+}
+body.walk .text-column1.kepler-track div.dont-miss .findkiwi {
+  left: 5%;
+  top: 5%;
+  width: 35%;
+}
+body.walk .text-column1.kepler-track div.dont-miss .swingbridge {
+  right: 8%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.kepler-track div.dont-miss .caves {
+  left: 8%;
+  top: 34%;
+  width: 70%;
+}
+body.walk .text-column1.kepler-track div.dont-miss .awesome-views {
+  left: 8%;
+  bottom: 3%;
+  width: 45%;
+}
+body.walk .text-column1.kepler-track div.dont-miss .burnfalls {
+  right: 3%;
+  bottom: 6%;
+  width: 45%;
+}
+body.walk .text-column1.milford-track div.dont-miss .earlyfootsteps {
+  left: 5%;
+  top: 4%;
+  width: 35%;
+}
+body.walk .text-column1.milford-track div.dont-miss .raincoat {
+  right: 8%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.milford-track div.dont-miss .falls {
+  left: 10%;
+  top: 34%;
+  width: 60%;
+}
+body.walk .text-column1.milford-track div.dont-miss .duck {
+  left: 8%;
+  bottom: 3%;
+  width: 40%;
+}
+body.walk .text-column1.milford-track div.dont-miss .suspensionbridge {
+  right: 4%;
+  bottom: 6%;
+  width: 45%;
+}
+body.walk .text-column1.routeburn-track div.dont-miss .earlysteps {
+  left: 5%;
+  top: 4%;
+  width: 35%;
+}
+body.walk .text-column1.routeburn-track div.dont-miss .mohua {
+  right: 8%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.routeburn-track div.dont-miss .alpine-wetlands {
+  left: 10%;
+  top: 37%;
+  width: 60%;
+}
+body.walk .text-column1.routeburn-track div.dont-miss .awesome-views {
+  left: 8%;
+  bottom: 3%;
+  width: 40%;
+}
+body.walk .text-column1.routeburn-track div.dont-miss .blacksmith {
+  right: 4%;
+  bottom: 6%;
+  width: 45%;
+}
+body.walk .text-column1.rakiura-track---stewart-island div.dont-miss .birds {
+  left: 5%;
+  top: 4%;
+  width: 35%;
+}
+body.walk .text-column1.rakiura-track---stewart-island div.dont-miss .boatride {
+  right: 8%;
+  top: 5%;
+  width: 45%;
+}
+body.walk .text-column1.rakiura-track---stewart-island div.dont-miss .cliff-walfs {
+  left: 10%;
+  top: 37%;
+  width: 60%;
+}
+body.walk .text-column1.rakiura-track---stewart-island div.dont-miss .island-sanc {
+  left: 9%;
+  bottom: 4%;
+  width: 40%;
+}
+body.walk .text-column1.rakiura-track---stewart-island div.dont-miss .cultural-points {
+  right: 4%;
+  bottom: 6%;
+  width: 45%;
+}
+body.walk .below-fold {
+  background: #e5dfbd;
+  padding-bottom: 50px;
+}
+body.walk .below-fold .text-column1 {
+  margin-top: 20px;
+  padding-top: 20px;
+}
+body.walk .below-fold .text-column1.lake-waikaremoana,
+body.walk .below-fold .text-column1.wellington,
+body.walk .below-fold .text-column1.tongariro-northern-circuit,
+body.walk .below-fold .text-column1.whanganui-journey,
+body.walk .below-fold .text-column1.abel-tasman-coast-track,
+body.walk .below-fold .text-column1.heaphy-track,
+body.walk .below-fold .text-column1.routeburn-track,
+body.walk .below-fold .text-column1.milford-track,
+body.walk .below-fold .text-column1.kepler-track,
+body.walk .below-fold .text-column1.rakiura-track---stewart-island {
+  background-image: none;
+}
+body.walk .popover {
+  background: white;
+}
+body.walk .popover .popover-inner {
+  border-radius: 6px;
+  background: #80c1dd;
+  /* Old browsers */
+
+  background: -webkit-linear-gradient(top, #80c1dd 0%, #e3eef4 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: linear-gradient(to bottom, #80c1dd 0%, #e3eef4 100%);
+  /* W3C */
+
+}
+@media (max-width: 500px) {
+  body.walk .text-column1 h1 {
+    font-size: 20px;
+  }
+  body.walk .text-column1 h1.rakiura-track---stewart-island h1,
+  body.walk .text-column1 h1.tongariro-northern-circuit h1,
+  body.walk .text-column1 h1.abel-tasman-coast-track h1 {
+    font-size: 18px;
+  }
+  body.walk .text-column1 .info {
+    font-size: 14px;
+  }
+  body.walk .text-column1 .info span.duration {
+    margin-left: 10px;
+  }
+}
+@media (max-width: 400px) {
+  body.walk .text-column1 h1 {
+    font-size: 13px;
+  }
+  body.walk .text-column1 h1.rakiura-track---stewart-island h1,
+  body.walk .text-column1 h1.tongariro-northern-circuit h1,
+  body.walk .text-column1 h1.abel-tasman-coast-track h1 {
+    font-size: 12px;
+  }
+  body.walk .text-column1 .info {
+    font-size: 14px;
+  }
+  body.walk .text-column1 .info span.duration {
+    margin-left: 10px;
+  }
+}
+body.find-an-adventure {
+  background: #e5dfbd;
+  color: #131009;
+}
+body.find-an-adventure h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #ab9120;
+}
+body.find-an-adventure h2 {
+  text-align: center;
+  color: #010000;
+  margin-top: 1em;
+  font-size: large;
+  font-weight: bold;
+}
+body.find-an-adventure .resetFinder {
+  margin-top: 0.5em;
+  display: inline-block;
+  text-align: center;
+}
+body.find-an-adventure #warning-1-2-days {
+  display: none;
+}
+body.find-an-adventure ol.chooser {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+body.find-an-adventure ol.chooser li {
+  margin: 0px 0px 10px 0px;
+  padding: 0px;
+  position: relative;
+}
+body.find-an-adventure ol.chooser li span {
+  position: absolute;
+  left: -1px;
+  top: .8em;
+  z-index: 2;
+  color: #9e988a;
+  font-weight: bold;
+}
+body.find-an-adventure ol.chooser li:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin-top: -0.2em;
+  margin-left: -5px;
+  border-top: 1.8em solid transparent;
+  border-left: 1.8em solid #e5dfbd;
+  border-bottom: 1.8em solid transparent;
+}
+body.find-an-adventure ol.chooser li a {
+  display: block;
+  padding: 15px 10px 15px 35px;
+  color: white;
+  -moz-box-shadow: 3px 3px 10px #8d8874;
+  -webkit-box-shadow: 3px 3px 10px #8d8874;
+  box-shadow: 3px 3px 10px #8d8874;
+  background-image: url("../img/find-an-adventure-icons.png");
+  background-size: 60px 850px;
+  background-repeat: no-repeat;
+  text-decoration: none;
+}
+body.find-an-adventure ol.chooser li a:hover {
+  text-decoration: none;
+}
+body.find-an-adventure ol.chooser li.where {
+  background: #256f92;
+  /* Old browsers */
+
+  background: -webkit-linear-gradient(left, #256f92 0%, #73b2d3 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: linear-gradient(to right, #256f92 0%, #73b2d3 100%);
+  /* W3C */
+
+}
+body.find-an-adventure ol.chooser li.where a {
+  padding-left: 80px;
+  background-position: 30px 5px;
+}
+body.find-an-adventure ol.chooser li.see {
+  background: #747249;
+  /* Old browsers */
+
+  background: -webkit-linear-gradient(left, #747249 0%, #b8b592 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: linear-gradient(to right, #747249 0%, #b8b592 100%);
+  /* W3C */
+
+}
+body.find-an-adventure ol.chooser li.see a {
+  background-position: right -97px;
+  padding-right: 60px;
+}
+body.find-an-adventure ol.chooser li.time {
+  background: #004e41;
+  /* Old browsers */
+
+  background: -webkit-linear-gradient(left, #004e41 0%, #4c918c 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: linear-gradient(to right, #004e41 0%, #4c918c 100%);
+  /* W3C */
+
+}
+body.find-an-adventure ol.chooser li.time a {
+  padding-left: 80px;
+  background-position: 30px -194px;
+}
+body.find-an-adventure #where.modal {
+  width: 15em;
+  margin-left: -7.5em;
+}
+body.find-an-adventure #see.modal {
+  width: 15em;
+  margin-left: -7.5em;
+}
+body.find-an-adventure #see.modal ol li {
+  background-image: url("../img/checkbox-sprite.png");
+  background-position: 20px 15px;
+  background-size: 19px 118px;
+}
+body.find-an-adventure #see.modal ol li.active {
+  background-position: 20px -85px;
+}
+body.find-an-adventure #time.modal {
+  width: 10em;
+  margin-left: -5em;
+}
+body.find-an-adventure .modal {
+  background: #ebe8d7;
+  color: #131009;
+  padding: 5px 0px;
+  font-family: CopseWoff, CopseTTF, serif;
+}
+body.find-an-adventure .modal ol {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+body.find-an-adventure .modal ol li {
+  border-top: solid 2px #bebbaa;
+  background-image: url("../img/find-an-adventure-icons.png");
+  background-size: 60px 850px;
+  background-repeat: no-repeat;
+  background-position: 20px -284px;
+}
+body.find-an-adventure .modal ol li.active {
+  background-position: 20px -385px;
+}
+body.find-an-adventure .modal ol li#where-northisland a {
+  background-image: url("../img/find-an-adventure-icons.png");
+  background-size: 60px 850px;
+  background-repeat: no-repeat;
+  background-position: 50px -500px;
+  padding-left: 100px;
+}
+body.find-an-adventure .modal ol li#where-southisland a {
+  background-image: url("../img/find-an-adventure-icons.png");
+  background-size: 60px 850px;
+  background-repeat: no-repeat;
+  background-position: 50px -595px;
+  padding-left: 100px;
+}
+body.find-an-adventure .modal ol li#where-surpriseme a {
+  background-image: url("../img/find-an-adventure-icons.png");
+  background-size: 60px 850px;
+  background-repeat: no-repeat;
+  background-position: 50px -690px;
+  padding-left: 100px;
+}
+body.find-an-adventure .modal ol li a {
+  display: block;
+  padding: 15px 15px 15px 50px;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+body.find-an-adventure .modal ol li a:hover {
+  text-decoration: none;
+}
+body.find-an-adventure .modal ol li:first-child {
+  border-top: none;
+}
+body.find-an-adventure #results {
+  display: none;
+}
+body.find-an-adventure #results ol {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+body.find-an-adventure #results ol li {
+  margin: 0px 0px 6px 0px;
+  padding: 0px;
+  line-height: normal;
+  background: #61a443;
+  border-radius: 5px;
+}
+body.find-an-adventure #results ol li a {
+  display: block;
+  background: url("../img/find-an-adventure-icons.png");
+  background-size: 60px 750px;
+  background-repeat: no-repeat;
+  background-position: right -683px;
+  color: #fff;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+body.find-an-adventure #results ol li a:hover {
+  background-color: #78b15f;
+  border-radius: 5px;
+}
+body.find-an-adventure #no-results {
+  display: none;
+}
+/* For the index page */
+body.index #wrapper {
+  padding-top: 51px;
+  color: #fff;
+}
+body.index #wrapper #carousel {
+  margin-bottom: 0px;
+}
+body.index #wrapper #carousel .item {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 0px;
+}
+body.index #wrapper #carousel .slide1 {
+  background-image: url("../img/homepage-carousel-x1024-_default.jpg");
+}
+body.index #wrapper #carousel .slide2 {
+  background-image: url("../img/homepage-carousel-x1024-abel-tasman-coast-track.jpg");
+}
+body.index #wrapper #carousel .slide3 {
+  background-image: url("../img/homepage-carousel-x1024-heaphy-track.jpg");
+}
+body.index #wrapper #carousel .slide4 {
+  background-image: url("../img/homepage-carousel-x1024-lake-waikaremoana.jpg");
+}
+body.index #wrapper #carousel .slide5 {
+  background-image: url("../img/homepage-carousel-x1024-milford-track.jpg");
+}
+body.index #wrapper #carousel .slide6 {
+  background-image: url("../img/homepage-carousel-x1024-rakiura-track---stewart-island.jpg");
+}
+body.index #wrapper #carousel .slide7 {
+  background-image: url("../img/homepage-carousel-x1024-whanganui-journey.jpg");
+}
+body.index #wrapper #carousel .carousel-control {
+  display: none;
+}
+body.index #wrapper #carousel:after {
+  /*Preload images to prevent flicker */
+
+  content: url("../img/homepage-carousel-x1024-_default.jpg") url("../img/homepage-carousel-x1024-abel-tasman-coast-track.jpg") url("../img/homepage-carousel-x1024-heaphy-track.jpg") url("../img/homepage-carousel-x1024-lake-waikaremoana.jpg") url("../img/homepage-carousel-x1024-milford-track.jpg") url("../img/homepage-carousel-x1024-rakiura-track---stewart-island.jpg") url("../img/homepage-carousel-x1024-whanganui-journey.jpg");
+  display: none;
+}
+body.index #wrapper #doc-sign {
+  display: block;
+  text-decoration: none;
+  background: url("../img/homepage-sign.png");
+  background-size: 100%;
+  position: relative;
+  top: -227px;
+  width: 394px;
+  height: 227px;
+  margin: 0px auto -227px auto;
+}
+body.index #wrapper #doc-sign label,
+body.index #wrapper #doc-sign a {
+  display: block;
+  width: 100%;
+  text-indent: 100%;
+  /* To hide inner text don't use text-indent:-10000px see: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */
+
+  white-space: nowrap;
+  overflow: hidden;
+}
+body.index #wrapper #doc-sign .great-walks {
+  height: 120px;
+  margin-bottom: 0px;
+}
+body.index #wrapper #doc-sign .find-an-adventure {
+  height: 80px;
+}
+@media (max-width: 600px), (max-height: 600px) {
+  body.index #wrapper #doc-sign {
+    position: relative;
+    top: -172px;
+    width: 299px;
+    height: 172px;
+    margin: 0px auto -172px auto;
+  }
+  body.index #wrapper #doc-sign .great-walks {
+    height: 94px;
+    margin-bottom: 0px;
+  }
+  body.index #wrapper #doc-sign .find-an-adventure {
+    height: 60px;
+  }
+}
+@media (max-width: 500px), (max-height: 500px) {
+  body.index #wrapper #doc-sign {
+    position: relative;
+    top: -104px;
+    width: 180px;
+    height: 104px;
+    margin: 0px auto -104px auto;
+  }
+  body.index #wrapper #doc-sign .great-walks {
+    height: 55px;
+    margin-bottom: 0px;
+  }
+  body.index #wrapper #doc-sign .find-an-adventure {
+    height: 40px;
+  }
+}
+.navbar-fixed-bottom .navbar-inner {
+  /* Also used on book.html and offers.html */
+
+  padding-top: 0px;
+  background: #427630;
+}
+.navbar-fixed-bottom .navbar-inner .container-fluid * {
+  width: auto;
+  text-align: center;
+  float: none;
+}
+.navbar-fixed-bottom .navbar-inner ul.options {
+  margin: 0px auto;
+}
+.navbar-fixed-bottom .navbar-inner ul.options li {
+  display: inline;
+}
+.navbar-fixed-bottom .navbar-inner ul.options li a {
+  display: inline-block;
+  background: url("../img/homepage-buttons.png") no-repeat;
+  background-size: 258px 44px;
+  width: 100px;
+  padding-top: 60px;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.navbar-fixed-bottom .navbar-inner ul.options li a:hover {
+  text-decoration: none;
+}
+.navbar-fixed-bottom .navbar-inner ul.options li a.maps {
+  background-position: 30px 10px;
+}
+.navbar-fixed-bottom .navbar-inner ul.options li a.offers {
+  background-position: -80px 10px;
+}
+.navbar-fixed-bottom .navbar-inner ul.options li a.booknow {
+  background-position: -193px 10px;
+}
+@media (max-width: 300px), (max-height: 400px) {
+  body.index #wrapper .navbar-fixed-bottom .navbar-inner {
+    min-height: auto;
+  }
+  body.index #wrapper .navbar-fixed-bottom .navbar-inner ul.options li a {
+    background: transparent;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+body.visitor-centre {
+  background: white;
+}
+body.visitor-centre .visitor-centre-location {
+  border-bottom: solid 2px #eeeeee;
+}
+body.book {
+  background: white;
+}
+body.maps {
+  background: #eaf6fc;
+  /* Old browsers */
+
+  background: -moz-radial-gradient(center, ellipse cover, #79ccec 0%, #eaf6fc 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #79ccec), color-stop(100%, #eaf6fc));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-radial-gradient(center, ellipse cover, #79ccec 0%, #eaf6fc 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-radial-gradient(center, ellipse cover, #79ccec 0%, #eaf6fc 100%);
+  /* Opera 12+ */
+
+  background: -ms-radial-gradient(center, ellipse cover, #79ccec 0%, #eaf6fc 100%);
+  /* IE10+ */
+
+  background: radial-gradient(ellipse at center, #79ccec 0%, #eaf6fc 100%);
+  /* W3C */
+
+  min-height: 100%;
+  height: 100%;
+}
+body.maps #wrapper {
+  background: #eaf6fc;
+  /* Old browsers */
+
+  background: -moz-radial-gradient(center, ellipse cover, #79ccec 0%, #eaf6fc 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #79ccec), color-stop(100%, #eaf6fc));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-radial-gradient(center, ellipse cover, #79ccec 0%, #eaf6fc 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-radial-gradient(center, ellipse cover, #79ccec 0%, #eaf6fc 100%);
+  /* Opera 12+ */
+
+  background: -ms-radial-gradient(center, ellipse cover, #79ccec 0%, #eaf6fc 100%);
+  /* IE10+ */
+
+  background: radial-gradient(ellipse at center, #79ccec 0%, #eaf6fc 100%);
+  /* W3C */
+
+  height: 100%;
+  min-height: 100%;
+}
+body.maps #wrapper #new-zealand-map {
+  position: relative;
+  padding: 0px;
+  margin: 0px auto;
+}
+body.maps #wrapper #new-zealand-map img {
+  margin: 0px;
+  padding: 0px;
+  width: auto;
+  height: auto;
+}
+body.maps #wrapper #new-zealand-map .map-location {
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  line-height: normal;
+  text-align: center;
+  color: black;
+}
+body.maps #wrapper #new-zealand-map h2.map-location {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+body.maps #wrapper #new-zealand-map h2.map-location a.secret-link {
+  color: black;
+}
+body.maps #wrapper #new-zealand-map h2.map-location a.secret-link:hover {
+  text-decoration: none;
+}
+body.maps #wrapper #new-zealand-map a.map-location {
+  font-weight: bold;
+  text-decoration: none;
+}
+body.maps #wrapper #new-zealand-map a.map-location:hover {
+  text-decoration: none;
+}
+body.maps #wrapper #new-zealand-map.size800 h2.map-location,
+body.maps #wrapper #new-zealand-map.size700 h2.map-location,
+body.maps #wrapper #new-zealand-map.size600 h2.map-location {
+  font-size: 13px;
+  line-height: 15px;
+}
+body.maps #wrapper #new-zealand-map.size800 a.map-location,
+body.maps #wrapper #new-zealand-map.size700 a.map-location,
+body.maps #wrapper #new-zealand-map.size600 a.map-location {
+  font-size: 18px;
+}
+body.maps #wrapper #new-zealand-map.size800 .map-icon-bottom,
+body.maps #wrapper #new-zealand-map.size700 .map-icon-bottom,
+body.maps #wrapper #new-zealand-map.size600 .map-icon-bottom {
+  padding-bottom: 50px;
+}
+body.maps #wrapper #new-zealand-map.size800 .map-icon-bottom2,
+body.maps #wrapper #new-zealand-map.size700 .map-icon-bottom2,
+body.maps #wrapper #new-zealand-map.size600 .map-icon-bottom2 {
+  padding-bottom: 45px;
+}
+body.maps #wrapper #new-zealand-map.size800 .map-icon-left,
+body.maps #wrapper #new-zealand-map.size700 .map-icon-left,
+body.maps #wrapper #new-zealand-map.size600 .map-icon-left {
+  padding-left: 50px;
+}
+body.maps #wrapper #new-zealand-map.size800 .map-icon-right,
+body.maps #wrapper #new-zealand-map.size700 .map-icon-right,
+body.maps #wrapper #new-zealand-map.size600 .map-icon-right {
+  padding-right: 50px;
+}
+body.maps #wrapper #new-zealand-map.size800 .map-icon-height,
+body.maps #wrapper #new-zealand-map.size700 .map-icon-height,
+body.maps #wrapper #new-zealand-map.size600 .map-icon-height {
+  min-height: 50px;
+  line-height: 50px;
+}
+body.maps #wrapper #new-zealand-map.size800 .map-icon-height2,
+body.maps #wrapper #new-zealand-map.size700 .map-icon-height2,
+body.maps #wrapper #new-zealand-map.size600 .map-icon-height2 {
+  min-height: 40px;
+  line-height: 70px;
+}
+body.maps #wrapper #new-zealand-map.size800 .map-icon-height3,
+body.maps #wrapper #new-zealand-map.size700 .map-icon-height3,
+body.maps #wrapper #new-zealand-map.size600 .map-icon-height3 {
+  min-height: 50px;
+  line-height: normal;
+}
+body.maps #wrapper #new-zealand-map.size500 h2.map-location {
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: normal;
+}
+body.maps #wrapper #new-zealand-map.size500 a.map-location {
+  font-size: 16px;
+}
+body.maps #wrapper #new-zealand-map.size500 .map-icon-bottom {
+  padding-bottom: 30px;
+}
+body.maps #wrapper #new-zealand-map.size500 .map-icon-bottom2 {
+  padding-bottom: 27px;
+}
+body.maps #wrapper #new-zealand-map.size500 .map-icon-left {
+  padding-left: 40px;
+}
+body.maps #wrapper #new-zealand-map.size500 .map-icon-right {
+  padding-right: 40px;
+}
+body.maps #wrapper #new-zealand-map.size500 .map-icon-height {
+  min-height: 20px;
+  line-height: 25px;
+}
+body.maps #wrapper #new-zealand-map.size500 .map-icon-height2 {
+  min-height: 20px;
+  line-height: 30px;
+}
+body.maps #wrapper #new-zealand-map.size500 .map-icon-height3 {
+  min-height: 15px;
+  line-height: 35px;
+}
+body.maps #wrapper #new-zealand-map.size400 h2.map-location {
+  font-size: 9px;
+  line-height: 12px;
+  font-weight: normal;
+}
+body.maps #wrapper #new-zealand-map.size400 a.map-location {
+  font-size: 13px;
+}
+body.maps #wrapper #new-zealand-map.size400 .map-icon-bottom {
+  padding-bottom: 30px;
+}
+body.maps #wrapper #new-zealand-map.size400 .map-icon-bottom2 {
+  padding-bottom: 27px;
+}
+body.maps #wrapper #new-zealand-map.size400 .map-icon-left {
+  padding-left: 35px;
+}
+body.maps #wrapper #new-zealand-map.size400 .map-icon-right {
+  padding-right: 35px;
+}
+body.maps #wrapper #new-zealand-map.size400 .map-icon-height {
+  min-height: 25px;
+  line-height: 25px;
+}
+body.maps #wrapper #new-zealand-map.size400 .map-icon-height2 {
+  min-height: 20px;
+  line-height: 40px;
+}
+body.maps #wrapper #new-zealand-map.size400 .map-icon-height3 {
+  min-height: 25px;
+  line-height: normal;
+}
+body.maps #wrapper #new-zealand-map.size300 h2.map-location {
+  font-size: 8px;
+  line-height: 10px;
+  font-weight: normal;
+}
+body.maps #wrapper #new-zealand-map.size300 a.map-location {
+  font-size: 11px;
+}
+body.maps #wrapper #new-zealand-map.size300 .map-icon-bottom {
+  padding-bottom: 20px;
+}
+body.maps #wrapper #new-zealand-map.size300 .map-icon-bottom2 {
+  padding-bottom: 20px;
+}
+body.maps #wrapper #new-zealand-map.size300 .map-icon-left {
+  padding-left: 25px;
+  line-height: 10px;
+}
+body.maps #wrapper #new-zealand-map.size300 .map-icon-right {
+  padding-right: 20px;
+}
+body.maps #wrapper #new-zealand-map.size300 .map-icon-height {
+  min-height: 25px;
+  line-height: 25px;
+}
+body.maps #wrapper #new-zealand-map.size300 .map-icon-height2 {
+  min-height: 20px;
+  line-height: 40px;
+}
+body.maps #wrapper #new-zealand-map.size300 .map-icon-height3 {
+  min-height: 25px;
+  line-height: normal;
+}
+body.maps #wrapper #new-zealand-map.size200 h2.map-location {
+  font-size: 7px;
+  line-height: 6px;
+  font-weight: normal;
+}
+body.maps #wrapper #new-zealand-map.size200 a.map-location {
+  font-size: 7px;
+}
+body.maps #wrapper #new-zealand-map.size200 .map-icon-bottom {
+  padding-bottom: 18px;
+}
+body.maps #wrapper #new-zealand-map.size200 .map-icon-bottom2 {
+  padding-bottom: 15px;
+}
+body.maps #wrapper #new-zealand-map.size200 .map-icon-left {
+  padding-left: 18px;
+}
+body.maps #wrapper #new-zealand-map.size200 .map-icon-right {
+  padding-right: 18px;
+}
+body.maps #wrapper #new-zealand-map.size200 .map-icon-height {
+  min-height: 12px;
+  line-height: 12px;
+}
+body.maps #wrapper #new-zealand-map.size200 .map-icon-height2 {
+  min-height: 20px;
+  line-height: 25px;
+}
+body.maps #wrapper #new-zealand-map.size200 .map-icon-height3 {
+  min-height: 12px;
+  line-height: normal;
+}
+body.maps #wrapper #new-zealand-map.size100 h2.map-location {
+  font-size: 5px;
+  line-height: 6px;
+  font-weight: normal;
+}
+body.maps #wrapper #new-zealand-map.size100 a.map-location {
+  font-size: 6px;
+}
+body.maps #wrapper #new-zealand-map.size100 .map-icon-bottom {
+  padding-bottom: 7px;
+}
+body.maps #wrapper #new-zealand-map.size100 .map-icon-bottom2 {
+  padding-bottom: 7px;
+}
+body.maps #wrapper #new-zealand-map.size100 .map-icon-left {
+  padding-left: 10px;
+}
+body.maps #wrapper #new-zealand-map.size100 .map-icon-right {
+  padding-right: 10px;
+}
+body.maps #wrapper #new-zealand-map.size100 .map-icon-height {
+  min-height: 12px;
+  line-height: 12px;
+}
+body.maps #wrapper #new-zealand-map.size100 .map-icon-height2 {
+  min-height: 20px;
+  line-height: 25px;
+}
+body.maps #wrapper #new-zealand-map.size100 .map-icon-height3 {
+  min-height: 12px;
+  line-height: normal;
+}
+body.map #wrapper {
+  background: url("../img/table.png");
+}
+body.map #weta {
+  background: url(../img/weta_land.png);
+  width: 255px;
+  height: 393px;
+  background-size: 100%;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  text-indent: 100%;
+  /* To hide inner text don't use text-indent:-10000px see: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */
+
+  white-space: nowrap;
+  overflow: hidden;
+}
+body.map #weta:hover,
+body.map #weta:active,
+body.map #weta.active {
+  background-image: url(../img/weta_twitch.png);
+}
+body.map #map {
+  border: solid 8px #201e1e;
+  overflow: hidden;
+}
+body.map #map_id {
+  display: none;
+}
+body.map #no-touch-zoom {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: #eeeeee;
+  border: solid 1px #999999;
+}
+body.map #no-touch-zoom a {
+  background: #777777;
+  border: solid 1px #666666;
+  font-size: xx-large;
+  font-weight: bold;
+  display: block;
+  float: left;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  padding: 0px 20px;
+}
+body.map #youarehere {
+  display: none;
+  position: absolute;
+  width: 1px
+        height:1px;
+  margin-left: -1px;
+  margin-top: -1px;
+  border-radius: 100%;
+}
+body.map #youarehere.goodAccuracy {
+  -webkit-box-shadow: 0 0 5px 35px rgba(0, 0, 255, 0.3);
+}
+body.map #youarehere.badAccuracy {
+  -webkit-box-shadow: 0 0 5px 70px rgba(0, 0, 255, 0.3);
+}
+body.map #youarehere .dot {
+  position: absolute;
+  left: -18px;
+  top: -36px;
+  display: block;
+  width: 36px;
+  height: 36px;
+  background: url(../img/youarehere.png) no-repeat center center;
+}
+body.map #youarehere .offmap {
+  display: none;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 10em;
+  font-size: x-small;
+  background: #666666;
+  color: #fff;
+  border: solid 1px #777777;
+  border-radius: 3px;
+  padding: 3px 8px;
+}
+body.map #no_gps {
+  display: none;
+  position: fixed;
+  left: 10px;
+  top: 70px;
+  background: #666666;
+  border: solid 2px #aaaaaa;
+  color: #fff;
+  border-radius: 5px;
+  padding: 3px 8px;
+}
+body.map #user_actions {
+  display: block;
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  min-width: 200px;
+  max-width: 600px;
+  background: rgba(50, 50, 50, 0.9);
+  border: solid 2px #aaaaaa;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0px 0px 8px 0px;
+  text-align: center;
+}
+body.map #user_actions.hidden {
+  display: none;
+}
+body.map #user_actions p {
+  margin: 0px;
+  padding: 5px;
+}
+body.map #user_actions p.take-photo {
+  margin-bottom: 0.2em;
+}
+body.map #user_actions p.refresh-geolocation {
+  border-top: solid 2px #aaaaaa;
+  padding: 8px 0px 0px 0px;
+}
+body.map #user_actions .last-updated {
+  margin-top: 0.2em;
+  text-align: center;
+  font-size: small;
+}
+body.map #photo-preview {
+  display: none;
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  height: 90%;
+  width: 90%;
+  z-index: 10001;
+  -webkit-box-shadow: 0 0 5px 10px #000;
+}
+body.map #camera_error {
+  background: #ffeeaa;
+  padding: 10px;
+  color: #806600;
+  border: solid 2px #806600;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+body.map #toggle-map-key {
+  position: fixed;
+  right: 20px;
+  top: 60px;
+  background: #333333 url("../img/legend-icon.png") scroll no-repeat center center;
+  background-size: 29px 29px;
+  border: solid 2px #999999;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  text-align: center;
+  text-indent: 100%;
+  overflow: hidden;
+}
+body.map #map-key {
+  display: none;
+  border: none;
+  background: rgba(50, 50, 50, 0.9);
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  margin-left: -165px;
+  width: 330px;
+  padding: 10px;
+  color: #ffffff;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-size: small;
+}
+body.map #map-key ul {
+  list-style: none;
+  margin: 0px 0px 15px 0px;
+  padding: 5px 20px 0px 16px;
+}
+body.map #map-key ul li {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+body.map #map-key ul li span {
+  background: url("../img/map-lines.png") no-repeat;
+  float: right;
+  display: block;
+  width: 160px;
+  height: 18px;
+}
+body.map #map-key ul li.greatwalk span {
+  background-position: 0px 8px;
+}
+body.map #map-key ul li.sidetrack span {
+  background-position: 0px -38px;
+}
+body.map #map-key ul li.road span {
+  background-position: 0px -85px;
+}
+body.map #map-key table {
+  margin: 0px 0px 5px 15px;
+}
+body.map #map-key table td {
+  font-weight: bold;
+  vertical-align: middle;
+  text-align: left;
+  padding-bottom: 5px;
+}
+body.map #map-key table td:first-child {
+  padding-right: 20px;
+}
+body.map #map-key table td img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+body.map .location-icon {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/missing-icon.png);
+  background-size: 100%;
+  border: solid 3px red;
+}
+@media (min-width: 600px) {
+  body.map .location-icon {
+    width: 30px;
+    height: 30px;
+    background-size: 100%;
+  }
+}
+body.map .location-animal,
+body.map .location-birdwatching {
+  background-image: url(../img/icon-map-bird-or-animal-species.png);
+  border: none;
+}
+body.map .location-alert {
+  background-image: url(../img/icon-map-alert.png);
+  border: none;
+}
+body.map .location-attention {
+  background-image: url(../img/icon-map-attention.png);
+  border: none;
+}
+body.map .location-carpark {
+  background-image: url(../img/icon-map-carpark.png);
+  border: none;
+}
+body.map .location-camphut {
+  background-image: url(../img/icon-map-camp_hut.png);
+  border: none;
+}
+body.map .location-campsite,
+body.map .location-camping {
+  background-image: url(../img/icon-map-camping.png);
+  border: none;
+}
+body.map .location-hot_springs,
+body.map .location-hotsprings {
+  background-image: url(../img/icon-map-hotsprings.png);
+  border: none;
+}
+body.map .location-swimming {
+  background-image: url(../img/icon-map-swimming.png);
+  border: none;
+}
+body.map .location-side-trip {
+  background-image: url(../img/icon-map-side_trail.png);
+  border: none;
+}
+body.map .location-isite,
+body.map .location-visitorcentre,
+body.map .location-VisitorCentre {
+  background-image: url(../img/icon-map-information.png);
+  border: none;
+}
+body.map .location-hut,
+body.map .location-Hut,
+body.map .location-Huts,
+body.map .location-huts {
+  background-image: url(../img/icon-map-huts.png);
+  border: none;
+}
+body.map .location-shelter,
+body.map .location-Shelter {
+  background-image: url(../img/icon-map-shelter.png);
+  border: none;
+}
+body.map .location-plane {
+  background-image: url(../img/icon-map-plane.png);
+  border: none;
+}
+body.map .location-plant_species {
+  background-image: url(../img/icon-map-plantspecies.png);
+  border: none;
+}
+body.map .location-tent,
+body.map .location-Camping,
+body.map .location-Campsite {
+  background-image: url(../img/icon-map-camping.png);
+  border: none;
+}
+body.map .location-toilets {
+  background-image: url(../img/icon-map-toilets.png);
+  border: none;
+}
+body.map .location-trailhead {
+  background-image: url(../img/icon-map-trailhead.png);
+  border: none;
+}
+body.map .location-viewpoints,
+body.map .location-generic-poi,
+body.map .location-scenic-lookout,
+body.map .location-historic-site,
+body.map .location-historical-site,
+body.map .location-lake,
+body.map .location-feature,
+body.map .location-Feature {
+  background-image: url(../img/icon-map-viewpoints.png);
+  border: none;
+}
+body.map .location-lake-river-stream-beach,
+body.map .location-natural-feature {
+  background-image: url(../img/icon-map-generic_nature.png);
+  border: none;
+}
+body.map .location-volcano {
+  background-image: url(../img/icon-map-volcano.png);
+  border: none;
+}
+body.map .location-waterfall {
+  background-image: url(../img/icon-map-waterfall.png);
+  border: none;
+}
+body.map .location-user-photo {
+  background-image: url(../img/icon-map-generic_nature.png);
+  border: none;
+}
+@media (max-width: 400px), (max-height: 500px) {
+  body.map #map-key {
+    top: 90px;
+  }
+}
+@media (max-width: 400px) {
+  body.map #map-key {
+    padding: 0px;
+  }
+}
+@media (max-width: 330px) {
+  body.map #map-key {
+    width: 200px;
+    margin-left: -100px;
+  }
+  body.map #map-key table,
+  body.map #map-key tr,
+  body.map #map-key td {
+    display: block;
+  }
+}
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/* Prevent callout */
+.nocallout {
+  -webkit-touch-callout: none;
+}
+.pressed {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+/* A hack for HTML5 contenteditable attribute on mobile */
+textarea[contenteditable] {
+  -webkit-appearance: none;
+}
+/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if
+   they have been set as display: none */
+.gifhidden {
+  position: absolute;
+  left: -100%;
+}
+/*
+ * Image replacement
+ */
+.ir {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 0;
+  direction: ltr;
+  display: block;
+  overflow: hidden;
+  text-align: left;
+  text-indent: -999em;
+}
+.ir br {
+  display: none;
+}
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+.invisible {
+  visibility: hidden;
+}
+/**
+ * Clearfix helper
+ * Used to contain floats: h5bp.com/q
+ */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+  *zoom: 1;
+}

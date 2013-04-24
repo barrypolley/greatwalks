@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>Great Walks - Tongariro Northern Circuit</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="x-rim-auto-match" content="none">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="cordova.js"></script>
+        <script>
+            var nz_map_dimensions = {"width":752,"height":1056,"ratio":0.7121212121212122};
+            var maps_details = {"whanganui-journey":{"map_id":"whanganui-journey","latitude":-38.864053084012156,"longitude":174.5366521487492,"map_pixel_width":1562,"map_pixel_height":1016,"degrees_per_pixel":0.000632707374232,"extent_latitude":-39.50688377623187,"extent_longitude":175.52494106729958,"map_initial_scale":0.1},"lake-waikaremoana":{"map_id":"lake-waikaremoana","latitude":-38.69996653229696,"longitude":176.95114126114987,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000137073340468,"extent_latitude":-38.84307109974555,"extent_longitude":177.18992302024512,"map_initial_scale":0.1},"tongariro-northern-circuit":{"map_id":"tongariro-northern-circuit","latitude":-39.043598354843745,"longitude":175.44773655679015,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000234666432478,"extent_latitude":-39.288590110350775,"extent_longitude":175.85652548216683,"map_initial_scale":0.1},"rakiura-track---stewart-island":{"map_id":"rakiura-track---stewart-island","latitude":-46.82703931382569,"longitude":167.99939428698806,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000110980608744,"extent_latitude":-46.94290306935443,"extent_longitude":168.19272250742011,"map_initial_scale":0.1},"milford-track":{"map_id":"milford-track","latitude":-44.65180781421633,"longitude":167.65907612771002,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-44.94994232973389,"extent_longitude":168.15653812582457,"map_initial_scale":0.1},"abel-tasman-coast-track":{"map_id":"abel-tasman-coast-track","latitude":-40.77160911578638,"longitude":172.68815992588924,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285453325972,"extent_latitude":-41.06962238810115,"extent_longitude":173.18541961973247,"map_initial_scale":0.1},"heaphy-track":{"map_id":"heaphy-track","latitude":-40.82923160495061,"longitude":172.02760098235598,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-41.12736612046816,"extent_longitude":172.52506298047052,"map_initial_scale":0.1},"wellington":{"map_id":"wellington","latitude":-41.21341136987253,"longitude":174.72217539068876,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000142358133316,"extent_latitude":-41.362033261054435,"extent_longitude":174.97016325892523,"map_initial_scale":0.1},"routeburn-track":{"map_id":"routeburn-track","latitude":-44.68512592255184,"longitude":168.06155744219296,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.00015647401239,"extent_latitude":-44.848484791487,"extent_longitude":168.33413517177635,"map_initial_scale":0.1},"kepler-track":{"map_id":"kepler-track","latitude":-45.34650584038335,"longitude":167.46068593304253,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000174704669218,"extent_latitude":-45.52889751504694,"extent_longitude":167.7650214668203,"map_initial_scale":0.1}};
+        </script>
+    </head>
+    <body class="walk">
+        <input type="checkbox" id="show_slideout_navigation">
+        <div id="wrapper">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a href="index.html" id="logo">Department of Conservation - Great Walks</a>
+                        <ul class="nav">
+                            <li>
+                                <label for="show_slideout_navigation"><span class="header-sprite header-threebar">Menu</span></label>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="info.html"><span class="header-sprite header-info">Info</span></a>
+                            </li>
+                            <li id="share-social">
+                                <a href="#social-share"><span class="header-sprite header-share">Share</span></a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div id="debug"></div>
+
+               </div>
+            </div>
+            <div id="slideout_navigation">
+                <ul class="menu">
+                    <li><label for="show_slideout_navigation">Menu</label></li>
+                    <li><a href="book.html" class="booking">Make a booking</a></li>
+                    <li><a href="offers.html" class="offers">Special offers</a></li>
+                </ul>
+                <ul class="walks">
+                    <li><a href="walk-lake-waikaremoana.html">Lake Waikaremoana</a></li><li><a href="walk-tongariro-northern-circuit.html">Tongariro Northern Circuit</a></li><li><a href="walk-whanganui-journey.html">Whanganui Journey</a></li><li><a href="walk-abel-tasman-coast-track.html">Abel Tasman Coast Track</a></li><li><a href="walk-heaphy-track.html">Heaphy Track</a></li><li><a href="walk-kepler-track.html">Kepler Track</a></li><li><a href="walk-milford-track.html">Milford Track</a></li><li><a href="walk-routeburn-track.html">Routeburn Track</a></li><li><a href="walk-rakiura-track---stewart-island.html">Rakiura Track - Stewart Island</a></li>
+                </ul>
+                <ul class="maps">
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </div>
+            <div id="page1">
+                <div class="social-links">
+                    <a href='mailto:enquiries@doc.govt.nz?subject=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;body=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20http%3A%2F%2Fgreatwalks.co.nz%2F' class='email'>Email</a> <a href='http://www.facebook.com/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fgreatwalks.co.nz%2F&amp;p[title]=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;p[images][0]=http%3A%2F%2Fwww.greatwalks.co.nz%2Fsites%2Fall%2Fthemes%2Fsparks_responsive%2Flogo.png&amp;p[summary]=.' class='facebook'>Facebook</a> <a href='http://twitter.com/share?url=http%3A%2F%2Fbit.ly%2FSLFPlX&amp;text=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20@NZGreatWalks' class='twitter'>Twitter</a>
+                </div>
+                <!--
+                <div id="viewable-area" style="border: solid 2px red"></div>
+                <div id="absolute-map" style="border: solid 2px green"></div>
+                -->
+    	        <div class="text-column1 tongariro-northern-circuit">
+    <h1>Tongariro Northern Circuit</h1>
+    <p class="info">
+      <span class="days">3-4 days</span>
+      <span class="duration">51.5km / 19.9mi</span>
+      <a href="map-tongariro-northern-circuit.html" class="icon-map">Map</a>
+    </p>
+    <p class="intro">
+      Winding its way over Mt Tongariro and around Mt Ngauruhoe, <a href="#" class="icon icon-volcano"
+      data-content="Tongariro National Park is centered around three active volcanoes: Ruapehu (2797m / 9177ft), the highest point in the North Island, Tongariro (1967m / 6453ft) and Ngauruhoe (2287m / 7503ft) These volcanoes are all less than 500,000 years old and still active today."></a> this walk passes
+      through unique and stunning landforms including active volcanic craters, brilliant
+      blue lakes, <a href="#" class="icon icon-lake2"
+      data-content="The Emerald Lakes, a trio of turquoise-coloured lakes, are situated near the summit of Mt Tongariro and a real highlight of this Great Walk. The lakes fill explosion craters and get their brilliant colours from dissolved volcanic minerals."></a> steaming geothermal areas, and glacial valleys. From alpine herb fields
+      to forests, from tranquil lakes to desert-like plateau, this walk is a place of
+      extremes and surprises.
+    </p>
+    <div class="youtube" data-youtube-id="3s2BYVLSB6Y"></div>
+    <div id="carousel" class="carousel slide">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+          <div class="item active">
+            <ul>
+              <li><a href="#carousel-tongariro2jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/tongariro-northern-circuit/carousel-tongariro2.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-tongoriro-2jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/tongariro-northern-circuit/carousel-tongoriro-2.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-img_8288_tongariro_processedjpg" role="button" data-toggle="modal" style="background-image: url('img/walks/tongariro-northern-circuit/carousel-img8288tongariroprocessed.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+          <div class="item ">
+            <ul>
+              <li><a href="#carousel-img_9395jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/tongariro-northern-circuit/carousel-img9395.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+      </div>
+      <a class="carousel-control left" href="#carousel" data-slide="prev">&#8249;</a>
+      <a class="carousel-control right" href="#carousel" data-slide="next">&#8250;</a>
+    </div>
+</div>
+<div class="below-fold">
+    <div class="text-column1 tongariro-northern-circuit">
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header dont-miss"><a href="#expand-walk-detail"><span>Don't miss</span></a></h2><div class="walk-detail dont-miss">  
+    <p>
+      <img src="img/dont-miss-background-paper.png" class="paper" alt="">
+      <img src="img/dont-miss-background-paper-shadow.png" class="shadow" alt="">
+      
+      <a class="hobbits" href="#" data-content="Journey to Middle Earth. Tongariro National Park provided the stunning
+        backdrop for several filming locations for the Lord of the Rings trilogy
+        including Ithilien, Mordor and the Gates of Mordor.">
+          <img src="img/walks/tongariro-northern-circuit/dont-miss-hobbits.png" alt="Hobbits">
+      </a>
+      <a class="culture" href="#" data-content="Explore a Natural and Cultural World Heritage Area. Established in 1887,
+        Tongariro is New Zealand&rsquo;s first national park and the first national park
+        in the world to be gifted by a country's indigenous people.">
+          <img src="img/walks/tongariro-northern-circuit/dont-miss-culture.png" alt="Culture">
+      </a>
+      <a class="lakes" href="#" data-content="Tama Lakes, named after the high chief Tamatea, explored the area six
+        centuries ago. Take a detour off the main track to see these stunning lakes and enjoy the views.">
+          <img src="img/walks/tongariro-northern-circuit/dont-miss-lakes.png" alt="Lakes">
+      </a>
+      <a class="volcanoes" href="#" data-content="Walk across active volcanoes! The three volcanoes at the heart of the park
+        are Tongariro, Ngauruhoe and Ruapehu, the highest point in the North Island.">
+          <img src="img/walks/tongariro-northern-circuit/dont-miss-volcanoes.png" alt="Volcanoes">
+      </a>
+      <a class="taranakifalls" href="#" data-content="Tumbling 20m / 66ft over the edge of a large lava flow, which erupted from Ruapehu 15,000 years ago, Taranaki Falls plunge into a boulder-ringed pool. Allow
+        2 hours for the return trip on the loop track.">
+          <img src="img/walks/tongariro-northern-circuit/dont-miss-taranakifalls.png" alt="Taranaki Falls">
+      </a>
+    </p></div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header offers"><a href="#expand-walk-detail"><span>Offers</span></a></h2><div class="walk-detail offers">    <ul>
+      <li>
+        <a href="http://bookings.bookitsecure.com/pub/supplier.aspx?b=DEPART"><img src="img&#x2F;walks&#x2F;tongariro-northern-circuit&#x2F;doc-banner1.png" alt=""></a>
+      </li>
+      <li>
+        <a href=
+        "http://www.airnewzealand.co.nz/special-deals-new-zealand#special-deals-great-walks"><img src="img&#x2F;walks&#x2F;tongariro-northern-circuit&#x2F;airnz-banner1.png" alt=""></a>
+      </li>
+    </ul></div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header before-you-go"><a href="#expand-walk-detail"><span>Before you go</span></a></h2><div class="walk-detail before-you-go">    <p>
+      It is important&nbsp;to plan and prepare
+      so that you are well equipped to enjoy your Great Walk.
+    </p>
+    
+    <p>
+      Before you go, know <strong>The Outdoor Safety Code</strong> - 5 simple rules to help you stay
+      safe:
+    </p>
+    
+    <ol>
+      <li>
+        Plan your trip
+      </li>
+      <li>
+        Tell someone
+      </li>
+      <li>
+        Be aware of the weather
+      </li>
+      <li>
+        Know your limits
+      </li>
+      <li>
+        Take sufficient supplies
+      </li>
+    </ol>
+    
+    
+    <h3><a href="#Tongariro" data-audio="audio/speech-tongariro.mp3" class="audio">Tongariro</a> Northern
+      Circuit&nbsp;safety
+    </h3>
+    <ul>
+      <li>
+        The Tongariro Northern Circuit is considered challenging &ndash; often
+        covering exposed terrain, with much of it on uneven track surfaces. Reasonable
+        fitness is required. Cold temperatures, snow, strong winds and heavy rain can
+        occur at any time of the year. You must be self-sufficient and responsible for
+        ensuring your own safety while walking.
+      </li>
+      <li>
+        The area is subject to volcanic activity, please check the current Volcanic
+        Alert Level.
+      </li>
+      <li>
+        There is a risk of Giardia. Boil, filter or chemically treat water if you
+        doubt its purity.
+      </li>
+      <li>
+        Cell phone coverage on the track is limited.
+      </li>
+    </ul>
+    <h3>Things to know before you
+      go
+    </h3>
+    <ul>
+      <li>
+        A good level of fitness and the right outdoor clothing and equipment will
+        greatly improve the enjoyment of your trip.
+      </li>
+      <li>
+        Safety is your responsibility - leave your trip details with a trusted
+        contact. Intention forms are available at <a href=
+        "http://adventuresmart.org.nz">adventuresmart.org.nz</a>.
+      </li>
+      <li>
+        Book your trip well in advance including your accommodation, transport and
+        transfers to the start/end of the Great Walk.
+      </li>
+      <li>
+        Pack all necessary equipment, your own food and drinks and any personal
+        items for your trip, including an extra day&rsquo;s supply of food and water.
+        Food and drinks are not available for purchase at Great Walks huts and
+        campsites.
+      </li>
+      <li>
+        For a full list of equipment and preparation required for this walk plus
+        track updates for Tongariro Northern Circuit, please visit <a href=
+        "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/central-north-island/turangi-taupo/tongariro-northern-circuit/plan-and-prepare/">
+        the DOC website.</a>
+      </li>
+    </ul>
+    <h3>
+      When to go
+    </h3>
+    <p>
+      The Tongariro Northern Circuit can be walked in either direction. The safest
+      and most popular time of year to walk this track is during the summer months
+      (December - March) when the tracks are normally clear of snow and the weather is
+      less severe.
+    </p>
+    <h3>
+      What to bring
+    </h3>
+    <p>
+      Your basic equipment needs to include
+    </p>
+    <ul>
+      <li>
+        Backpack
+      </li>
+      <li>
+        Sleeping bag and liner
+      </li>
+      <li>
+        Portable cooking stove
+      </li>
+      <li>
+        Cooking utensils
+      </li>
+      <li>
+        Food, including high-energy food
+      </li>
+      <li>
+        Waterproof rain jacket and overtrousers
+      </li>
+      <li>
+        Warm/thermal clothing
+      </li>
+      <li>
+        Hiking boots
+      </li>
+      <li>
+        Map and compass
+      </li>
+      <li>
+        Lighter and matches
+      </li>
+      <li>
+        Drink bottle &amp; water
+      </li>
+    </ul>
+    
+    <p>
+      Add camping gear to your list if you&rsquo;re staying at a
+      campsite.
+    </p>
+    <h3>
+      Travelling with
+      children
+    </h3>
+    <p>
+      The circuit is a moderately challenging hike, mostly on open and exposed
+      volcanic terrain and is not recommended for children under the age of 10. However,
+      there are a range of shorter walking opportunities, suitable for the whole family
+      and for those with less time available. You can do a walk of a few hours or a whole
+      day, or an overnight stay in one of the huts or campsites.
+    </p>
+    <h3>
+      Nearest DOC visitor
+      centre
+    </h3>
+    <p>
+      Tongariro National Park Visitor Centre <br />
+      Whakapapa Village State Highway 48<br />
+      Mount Ruapehu<br />
+      <a href="tel:+6478923729" class="btn phone">+64 7 892 3729</a><br />
+      <a href="mailto:tongarirovc@doc.govt.nz" class="btn email">tongarirovc@doc.govt.nz</a>
+    </p>
+    <h4>
+      Hours</h4>
+      <p>
+      Summer (Dec - Feb):<br />
+      8:00 am - 6:00 pm daily (closed Christmas Day)<br />
+      Winter (Mar - Nov):<br /> 
+      8:00 am - 5:00 pm daily
+    </p>
+    <h4>
+      Services
+    </h4>
+    <p>
+      Great Walks bookings and recreational information for the
+      area.
+    </p>
+</div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header getting-there"><a href="#expand-walk-detail"><span>Getting there</span></a></h2><div class="walk-detail getting-there">    <h3>
+      Nearest airports
+    </h3>
+    <p>
+        Taupo - 98km / 61mi, 1 hour
+   </p>
+    
+    <p>
+      Flights to this airport typically connect from Auckland and Wellington.
+      The above driving times are indicative only - always allow for extra time to get to
+      your destination.
+    </p>
+    <h3>
+      How to get to the
+      trailhead
+    </h3>
+    <p>
+      Tongariro National Park is easy to get to from around the North Island.
+      The Tongariro Northern Circuit is easily accessible from four trailheads,
+      with Whakapapa Village, State Highway 48, Mount <a href="#Ruapehu" data-audio="audio/speech-ruapehu.mp3" class="audio">Ruapehu</a> being the main entrance
+      and exit point. 
+    </p>
+    <p>
+      The following locations have parking areas or you can arrange shuttle transport through a
+      tour operator. Whakapapa Village; the end of <a href="#Mangatepopo" data-audio="audio/speech-mangatepopo.mp3" class="audio">Mangatepopo</a> Road; the end of <a href="#Ketetahi" data-audio="audio/speech-ketetahi.mp3" class="audio">Ketetahi</a> Road;
+      and just off the Desert Road (State Highway 1), 35km / 22mi south of Turangi.
+    </p>
+    <p>
+      Located in the central North Island, the nearest towns are National Park Village,
+      Turangi, Ohakune and Taupo, in addition to Whakapapa Village.
+    </p>
+    
+    <h3>
+      Transport and
+      accommodation
+    </h3>
+    <p>
+      <a href=
+      "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/central-north-island/turangi-taupo/tongariro-northern-circuit/plan-and-prepare/guides-and-commercial-tourism-providers/">
+      Guides and commercial tourism providers</a> - find accommodation,
+      transport, and activities in the area.
+    </p></div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header where-to-stay"><a href="#expand-walk-detail"><span>Where to stay</span></a></h2><div class="walk-detail where-to-stay">    <p>
+      DOC provides four huts and campsites on the Tongariro Northern
+      Circuit.
+    </p>
+    
+    <h3>Huts
+    </h3>
+    <p>
+      Tongariro Northern Circuit huts have heating,
+      toilets, bunks, mattresses, cooking facilities and cold running water. Note: huts
+      do not provide lighting, pots and pans, cooking utensils, linen or food for
+      purchase. Make sure you put these things on your checklist before you go.
+    </p>
+    
+    
+    <ul>
+      <li>
+        Ketetahi Hut: 26 bunks (note: this hut is closed for repairs for the
+        2012/2013 season)
+      </li>
+      <li>
+        Mangatepopo Hut: 20 bunks
+      </li>
+      <li>
+        <a href="#Oturere" data-audio="audio/speech-oturere.mp3" class="audio">Oturere</a> Hut: 26 bunks
+      </li>
+      <li>
+        <a href="#Waihohonu" data-audio="audio/speech-waihohonu.mp3" class="audio">Waihohonu</a> Hut: 28 bunks
+      </li>
+    </ul>
+    <h3>Campsites
+    </h3>
+    <p>
+      Campsites can be found adjacent to each of the huts and have a water supply
+      and toilets. Facilities at the huts can be used while
+      camping.
+    </p>
+<h3>
+      Cost and booking
+    </h3>
+    <p>
+      Fees are charged per person, per night to stay in huts and campsites.
+    </p>
+    <p>
+      Bookings are essential! Use the <a href="https://booking.doc.govt.nz/Menu.aspx?sg=TNC">DOC online booking system</a> prior to travel or
+      call <a href="tel:0800694732" class="btn phone"></a>0800 NZ GREATWALKS.
+    </p>
+</div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header on-the-track"><a href="#expand-walk-detail"><span>On the track</span></a></h2><div class="walk-detail on-the-track">    <h3>Track description
+    </h3>
+    <p>
+      The Tongariro Northern Circuit starts and finishes at Whakapapa Village,
+      State Highway 48, Mount Ruapehu. You can walk the track in either direction - but
+      normally you start at Mangatepopo, as the altitude (1120m / 3675ft) is higher than at
+      Ketetahi (760m / 2493ft) so there is less climbing involved. Shuttle buses operate for
+      walking in this direction, with services to Mangatepopo in the morning and back
+      from Ketetahi in the afternoon. Allow an extra hour to walk the track in reverse
+      from Ketetahi to Mangatepopo.
+    </p>
+    
+    <p>
+      <a href="map-tongariro-northern-circuit.html" class="btn">View map</a>
+    </p>
+
+    <h3>Elevation profile
+    </h3>
+    <p>
+      The altitude on this track varies - the lowest point is 1120m / 3675ft above sea
+      level, the highest point is 1886m / 6188ft. Note the altitude level when you view the
+      elevation profile!
+    </p>
+    
+        <p><a href="#elevation-profile" id="elevation-profile-button" role="button" data-toggle="modal"><img src="img&#x2F;walks&#x2F;tongariro-northern-circuit&#x2F;profile.jpg" class="elevation-profile"></a></p>
+
+    
+    <h3>Walking guide</h3>
+    
+    <h4>
+      Whakapapa Village to Mangatepopo Hut
+    </h4>
+    <p><strong>
+      3 hours, 8.5km / 3.3mi</strong>
+    </p>
+    <p>
+      Begin 100m / 328ft below the Whakapapa Visitor Centre and head along the Taranaki
+      Falls track where after 20 minutes you can choose to take a detour to the falls.
+      Heavily eroded in some places, this track crosses many stream beds. Through here
+      you can view the Pukekaikiore vent and the Pukeonake scoria cone, both of which
+      were present during the last ice age.
+    </p>
+    
+    <h4>
+      Mangatepopo Hut to Emerald Lakes
+    </h4>
+    <p><strong>
+      3.5 hours, 8km / 5mi</strong>
+    </p>
+    <p>
+      Follow Mangatepopo stream up the valley and across a number of lava flows
+      from <a href="#Ngauruhoe" data-audio="audio/speech-ngauruhoe.mp3" class="audio">Ngauruhoe</a>, the youngest from a 1954 eruption. A five minute detour can take
+      you to Soda Springs, where cold springs emerge from an old lava flow. The steep
+      climb to the top of Mangatepopo Saddle will reward you with views across the
+      valley. Cross the South crater, Red crater and North crater and follow the track
+      down towards the Emerald Lakes, where you can see three filled explosion pits,
+      brilliantly coloured by the minerals washed down from the thermal area.
+    </p>
+    
+    <h4>
+      Emerald Lakes to Ketetahi Hut
+    </h4>
+    <p><strong>
+      1.5 hours, 4.2km / 1.6mi</strong>
+    </p>
+    <p>
+      Cross the central crater and the climb up to the ridge beside Blue Lake,
+      which has formed where fresh water fills an old volcano vent. The track continues
+      around the North crater where views of Lake Rotoaira and Taupo can be seen. You can
+      complete the Tongariro Alpine Crossing here by continuing on past the Ketetahi Hut,
+      through tussock land down to the Ketetahi car park.
+    </p>
+    
+    <h4>
+      Ketetahi Hut to Oturere Hut
+    </h4>
+    <p><strong>
+      1.5 hours, 4.8km / 1.9mi</strong>
+    </p>
+    <p>
+      The Emerald Lakes track descends into the Oturere Valley and weaves through
+      an endless variety of unusual jagged lava forms. A magical place to visit on a
+      misty day. The hut has views of the waterfall from the ridge.
+    </p>
+    
+    <h4>
+      Oturere Hut to Waihohonu Hut
+    </h4>
+    <p><strong>
+      3 hours, 7.5km / 2.9mi</strong>
+    </p>
+    <p>
+      Trek over a number of streams valleys and open gravel fields. Plant growth
+      here is repressed due to the high amount of volcanic activity and loose gravel.
+      Travel around the foothills of Ngauruhoe, cross the Waihohonu Stream and continue
+      through a beech-clad valley up to the ridge top.
+    </p>
+    
+    <h4>
+      Waihohonu Hut to Whakapapa Village
+    </h4>
+    <p><strong>
+      5.5 hours, 14.3km / 5.5mi</strong>
+    </p>
+    <p>
+      Follow the Waihohonu Stream and gradually climb towards Tama Saddle. Pick one
+      of two side tracks to visit the Tama Lakes, two in-filled explosion craters. The
+      lower track is a 10 minute walk while the upper lake is up a steep ridge and can
+      take 1.5 hours. Whakapapa village is a 2 hour walk from the Tama Lakes
+      junction.
+    </p>
+</div>     
+    </div>
+</div>
+<div id="elevation-profile" style="width:98%;" class="modal hide fade horizscroll" tabindex="-1" role="dialog">
+  <img src="img/walks/tongariro-northern-circuit/profile.jpg" style="width:px; height:px; max-width:none; max-height:none">
+</div>
+
+
+<div id="carousel-tongariro2jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;tongariro-northern-circuit&#x2F;carousel-tongariro2.jpg" style="width:100%">
+</div>
+<div id="carousel-tongoriro-2jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;tongariro-northern-circuit&#x2F;carousel-tongoriro-2.jpg" style="width:100%">
+</div>
+<div id="carousel-img_8288_tongariro_processedjpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;tongariro-northern-circuit&#x2F;carousel-img8288tongariroprocessed.jpg" style="width:100%">
+</div>
+<div id="carousel-img_9395jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;tongariro-northern-circuit&#x2F;carousel-img9395.jpg" style="width:100%">
+</div>
+
+            </div>
+            <div id="page2">
+            </div>
+        </div>
+        <!-- Why jQuery and not Zepto? Well there's not much difference http://www.codefessions.com/2012/08/performance-of-jquery-compatible-mobile.html -->
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/hammer.js"></script>
+        <script src="js/vendor/jquery.hammer.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

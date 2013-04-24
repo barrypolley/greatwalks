@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>Great Walks - Milford Track</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="x-rim-auto-match" content="none">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="cordova.js"></script>
+        <script>
+            var nz_map_dimensions = {"width":752,"height":1056,"ratio":0.7121212121212122};
+            var maps_details = {"whanganui-journey":{"map_id":"whanganui-journey","latitude":-38.864053084012156,"longitude":174.5366521487492,"map_pixel_width":1562,"map_pixel_height":1016,"degrees_per_pixel":0.000632707374232,"extent_latitude":-39.50688377623187,"extent_longitude":175.52494106729958,"map_initial_scale":0.1},"lake-waikaremoana":{"map_id":"lake-waikaremoana","latitude":-38.69996653229696,"longitude":176.95114126114987,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000137073340468,"extent_latitude":-38.84307109974555,"extent_longitude":177.18992302024512,"map_initial_scale":0.1},"tongariro-northern-circuit":{"map_id":"tongariro-northern-circuit","latitude":-39.043598354843745,"longitude":175.44773655679015,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000234666432478,"extent_latitude":-39.288590110350775,"extent_longitude":175.85652548216683,"map_initial_scale":0.1},"rakiura-track---stewart-island":{"map_id":"rakiura-track---stewart-island","latitude":-46.82703931382569,"longitude":167.99939428698806,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000110980608744,"extent_latitude":-46.94290306935443,"extent_longitude":168.19272250742011,"map_initial_scale":0.1},"milford-track":{"map_id":"milford-track","latitude":-44.65180781421633,"longitude":167.65907612771002,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-44.94994232973389,"extent_longitude":168.15653812582457,"map_initial_scale":0.1},"abel-tasman-coast-track":{"map_id":"abel-tasman-coast-track","latitude":-40.77160911578638,"longitude":172.68815992588924,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285453325972,"extent_latitude":-41.06962238810115,"extent_longitude":173.18541961973247,"map_initial_scale":0.1},"heaphy-track":{"map_id":"heaphy-track","latitude":-40.82923160495061,"longitude":172.02760098235598,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-41.12736612046816,"extent_longitude":172.52506298047052,"map_initial_scale":0.1},"wellington":{"map_id":"wellington","latitude":-41.21341136987253,"longitude":174.72217539068876,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000142358133316,"extent_latitude":-41.362033261054435,"extent_longitude":174.97016325892523,"map_initial_scale":0.1},"routeburn-track":{"map_id":"routeburn-track","latitude":-44.68512592255184,"longitude":168.06155744219296,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.00015647401239,"extent_latitude":-44.848484791487,"extent_longitude":168.33413517177635,"map_initial_scale":0.1},"kepler-track":{"map_id":"kepler-track","latitude":-45.34650584038335,"longitude":167.46068593304253,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000174704669218,"extent_latitude":-45.52889751504694,"extent_longitude":167.7650214668203,"map_initial_scale":0.1}};
+        </script>
+    </head>
+    <body class="map">
+        <input type="checkbox" id="show_slideout_navigation">
+        <div id="wrapper">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a href="index.html" id="logo">Department of Conservation - Great Walks</a>
+                        <ul class="nav">
+                            <li>
+                                <label for="show_slideout_navigation"><span class="header-sprite header-threebar">Menu</span></label>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="info.html"><span class="header-sprite header-info">Info</span></a>
+                            </li>
+                            <li id="share-social">
+                                <a href="#social-share"><span class="header-sprite header-share">Share</span></a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div id="debug"></div>
+
+               </div>
+            </div>
+            <div id="slideout_navigation">
+                <ul class="menu">
+                    <li><label for="show_slideout_navigation">Menu</label></li>
+                    <li><a href="book.html" class="booking">Make a booking</a></li>
+                    <li><a href="offers.html" class="offers">Special offers</a></li>
+                </ul>
+                <ul class="walks">
+                    <li><a href="walk-lake-waikaremoana.html">Lake Waikaremoana</a></li><li><a href="walk-tongariro-northern-circuit.html">Tongariro Northern Circuit</a></li><li><a href="walk-whanganui-journey.html">Whanganui Journey</a></li><li><a href="walk-abel-tasman-coast-track.html">Abel Tasman Coast Track</a></li><li><a href="walk-heaphy-track.html">Heaphy Track</a></li><li><a href="walk-kepler-track.html">Kepler Track</a></li><li><a href="walk-milford-track.html">Milford Track</a></li><li><a href="walk-routeburn-track.html">Routeburn Track</a></li><li><a href="walk-rakiura-track---stewart-island.html">Rakiura Track - Stewart Island</a></li>
+                </ul>
+                <ul class="maps">
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </div>
+            <div id="page1">
+                <div class="social-links">
+                    <a href='mailto:enquiries@doc.govt.nz?subject=I%27m%20going%20on%20a%20Great%20Walk%20in%20New%20Zealand%2C%20the%20MILFORD%20TRACK&amp;body=I%27m%20going%20on%20a%20Great%20Walk%20in%20New%20Zealand%2C%20the%20MILFORD%20TRACK%20http%3A%2F%2Fwww.greatwalks.co.nz%2Fmilford-track' class='email'>Email</a> <a href='http://www.facebook.com/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fwww.greatwalks.co.nz%2Fmilford-track&amp;p[title]=I%27m%20going%20on%20a%20Great%20Walk%20in%20New%20Zealand%2C%20the%20MILFORD%20TRACK&amp;p[images][0]=http%3A%2F%2Fwww.greatwalks.co.nz%2Fsites%2Fall%2Fthemes%2Fsparks_responsive%2Flogo.png&amp;p[summary]=.' class='facebook'>Facebook</a> <a href='http://twitter.com/share?url=http%3A%2F%2Fbit.ly%2FSYbOOu&amp;text=I%27m%20going%20on%20a%20Great%20Walk%20in%20New%20Zealand%2C%20the%20MILFORD%20TRACK%20@NZGreatWalks' class='twitter'>Twitter</a>
+                </div>
+                <!--
+                <div id="viewable-area" style="border: solid 2px red"></div>
+                <div id="absolute-map" style="border: solid 2px green"></div>
+                -->
+    	        <a id="weta" rel="popover" data-placement="right" data-content="<h3>Weta</h3><b class='distance_away'>Distance: really close!</b>Seriously big nocturnal creatures that live in a variety of habitats including: pasture, shrub, forests, and caves. Weta excavate holes under stones, rotting logs, or in trees. They sometimes occupy pre-formed burrows.">Weta</a>
+
+<div style="background-image: url(img/walks/milford-track/map.jpg); background-size: 1742px 1044px; width:1742px; height:1044px; position:relative; display:none" id="map" class="have-transition">
+	<div id="youarehere">
+		<div class="dot"></div>
+		<div class="offmap">offmap</div>
+	</div>
+		<a class="location location-icon location-generic-poi" rel="popover" style="position:absolute; left: 491px; top:308px;" data-longitude="167.79927" data-latitude="-44.739815" data-content-template="<h3>Bell Rock</h3>[DISTANCE]Bell Rock was hollowed out by Mackay Falls and then turned upside down. It is possible to stand in the hollowed out part  which is over 4 m high inside.">Click to toggle popover</a>
+		<a class="location location-icon location-waterfall" rel="popover" style="position:absolute; left: 676px; top:182px;" data-longitude="167.852154" data-latitude="-44.70388" data-content-template="<h3>Giants Gate</h3>[DISTANCE]One of the most beautiful waterfalls you&#39;ll see  and you can&#39;t miss it as the swingbridge crosses right beside it. ">Click to toggle popover</a>
+		<a class="location location-icon location-historic-site" rel="popover" style="position:absolute; left: 721px; top:174px;" data-longitude="167.865016" data-latitude="-44.70139" data-content-template="<h3>Lake Ada</h3>[DISTANCE]Toward the end of the 19th century many visitors were walking the new track and there was an increasing demand to upgrade. Modelling an experiment from England  the Inspector General of Prisons decided to take 45 prisoners to work on cutting a road from Sandfly Point to Sutherland Falls. In 1892  prison barracks were set up at Sandfly Point. Within days of their arrival two prisoners escaped and fled over the track  only to be met by police in Te Anau. The next year two more escaped and got all the way to Mossburn  before being recaptured.
+Due to a lack of discipline and only two kilometres of road being completed in nearly two years  it was decided the prisoners be removed and replaced with contract labourers. With most of the new labour gang being ex-miners and experienced with explosives  they were able to complete the difficult rock-blasting around Lake Ada by 1898. The names of two of the gang can still be seen carved on a rock wall there.">Click to toggle popover</a>
+		<a class="location location-icon location-waterfall" rel="popover" style="position:absolute; left: 487px; top:272px;" data-longitude="167.798097" data-latitude="-44.729491" data-content-template="<h3>Mackay Falls</h3>[DISTANCE]This highly photographed waterfall has become an icon of the Milford Track.">Click to toggle popover</a>
+		<a class="location location-icon location-generic-poi" rel="popover" style="position:absolute; left: 377px; top:523px;" data-longitude="167.766618" data-latitude="-44.801286" data-content-template="<h3>Mackinnon Pass</h3>[DISTANCE]A memorial to the Quinin Mackinnon marks this spectacular main-divide pass surrounded by glacier encrusted mountains.  In 1888 the government funded the first track-making expeditions in the Arthur and Clinton Valleys as an incentive to find an accessible route to Milford Sound. Quntin Mackinnnon and Earnest Mitchell found the Mackinnon Pass the same year  and Mackinnon quickly established himself as the first guide on the Milford Track. ">Click to toggle popover</a>
+		<a class="location location-icon location-generic-poi" rel="popover" style="position:absolute; left: 933px; top:91px;" data-longitude="167.925613" data-latitude="-44.673636" data-content-template="<h3>Milford Sound</h3>[DISTANCE]The spectacular conclusion to the &#39;Finest Walk in the World&#39;">Click to toggle popover</a>
+		<a class="location location-icon location-scenic-lookout" rel="popover" style="position:absolute; left: 408px; top:522px;" data-longitude="167.775722" data-latitude="-44.800753" data-content-template="<h3>The Pass Day Shelter</h3>[DISTANCE]The Pass Day Shelter is 20 minutes from the memorial  crossing the highest point on the track at 1154m / 3786ft. The shelter is supplied with a gas-cooker during summer and has the toilet with the best view in Fiordland! ">Click to toggle popover</a>
+		<a class="location location-icon location-side-trip" rel="popover" style="position:absolute; left: 904px; top:894px;" data-longitude="167.908552" data-latitude="-44.907105" data-content-template="<h3>The Wetland Walkway</h3>[DISTANCE]A short side track to the wetland area is signposted 10 minutes before Clinton Hut. A boardwalk winds its way over this diverse and interesting wetland environment to an open platform which affords spectacular views of the Clinton Valley and Mt.Sentinel. Make use of the interpretive panels or join a guided walk with the Clinton Hut DOC ranger in the late afternoon.">Click to toggle popover</a>
+		<a class="location location-icon location-birdwatching" rel="popover" style="position:absolute; left: 660px; top:768px;" data-longitude="167.847519" data-latitude="-44.871256" data-content-template="<h3>Blue Ducks - Clinton River</h3>[DISTANCE]Look out for Whio (blue duck) riding rapids on the Clinton and Arthur Rivers. Often hard to spot  their blue-grey feathers provide perfect camouflage amongst rocks. Males whistle a call of &#39;fee-o&#39; while females make a low rattling sound.">Click to toggle popover</a>
+		<a class="location location-icon location-generic-poi" rel="popover" style="position:absolute; left: 949px; top:932px;" data-longitude="167.930203" data-latitude="-44.917841" data-content-template="<h3>Clinton River Swing Bridge</h3>[DISTANCE]Cross the Clinton River on this impressive 72 m suspension bridge  built by Fijian engineers in 1978. The bridge is a great place to spot eels and trout in the river.">Click to toggle popover</a>
+		<a class="location location-icon location-waterfall" rel="popover" style="position:absolute; left: 258px; top:506px;" data-longitude="167.7328" data-latitude="-44.796361" data-content-template="<h3>Sutherland Falls</h3>[DISTANCE]Spectacular Sutherland Falls drops 580 m in three leaps from Lake Quill. Leave your pack at the shelter but don&#39;t forget to take your raincoat - the falls generate a lot of spray! Allow 1.5 hours for the return trip.">Click to toggle popover</a>
+		<a class="location location-icon location-hut" rel="popover" style="position:absolute; left: 368px; top:405px;" data-longitude="167.764048" data-latitude="-44.767461" data-content-template="<h3>Dumpling Hut</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-shelter" rel="popover" style="position:absolute; left: 851px; top:105px;" data-longitude="167.902053" data-latitude="-44.681657" data-content-template="<h3>Sandfly Point Shelter</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-shelter" rel="popover" style="position:absolute; left: 642px; top:185px;" data-longitude="167.851051" data-latitude="-44.704758" data-content-template="<h3>Giants Gate Shelter</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-feature" rel="popover" style="position:absolute; left: 519px; top:296px;" data-longitude="167.80305" data-latitude="-44.736259" data-content-template="<h3>Historic Boatshed Hut</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-shelter" rel="popover" style="position:absolute; left: 406px; top:488px;" data-longitude="167.775049" data-latitude="-44.791162" data-content-template="<h3>Andersons Cascade Shelter</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-hut" rel="popover" style="position:absolute; left: 431px; top:550px;" data-longitude="167.782049" data-latitude="-44.808263" data-content-template="<h3>Mintaro Hut</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-shelter" rel="popover" style="position:absolute; left: 333px; top:483px;" data-longitude="167.754048" data-latitude="-44.789662" data-content-template="<h3>Quintin Lodge Shelter</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-shelter" rel="popover" style="position:absolute; left: 410px; top:522px;" data-longitude="167.776049" data-latitude="-44.800762" data-content-template="<h3>Mackinnon Pass Shelter</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-feature" rel="popover" style="position:absolute; left: 371px; top:491px;" data-longitude="167.765049" data-latitude="-44.800562" data-content-template="<h3>Mackinnon Memorial</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-shelter" rel="popover" style="position:absolute; left: 508px; top:655px;" data-longitude="167.804051" data-latitude="-44.838764" data-content-template="<h3>Bus Stop Shelter</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-hut" rel="popover" style="position:absolute; left: 872px; top:882px;" data-longitude="167.908054" data-latitude="-44.903666" data-content-template="<h3>Clinton Hut</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-feature" rel="popover" style="position:absolute; left: 949px; top:977px;" data-longitude="167.930055" data-latitude="-44.930668" data-content-template="<h3>Glade Wharf</h3>[DISTANCE] ">Click to toggle popover</a>
+		<a class="location location-icon location-feature" rel="popover" style="position:absolute; left: 441px; top:579px;" data-longitude="167.78505" data-latitude="-44.815863" data-content-template="<h3>Mirror Lake</h3>[DISTANCE] ">Click to toggle popover</a>
+</div>
+
+<div id="user_actions" class="hidden">
+	<p class="take-photo"><a href="#camera" class="btn" id="take-photo">Take Photo</a></p>
+	<p class="refresh-geolocation"><a class="btn" id="refresh-geolocation">Refresh Geolocation</a></p>
+	<p class="last-updated"></p>
+</div>
+
+<div id="map_id">milford-track</div>
+ 
+<img src="img/camera-placeholder.jpg" id="photo-preview">
+
+<div id="no-touch-zoom">
+	<a href="#zoom-out" class="zoom-out">-</a>
+	<a href="#zoom-in" class="zoom-in">+</a>
+</div>
+
+<a id="toggle-map-key" href="#map-key">Key</a>
+
+<div id="map-key">
+	<ul>
+		<li class="greatwalk">Great Walk<span></span></li>
+		<li class="sidetrack">Side Track<span></span></li>
+		<li class="road">Road<span></span></li>
+	</ul>
+	<table>
+		<tr>
+			<td>
+				<img src="img/icon-map-information.png" alt=""> Information
+			</td>
+			<td>
+				<img src="img/icon-map-alert.png" alt=""> Alert
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-plantspecies.png" alt=""> Plant Species
+			</td>
+			<td>
+				<img src="img/icon-map-shelter.png" alt=""> Shelter
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-side_trail.png" alt=""> Side-trail
+			</td>
+			<td>
+				<img src="img/icon-map-swimming.png" alt=""> Swimming
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-toilets.png" alt=""> Toilets
+			</td>
+			<td>
+				<img src="img/icon-map-trailhead.png" alt=""> Trailhead
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-viewpoints.png" alt=""> Viewpoints
+			</td>
+			<td>
+				<img src="img/icon-map-volcano.png" alt=""> Volcano
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-waterfall.png" alt=""> Waterfall
+			</td>
+			<td>	
+				<img src="img/icon-map-airport.png" alt=""> Airport
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-bird-or-animal-species.png" alt=""> Birds or Animals
+			</td>
+			<td>
+				<img src="img/icon-map-camping.png" alt=""> Camping
+			</td>
+		</tr>
+		<tr>	
+			<td>
+				<img src="img/icon-map-camp_hut.png" alt=""> Camp/Hut
+			</td>
+			<td>
+				<img src="img/icon-map-carpark.png" alt=""> Carpark
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-generic_nature.png" alt=""> Misc. Nature
+			</td>
+			<td>
+				<img src="img/icon-map-hotsprings.png" alt=""> Hotsprings
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/icon-map-huts.png" alt=""> Hut
+			</td>
+		</tr>
+	</table>
+</div>
+            </div>
+            <div id="page2">
+            </div>
+        </div>
+        <!-- Why jQuery and not Zepto? Well there's not much difference http://www.codefessions.com/2012/08/performance-of-jquery-compatible-mobile.html -->
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/hammer.js"></script>
+        <script src="js/vendor/jquery.hammer.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

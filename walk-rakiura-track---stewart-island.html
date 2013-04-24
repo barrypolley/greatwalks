@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>Great Walks - Rakiura Track - Stewart Island</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="x-rim-auto-match" content="none">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="cordova.js"></script>
+        <script>
+            var nz_map_dimensions = {"width":752,"height":1056,"ratio":0.7121212121212122};
+            var maps_details = {"whanganui-journey":{"map_id":"whanganui-journey","latitude":-38.864053084012156,"longitude":174.5366521487492,"map_pixel_width":1562,"map_pixel_height":1016,"degrees_per_pixel":0.000632707374232,"extent_latitude":-39.50688377623187,"extent_longitude":175.52494106729958,"map_initial_scale":0.1},"lake-waikaremoana":{"map_id":"lake-waikaremoana","latitude":-38.69996653229696,"longitude":176.95114126114987,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000137073340468,"extent_latitude":-38.84307109974555,"extent_longitude":177.18992302024512,"map_initial_scale":0.1},"tongariro-northern-circuit":{"map_id":"tongariro-northern-circuit","latitude":-39.043598354843745,"longitude":175.44773655679015,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000234666432478,"extent_latitude":-39.288590110350775,"extent_longitude":175.85652548216683,"map_initial_scale":0.1},"rakiura-track---stewart-island":{"map_id":"rakiura-track---stewart-island","latitude":-46.82703931382569,"longitude":167.99939428698806,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000110980608744,"extent_latitude":-46.94290306935443,"extent_longitude":168.19272250742011,"map_initial_scale":0.1},"milford-track":{"map_id":"milford-track","latitude":-44.65180781421633,"longitude":167.65907612771002,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-44.94994232973389,"extent_longitude":168.15653812582457,"map_initial_scale":0.1},"abel-tasman-coast-track":{"map_id":"abel-tasman-coast-track","latitude":-40.77160911578638,"longitude":172.68815992588924,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285453325972,"extent_latitude":-41.06962238810115,"extent_longitude":173.18541961973247,"map_initial_scale":0.1},"heaphy-track":{"map_id":"heaphy-track","latitude":-40.82923160495061,"longitude":172.02760098235598,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-41.12736612046816,"extent_longitude":172.52506298047052,"map_initial_scale":0.1},"wellington":{"map_id":"wellington","latitude":-41.21341136987253,"longitude":174.72217539068876,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000142358133316,"extent_latitude":-41.362033261054435,"extent_longitude":174.97016325892523,"map_initial_scale":0.1},"routeburn-track":{"map_id":"routeburn-track","latitude":-44.68512592255184,"longitude":168.06155744219296,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.00015647401239,"extent_latitude":-44.848484791487,"extent_longitude":168.33413517177635,"map_initial_scale":0.1},"kepler-track":{"map_id":"kepler-track","latitude":-45.34650584038335,"longitude":167.46068593304253,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000174704669218,"extent_latitude":-45.52889751504694,"extent_longitude":167.7650214668203,"map_initial_scale":0.1}};
+        </script>
+    </head>
+    <body class="walk">
+        <input type="checkbox" id="show_slideout_navigation">
+        <div id="wrapper">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a href="index.html" id="logo">Department of Conservation - Great Walks</a>
+                        <ul class="nav">
+                            <li>
+                                <label for="show_slideout_navigation"><span class="header-sprite header-threebar">Menu</span></label>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="info.html"><span class="header-sprite header-info">Info</span></a>
+                            </li>
+                            <li id="share-social">
+                                <a href="#social-share"><span class="header-sprite header-share">Share</span></a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div id="debug"></div>
+
+               </div>
+            </div>
+            <div id="slideout_navigation">
+                <ul class="menu">
+                    <li><label for="show_slideout_navigation">Menu</label></li>
+                    <li><a href="book.html" class="booking">Make a booking</a></li>
+                    <li><a href="offers.html" class="offers">Special offers</a></li>
+                </ul>
+                <ul class="walks">
+                    <li><a href="walk-lake-waikaremoana.html">Lake Waikaremoana</a></li><li><a href="walk-tongariro-northern-circuit.html">Tongariro Northern Circuit</a></li><li><a href="walk-whanganui-journey.html">Whanganui Journey</a></li><li><a href="walk-abel-tasman-coast-track.html">Abel Tasman Coast Track</a></li><li><a href="walk-heaphy-track.html">Heaphy Track</a></li><li><a href="walk-kepler-track.html">Kepler Track</a></li><li><a href="walk-milford-track.html">Milford Track</a></li><li><a href="walk-routeburn-track.html">Routeburn Track</a></li><li><a href="walk-rakiura-track---stewart-island.html">Rakiura Track - Stewart Island</a></li>
+                </ul>
+                <ul class="maps">
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </div>
+            <div id="page1">
+                <div class="social-links">
+                    <a href='mailto:enquiries@doc.govt.nz?subject=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;body=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20http%3A%2F%2Fgreatwalks.co.nz%2F' class='email'>Email</a> <a href='http://www.facebook.com/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fgreatwalks.co.nz%2F&amp;p[title]=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;p[images][0]=http%3A%2F%2Fwww.greatwalks.co.nz%2Fsites%2Fall%2Fthemes%2Fsparks_responsive%2Flogo.png&amp;p[summary]=.' class='facebook'>Facebook</a> <a href='http://twitter.com/share?url=http%3A%2F%2Fbit.ly%2FSLFPlX&amp;text=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20@NZGreatWalks' class='twitter'>Twitter</a>
+                </div>
+                <!--
+                <div id="viewable-area" style="border: solid 2px red"></div>
+                <div id="absolute-map" style="border: solid 2px green"></div>
+                -->
+    	        <div class="text-column1 rakiura-track---stewart-island">
+    <h1>Rakiura Track - Stewart Island</h1>
+    <p class="info">
+      <span class="days">3 days</span>
+      <span class="duration">32km / 20mi</span>
+      <a href="map-rakiura-track---stewart-island.html" class="icon-map">Map</a>
+    </p>
+    <p class="intro">
+      Exchange the hustle and bustle of mainland life for the tranquillity of the
+      Rakiura Track on Stewart Island/Rakiura. Revel in the peacefulness with the bush,
+      birds and beach at your side.
+    </p>
+    <div class="youtube" data-youtube-id="41MchGQ3lr4"></div>
+    <div id="carousel" class="carousel slide">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+          <div class="item active">
+            <ul>
+              <li><a href="#carousel-maori_beach3jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/rakiura-track---stewart-island/carousel-maoribeach3.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-maori_beach8jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/rakiura-track---stewart-island/carousel-maoribeach8.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-rakiura-track_stewart-island_little_river1jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/rakiura-track---stewart-island/carousel-rakiura-trackstewart-islandlittleriver1.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+          <div class="item ">
+            <ul>
+              <li><a href="#carousel-rakiura-track_stewart-island_little_river5jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/rakiura-track---stewart-island/carousel-rakiura-trackstewart-islandlittleriver5.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+      </div>
+      <a class="carousel-control left" href="#carousel" data-slide="prev">&#8249;</a>
+      <a class="carousel-control right" href="#carousel" data-slide="next">&#8250;</a>
+    </div>
+</div>
+<div class="below-fold">
+    <div class="text-column1 rakiura-track---stewart-island">
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header dont-miss"><a href="#expand-walk-detail"><span>Don't miss</span></a></h2><div class="walk-detail dont-miss"><p>
+      <img src="img/dont-miss-background-paper.png" class="paper" alt="">
+      <img src="img/dont-miss-background-paper-shadow.png" class="shadow" alt="">
+
+      <a class="birds" href="#" data-content="The amazing Stewart Island Rakiura Tokoeka/Kiwi (unlike their cousins further north) can sometimes be seen foraging during daylight hours near the North Arm hut and campsite and can be heard calling at day&rsquo;s end.">
+        <img src="img/walks/rakiura-track---stewart-island/dont-miss-birds.png" alt="Birds">
+      </a>
+      <a class="boatride" href="#" data-content="Glorious tranquility is only a short boat ride or even shorter flight away. This is the ultimate island wilderness experience and a taste of the way New Zealand used to be. You’ll be welcomed by a cacophony of native birdsong and a warm greeting from the locals in the tiny settlement of Oban.">
+          <img src="img/walks/rakiura-track---stewart-island/dont-miss-boatride.png" alt="Boat ride">
+      </a>
+      <a class="cliff-walfs" href="#" data-content="From this year-round accessible track, you can enjoy exhilarating cliff-top walking between Lee Bay and Port William with fabulous vistas of the island&rsquo;s gorgeous golden beaches and rugged coastline, and the protected bays of Paterson Inlet.">
+        <img src="img/walks/rakiura-track---stewart-island/dont-miss-cliff_walfs.png" alt="Cliff Walks">
+      </a>
+      <a class="island-sanc" href="#" data-content="Ulva Island, a predator-free island sanctuary, is just a short 5 minute water taxi ride from Oban, the island&rsquo;s only township. Explore this island
+        paradise, home to many rare and endangered native birds.">
+        <img src="img/walks/rakiura-track---stewart-island/dont-miss-island_sanc.png" alt="Island Sanctury">
+      </a>
+     <a class="cultural-points" href="#" data-content="Into history? Then you&rsquo;ll find plenty here from early Māori settlement sites around Māori beach and Port William and the abandoned Shetland Islanders&rsquo; settlement to old log haulers and other relics from the sawmilling days dispersed along the track.">
+        <img src="img/walks/rakiura-track---stewart-island/dont-miss-cultural_points.png" alt="Cultural Points">
+      </a>
+</p></div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header offers"><a href="#expand-walk-detail"><span>Offers</span></a></h2><div class="walk-detail offers">    <ul>
+      <li>
+        <a href="http://bookings.bookitsecure.com/pub/supplier.aspx?b=DEPART"><img src="img&#x2F;walks&#x2F;rakiura-track---stewart-island&#x2F;doc-banner1.png" alt=""></a>
+      </li>
+      <li>
+        <a href=
+        "http://www.airnewzealand.co.nz/special-deals-new-zealand#special-deals-great-walks"><img src="img&#x2F;walks&#x2F;rakiura-track---stewart-island&#x2F;airnz-banner1.png" alt=""></a>
+      </li>
+    </ul></div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header before-you-go"><a href="#expand-walk-detail"><span>Before you go</span></a></h2><div class="walk-detail before-you-go">    <p>
+      It is important to plan and prepare
+      so that you are well equipped to enjoy your Great Walk.
+    </p>
+     
+<p>
+      Before you go, know <strong>The Outdoor Safety Code</strong> - 5 simple rules to help you stay
+      safe:
+    </p>
+    
+    <ol>
+      <li>
+        Plan your trip
+      </li>
+      <li>
+        Tell someone
+      </li>
+      <li>
+        Be aware of the weather
+      </li>
+      <li>
+        Know your limits
+      </li>
+      <li>
+        Take sufficient supplies
+      </li>
+    </ol>
+     
+     
+    <h3>
+      Rakiura
+      Track safety
+    </h3>
+    <ul>
+      <li>
+       
+          The weather is very
+          changeable and difficult to predict. Walkers should come well-equipped and be
+          prepared for all weather conditions, extreme weather can occur at any time of
+          the year.
+       
+      </li>
+      <li>
+       
+          Cell phone coverage is
+          limited on the track. Telecom provides the only cell phone coverage on Stewart
+          Island/<a href="#Rakiura" data-audio="audio/speech-rakiura.mp3" class="audio">Rakiura</a>.
+       
+      </li>
+    </ul>
+     
+    <h3>
+      Things to know before you
+      go
+    </h3>
+    <ul>
+      <li>
+       
+          A good level of fitness
+          and the right outdoor clothing and equipment will greatly improve the enjoyment
+          of your trip.
+       
+      </li>
+      <li>
+       
+          Safety is your
+          responsibility - leave your trip details with a trusted contact. Intention
+          forms are available at <a 
+          href=
+          "http://adventuresmart.org.nz/Outdoors-Intentions/Default.asp">adventuresmart.org.nz</a>.
+       
+      </li>
+      <li>
+       
+          Book your trip well in
+          advance including your accommodation, transport and transfers to the start/end
+          of the Great Walk.
+       
+      </li>
+      <li>
+       
+          Pack all necessary
+          equipment, your own food and drinks and any personal items for your trip
+          including an extra day's supply of food and water.
+       
+      </li>
+      <li>
+       
+          For a full list of
+          equipment and preparation required for this walk, plus track updates for the
+          Rakiura Track, please visit <a href=
+          "http://www.doc.govt.nz/parks-and-recreation/places-to-visit/southland/stewart-island-rakiura/stewart-island-rakiura/plan-and-prepare/"> the
+          DOC website</a>.
+       
+      </li>
+    </ul>
+    <h3>
+      When to go
+    </h3>
+    <p>
+      The Rakiura Track is suitable for walking all year round. During the winter
+      months the weather on Stewart Island/Rakiura is generally cool, yet settled, making
+      this track a great opportunity to relax, unwind and immerse yourself in idyllic
+      surroundings any time of the year.
+    </p>
+     
+    <h3>
+      What to
+      bring 
+    </h3>
+    <p>
+      Your basic equipment needs to include
+    </p>
+    <ul>
+      <li>
+        Backpack
+      </li>
+      <li>
+        Sleeping bag and liner
+      </li>
+      <li>
+        Portable cooking stove
+      </li>
+      <li>
+        Cooking utensils
+      </li>
+      <li>
+        Food, incl. high-energy food
+      </li>
+      <li>
+        Waterproof rain jacket and overtrousers
+      </li>
+      <li>
+        Warm/thermal clothing
+      </li>
+      <li>
+        Hiking boots
+      </li>
+      <li>
+        Map and compass
+      </li>
+      <li>
+        Lighter and matches
+      </li>
+      <li>
+        Drink bottle &amp; water
+      </li>
+    </ul>
+     
+    <p>
+      Add camping gear to your list if you&rsquo;re staying at a
+      campsite.
+    </p>
+    <h3>Travelling with
+      children
+    </h3>
+    <p>
+      The Rakiura Track is an ideal walk for families and suitable for anyone with
+      moderate fitness. It takes 3 days to walk the 32km / 20mi circuit.
+    </p>
+    <h3>
+      Nearest DOC visitor
+      centre
+    </h3>
+    <p>
+      Rakiura National Park Visitor Centre<br>
+      15 Main Road<br>
+      Stewart Island<br>
+      <a href="tel:+6432190009" class="btn phone"></a>+64 3 219 0009<br>
+      <a href="mailto:rakiuravc@doc.govt.nz" class="btn email">rakiuravc@doc.govt.nz</a>
+    </p>
+    <h4>
+      Hours
+    </h4>
+    <p>
+      Mon - Fri: 8:00 am - 5:00 pm<br>
+      Weekends: 9:00 am - 4:00 pm<br>
+      Off-peak and public holidays: restricted hours
+    </p>
+    <h4>
+      Services
+    </h4>
+    <p>
+      Great Walks bookings and recreation information for the area.
+    </p>
+</div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header getting-there"><a href="#expand-walk-detail"><span>Getting there</span></a></h2><div class="walk-detail getting-there">    <h3>
+      Nearest airport
+    </h3>
+    <p>
+      Invercargill - 65km / 40mi <br/> 
+      To get to Stewart Island/Rakiura you can
+      either choose to catch a 20 minute flight from Invercargill or you can drive from
+      Invercargill to Bluff (20 minutes) and then catch a 1 hour ferry to the
+      island&rsquo;s main township, Oban.
+    </p>
+     
+    <p>
+      Flights to this airport typically connect from Auckland, Christchurch and
+      Wellington. The above driving times are indicative only - always allow for extra
+      time to get to your destination.
+    </p>
+    <h3>
+      How to get to the trailhead
+    </h3>
+    <p>
+      Rakiura Track is situated on New Zealand's Stewart Island/Rakiura, just a 20
+      minute flight from Invercargill or an hour by ferry from Bluff. The track begins at
+      Lee Bay, the official entrance to Rakiura National Park.
+    </p>
+     
+    <h3>
+      Transport and accommodation
+    </h3>
+    <p>
+      <a  href=
+      "http://www.doc.govt.nz/parks-and-recreation/places-to-visit/southland/stewart-island-rakiura/stewart-island-rakiura/plan-and-prepare/guides-and-commercial-tourism-providers/">
+      Guides and commercial tourism providers</a> - find accommodation,
+      transport, and activities in the area.
+    </p></div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header where-to-stay"><a href="#expand-walk-detail"><span>Where to stay</span></a></h2><div class="walk-detail where-to-stay">    <p>
+      DOC provides two huts and three campsites along the Rakiura Track.
+    </p>
+    <h3>
+      Huts
+    </h3>
+    <p>
+      The Rakiura Track huts provide heating, toilets, bunks,
+      mattresses and cold running water. Note: Huts do not provide pots and
+      pans, cooking utensils, hot showers, linen, toilet paper or food and drinks for
+      purchase. Make sure you put these things on your checklist before you go.
+    </p>
+     
+    <ul>
+      <li>
+        Port William Hut: 24 bunks
+      </li>
+      <li>
+        North Arm Hut: 24 bunks
+      </li>
+    </ul>
+    
+    <h3>
+      Campsites
+    </h3>
+    <p>
+      Each hut has a camping site nearby and there is an additional campsite at
+      <a href="#Maori" data-audio="audio/speech-maori.mp3" class="audio">M&#257;ori</a> Beach. Campsites offer basic facilities including a water supply, cooking
+      shelter and toilets. Campers are not permitted to use the hut
+      facilities.
+    </p>
+<h3>
+      Cost and booking
+    </h3>
+    <p>
+      Fees are charged per person, per night to stay in huts and campsites.
+    </p>
+    <p>
+      Bookings are essential! Use the <a href="https://booking.doc.govt.nz/Menu.aspx?sg=RAT">DOC online booking system</a> prior to travel or
+      call <a href="tel:0800694732" class="btn phone"></a>0800 NZ GREATWALKS.
+    </p>
+</div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header on-the-track"><a href="#expand-walk-detail"><span>On the track</span></a></h2><div class="walk-detail on-the-track">    <h3>
+    Track description
+    </h3>
+    <p>
+      The Rakiura Track is a 32km / 20mi circuit and can be walked in either direction.
+      It can comfortably be walked in three days for anyone with a moderate level of
+      fitness. Shuttle services are available from the island&rsquo;s township of Oban to
+      the start/end of the track.
+    </p>
+     
+    <p>
+      <a href="map-rakiura-track---stewart-island.html" class="btn">View map</a>
+    </p>
+
+    <h3>
+    Elevation profile
+    </h3>
+    
+        <p><a href="#elevation-profile" id="elevation-profile-button" role="button" data-toggle="modal"><img src="img&#x2F;walks&#x2F;rakiura-track---stewart-island&#x2F;profile.jpg" class="elevation-profile"></a></p>
+
+    
+    <h3>Walking guide</h3>
+
+    <h4>Halfmoon Bay to Port William Hut
+    </h4>
+    <p><strong>4-5 hours, 12km / 7mi</strong>
+    </p>
+    <p>
+      Step through the chain link sculpture commissioned to recognise the forming
+      of the Rakiura National Park, to start your island adventure. Enjoy stunning
+      coastal views as the track makes its way from Lee Bay to picturesque Little River,
+      which is crossed by bridge. Rounding the tip of Peters Point brings you to M&#257;ori
+      Beach, once home to several sawmills and a school. An old boiler is all that
+      remains of a once thriving sawmilling community. From here it is a sweeping beach
+      walk to the swing bridge before climbing up the forested ridge and dropping down
+      into Magnetic Beach and Port William Hut at the far end.
+    </p>
+     
+    <h4>
+    Port William Hut to North Arm Hut
+    </h4>
+    <p><strong>
+    6 hours, 13km / 8mi</strong>
+    </p>
+    <p>
+      Make your way through regenerating podocarp forest and then dense bush as you
+      leave the east coast behind you. Take a breather at the old log haulers that used
+      to drag the forest giants out of the gullies and hillsides, travel down the
+      tramlines which both show remnants of a bygone world, and reflect on the hardy
+      settlers who worked the saws to retain a livelihood.
+    </p>
+     
+    <h4>
+    North Arm Hut to Halfmoon Bay
+    </h4>
+    <p><strong>
+   4-5 hours, 12km / 7mi</strong>
+    </p>
+    <p>
+      From here it&rsquo;s a moderate and undulating walk in the forest fringe
+      consisting of k&#257;mahi and <a href="#rimu" data-audio="audio/speech-rimu.mp3" class="audio">rimu</a> surrounded by stunning views across Paterson
+      Inlet/<a href="#Whaka a Te Wera" data-audio="audio/speech-whaka_a_te_wera.mp3" class="audio">Whaka a Te Wera</a>. Follow the coast down to secluded bays, watch the birds
+      wading at low tide in Sawdust Bay and then on to <a href="#Kaipipi" data-audio="audio/speech-kaipipi.mp3" class="audio">Kaipipi</a> Bay where a small grassy
+      knoll on the water&rsquo;s edge allows a great perspective over the sheltered
+      waterway.
+    </p></div>     
+    </div>
+</div>
+<div id="elevation-profile" style="width:98%;" class="modal hide fade horizscroll" tabindex="-1" role="dialog">
+  <img src="img/walks/rakiura-track---stewart-island/profile.jpg" style="width:px; height:px; max-width:none; max-height:none">
+</div>
+
+<div id="carousel-maori_beach3jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;rakiura-track---stewart-island&#x2F;carousel-maoribeach3.jpg" style="width:100%">
+</div>
+<div id="carousel-maori_beach8jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;rakiura-track---stewart-island&#x2F;carousel-maoribeach8.jpg" style="width:100%">
+</div>
+<div id="carousel-rakiura-track_stewart-island_little_river1jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;rakiura-track---stewart-island&#x2F;carousel-rakiura-trackstewart-islandlittleriver1.jpg" style="width:100%">
+</div>
+<div id="carousel-rakiura-track_stewart-island_little_river5jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;rakiura-track---stewart-island&#x2F;carousel-rakiura-trackstewart-islandlittleriver5.jpg" style="width:100%">
+</div>
+
+            </div>
+            <div id="page2">
+            </div>
+        </div>
+        <!-- Why jQuery and not Zepto? Well there's not much difference http://www.codefessions.com/2012/08/performance-of-jquery-compatible-mobile.html -->
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/hammer.js"></script>
+        <script src="js/vendor/jquery.hammer.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

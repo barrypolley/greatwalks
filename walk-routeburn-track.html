@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>Great Walks - Routeburn Track</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="x-rim-auto-match" content="none">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="cordova.js"></script>
+        <script>
+            var nz_map_dimensions = {"width":752,"height":1056,"ratio":0.7121212121212122};
+            var maps_details = {"whanganui-journey":{"map_id":"whanganui-journey","latitude":-38.864053084012156,"longitude":174.5366521487492,"map_pixel_width":1562,"map_pixel_height":1016,"degrees_per_pixel":0.000632707374232,"extent_latitude":-39.50688377623187,"extent_longitude":175.52494106729958,"map_initial_scale":0.1},"lake-waikaremoana":{"map_id":"lake-waikaremoana","latitude":-38.69996653229696,"longitude":176.95114126114987,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000137073340468,"extent_latitude":-38.84307109974555,"extent_longitude":177.18992302024512,"map_initial_scale":0.1},"tongariro-northern-circuit":{"map_id":"tongariro-northern-circuit","latitude":-39.043598354843745,"longitude":175.44773655679015,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000234666432478,"extent_latitude":-39.288590110350775,"extent_longitude":175.85652548216683,"map_initial_scale":0.1},"rakiura-track---stewart-island":{"map_id":"rakiura-track---stewart-island","latitude":-46.82703931382569,"longitude":167.99939428698806,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000110980608744,"extent_latitude":-46.94290306935443,"extent_longitude":168.19272250742011,"map_initial_scale":0.1},"milford-track":{"map_id":"milford-track","latitude":-44.65180781421633,"longitude":167.65907612771002,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-44.94994232973389,"extent_longitude":168.15653812582457,"map_initial_scale":0.1},"abel-tasman-coast-track":{"map_id":"abel-tasman-coast-track","latitude":-40.77160911578638,"longitude":172.68815992588924,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285453325972,"extent_latitude":-41.06962238810115,"extent_longitude":173.18541961973247,"map_initial_scale":0.1},"heaphy-track":{"map_id":"heaphy-track","latitude":-40.82923160495061,"longitude":172.02760098235598,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-41.12736612046816,"extent_longitude":172.52506298047052,"map_initial_scale":0.1},"wellington":{"map_id":"wellington","latitude":-41.21341136987253,"longitude":174.72217539068876,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000142358133316,"extent_latitude":-41.362033261054435,"extent_longitude":174.97016325892523,"map_initial_scale":0.1},"routeburn-track":{"map_id":"routeburn-track","latitude":-44.68512592255184,"longitude":168.06155744219296,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.00015647401239,"extent_latitude":-44.848484791487,"extent_longitude":168.33413517177635,"map_initial_scale":0.1},"kepler-track":{"map_id":"kepler-track","latitude":-45.34650584038335,"longitude":167.46068593304253,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000174704669218,"extent_latitude":-45.52889751504694,"extent_longitude":167.7650214668203,"map_initial_scale":0.1}};
+        </script>
+    </head>
+    <body class="walk">
+        <input type="checkbox" id="show_slideout_navigation">
+        <div id="wrapper">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a href="index.html" id="logo">Department of Conservation - Great Walks</a>
+                        <ul class="nav">
+                            <li>
+                                <label for="show_slideout_navigation"><span class="header-sprite header-threebar">Menu</span></label>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="info.html"><span class="header-sprite header-info">Info</span></a>
+                            </li>
+                            <li id="share-social">
+                                <a href="#social-share"><span class="header-sprite header-share">Share</span></a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div id="debug"></div>
+
+               </div>
+            </div>
+            <div id="slideout_navigation">
+                <ul class="menu">
+                    <li><label for="show_slideout_navigation">Menu</label></li>
+                    <li><a href="book.html" class="booking">Make a booking</a></li>
+                    <li><a href="offers.html" class="offers">Special offers</a></li>
+                </ul>
+                <ul class="walks">
+                    <li><a href="walk-lake-waikaremoana.html">Lake Waikaremoana</a></li><li><a href="walk-tongariro-northern-circuit.html">Tongariro Northern Circuit</a></li><li><a href="walk-whanganui-journey.html">Whanganui Journey</a></li><li><a href="walk-abel-tasman-coast-track.html">Abel Tasman Coast Track</a></li><li><a href="walk-heaphy-track.html">Heaphy Track</a></li><li><a href="walk-kepler-track.html">Kepler Track</a></li><li><a href="walk-milford-track.html">Milford Track</a></li><li><a href="walk-routeburn-track.html">Routeburn Track</a></li><li><a href="walk-rakiura-track---stewart-island.html">Rakiura Track - Stewart Island</a></li>
+                </ul>
+                <ul class="maps">
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </div>
+            <div id="page1">
+                <div class="social-links">
+                    <a href='mailto:enquiries@doc.govt.nz?subject=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;body=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20http%3A%2F%2Fgreatwalks.co.nz%2F' class='email'>Email</a> <a href='http://www.facebook.com/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fgreatwalks.co.nz%2F&amp;p[title]=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;p[images][0]=http%3A%2F%2Fwww.greatwalks.co.nz%2Fsites%2Fall%2Fthemes%2Fsparks_responsive%2Flogo.png&amp;p[summary]=.' class='facebook'>Facebook</a> <a href='http://twitter.com/share?url=http%3A%2F%2Fbit.ly%2FSLFPlX&amp;text=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20@NZGreatWalks' class='twitter'>Twitter</a>
+                </div>
+                <!--
+                <div id="viewable-area" style="border: solid 2px red"></div>
+                <div id="absolute-map" style="border: solid 2px green"></div>
+                -->
+    	        <div class="text-column1 routeburn-track">
+    <h1>Routeburn Track</h1>
+    <p class="info">
+      <span class="days">2-4 days</span>
+      <span class="duration">32km / 20mi</span>
+      <a href="map-routeburn-track.html" class="icon-map">Map</a>
+    </p>
+    <p class="intro">
+      Weave through beech-forested valleys and alongside clear green rivers,
+      glistening alpine lakes and breathtaking views from a mountain pass. Feel close to
+      nature as you cross New Zealand&rsquo;s spectacular Southern Alps and pass through
+      the incredible landscapes of Mt Aspiring National Park and Fiordland National
+      Park.
+    </p>
+    <div class="youtube" data-youtube-id="2MvfP41Q3EE"></div>
+    <div id="carousel" class="carousel slide">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+          <div class="item active">
+            <ul>
+              <li><a href="#carousel-walker1-routeburn-river-routeburn-track--_keri-moyle-wwwsignsoflifeconzjpg" role="button" data-toggle="modal" style="background-image: url('img/walks/routeburn-track/carousel-walker1-routeburn-river-routeburn-track--keri-moyle-www.signsoflife.co.nz.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-routeburn-alternative-homejpg" role="button" data-toggle="modal" style="background-image: url('img/walks/routeburn-track/carousel-routeburn-alternative-home.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-routeburn-falls-hut2-routeburn-track--_keri-moyle-wwwsignsoflifeconzjpg" role="button" data-toggle="modal" style="background-image: url('img/walks/routeburn-track/carousel-routeburn-falls-hut2-routeburn-track--keri-moyle-www.signsoflife.co.nz.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+          <div class="item ">
+            <ul>
+              <li><a href="#carousel-walker-lake-harris-routeburn-track--_keri-moyle-wwwsignsoflifeconzjpg" role="button" data-toggle="modal" style="background-image: url('img/walks/routeburn-track/carousel-walker-lake-harris-routeburn-track--keri-moyle-www.signsoflife.co.nz.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+      </div>
+      <a class="carousel-control left" href="#carousel" data-slide="prev">&#8249;</a>
+      <a class="carousel-control right" href="#carousel" data-slide="next">&#8250;</a>
+    </div>
+</div>
+<div class="below-fold">
+    <div class="text-column1 routeburn-track">
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header dont-miss"><a href="#expand-walk-detail"><span>Don't miss</span></a></h2><div class="walk-detail dont-miss">    <p>
+      <img src="img/dont-miss-background-paper.png" class="paper" alt="">
+      <img src="img/dont-miss-background-paper-shadow.png" class="shadow" alt="">
+      
+      <a class="earlysteps" href="#" data-content="Follow in the footsteps of the ancient Tai Poutini iwi (tribe) who
+        regularly walked the Routeburn Valley to the head of Lake Wakatipu in search of
+        Pounamu (jade/greenstone), a prized stone used for tools, weapons and
+        ornaments.">
+          <img src="img/walks/routeburn-track/dont-miss-earlysteps.png" alt="Early steps">
+      </a>
+      <a class="mohua" href="#" data-content="Spot the endangered mohua (yellowhead.) This cute little songster is often perched high in the treetops. Listen out for its distinctive chirpy song!">
+          <img src="img/walks/routeburn-track/dont-miss-mohus.png" alt="Mohua">
+      </a>
+      <a class="alpine-wetlands" href="#" data-content="A popular half-day walk, the Key Summit track climbs above the bush line to an alpine wetland and offers panoramic views over the Humboldt and Darran
+        Mountains.">
+          <img src="img/walks/routeburn-track/dont-miss-alpine_wetlands.png" alt="Alpine wetlands">
+      </a>
+      <a class="awesome-views" href="#" data-content="Take a short, steep climb from Harris Saddle up Conical Hill for
+        spectacular views of the Hollyford Valley through to Lake McKerrow and beyond.
+        Allow 1-2 hours for the return trip.">
+          <img src="img/walks/routeburn-track/dont-miss-awesome_views.png" alt="Awesome Views">
+      </a>
+      <a class="blacksmith" href="#" data-content="Gorge-ous! History buffs will love the old forge and blacksmiths camp. From here, a short track leads to the site which supported construction of the early
+        bridle track.">
+          <img src="img/walks/routeburn-track/dont-miss-blacksmith.png" alt="Blacksmith">
+      </a>
+   
+    </p>
+    </div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header offers"><a href="#expand-walk-detail"><span>Offers</span></a></h2><div class="walk-detail offers">    <ul>
+      <li>
+        <a href="http://bookings.bookitsecure.com/pub/supplier.aspx?b=DEPART"><img src="img&#x2F;walks&#x2F;routeburn-track&#x2F;doc-banner1.png" alt=""></a>
+      </li>
+      <li>
+        <a href=
+        "http://www.airnewzealand.co.nz/special-deals-new-zealand#special-deals-great-walks"><img src="img&#x2F;walks&#x2F;routeburn-track&#x2F;airnz-banner1.png" alt=""></a>
+      </li>
+    </ul></div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header before-you-go"><a href="#expand-walk-detail"><span>Before you go</span></a></h2><div class="walk-detail before-you-go">    <p>
+      It is important to plan and prepare
+      so that you are well equipped to enjoy your Great Walk.
+    </p>
+    
+    <p>
+      Before you go, know <strong>The Outdoor Safety Code</strong> - 5 simple rules to help you stay
+      safe:
+    </p>
+    
+    <ol>
+      <li>
+        Plan your trip
+      </li>
+      <li>
+        Tell someone
+      </li>
+      <li>
+        Be aware of the weather
+      </li>
+      <li>
+        Know your limits
+      </li>
+      <li>
+        Take sufficient supplies
+      </li>
+    </ol>
+    <h3>
+      Routeburn Track safety
+    </h3>
+    <ul>
+      <li>
+        
+          The track may need to be
+          closed for safety reasons (e.g. avalanche danger, flooding or high winds).
+          The <a href=
+          "http://www.doc.govt.nz/footer-links/contact-us/office-by-name/?mode=details&amp;office=1406">Fiordland
+          National Park Visitor Centre</a> staff can keep you informed
+          of all issues and options around these situations.
+        
+      </li>
+      <li>
+        
+          This track is not
+          recommended for children under the age of 10 due to the exposed mountainous
+          environment and often adverse weather conditions. However, an overnight stay at
+          Routeburn Flats, Routeburn Falls or Lake Howden huts is a great way for a
+          family to experience part of the track.
+        
+      </li>
+      <li>
+        
+          During the off-peak
+          season (May - October) the track remains open but is subject to weather, track
+          and avalanche conditions. Make sure you are fully prepared before you go. There
+          are no DOC rangers in residence during the off-peak season.
+        
+      </li>
+      <li>
+        Fiordland and Mount
+          Aspiring National Parks lies in an area of predominantly westerly airstreams,
+          which delivers high rainfall and changeable weather patterns to the area. Cold
+          temperatures, snow, strong winds and heavy rain can occur at any time of the
+          year.
+        
+      </li>
+      <li>
+        Cell phone coverage on the track is limited.
+      </li>
+    </ul>
+    
+    <h3>
+      Things to know before you
+      go
+    </h3>
+    <ul>
+      <li>
+        
+          A good level of fitness
+          and the right outdoor clothing and equipment will greatly improve the enjoyment
+          of your trip.
+        
+      </li>
+      <li>
+        
+          Safety is your
+          responsibility - leave your trip details with a trusted contact. Intention
+          forms are available at <a href="http://adventuresmart.org.nz/Outdoors-Intentions/Default.asp">adventuresmart.org.nz</a>.
+        
+      </li>
+      <li>
+        
+          Book your trip well in
+          advance including your accommodation, transport and transfers to the start/end
+          of the Great Walk.
+        
+      </li>
+      <li>
+        
+          Pack all necessary
+          equipment, your own food and drinks and any personal items for your trip
+          including an extra day's supply of food and water.
+        
+      </li>
+      <li>
+        
+          For a full list of
+          equipment and preparation required for this walk, plus track updates for the
+          Routeburn Track, please visit <a href=
+          "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/fiordland/northern-fiordland/great-walks-in-fiordland/plan-and-prepare/what-to-take/">
+          the DOC website</a>.
+        
+      </li>
+    </ul>
+    <h3>
+      When to go
+    </h3>
+    <p>
+      The best time to walk the Routeburn Track is from late October to late April when the weather is warmer and there are more
+      regular transport services to and from the start and end of the track. During the
+      off-peak season (May to October) the Routeburn Track remains open but is subject to
+      weather, track and avalanche conditions.
+    </p>
+    
+    <h3>
+      What to
+      bring 
+    </h3>
+    <p>
+      Your basic equipment needs to include
+    </p>
+    <ul>
+      <li>
+        Backpack
+      </li>
+      <li>
+        Sleeping bag and liner
+      </li>
+      <li>
+        Portable cooking stove
+      </li>
+      <li>
+        Cooking utensils
+      </li>
+      <li>
+        Food, including high-energy food
+      </li>
+      <li>
+        Waterproof rain jacket and overtrousers
+      </li>
+      <li>
+        Warm/thermal clothing
+      </li>
+      <li>
+        Hiking boots
+      </li>
+      <li>
+        Map and compass
+      </li>
+      <li>
+        Lighter and matches
+      </li>
+      <li>
+        Drink bottle &amp; water
+      </li>
+    </ul>
+    
+    <p>
+      Add camping gear to your list if you&rsquo;re staying at a
+      campsite.
+    </p>
+    <h3>
+ Travelling with
+      children
+    </h3>
+    <p>
+      The Routeburn Track is the perfect track for you, and your family and
+      friends, if you love being amongst nature and want an exciting outdoors adventure
+      on a track with excellent facilities. It also offers fantastic day walk
+      opportunities for families or those with less time. However, the track is not
+      recommended for children under the age of 10 due to the exposed mountainous
+      environment and often adverse weather conditions. An excellent option for families
+      keen to experience part of the track is an overnight stay at Routeburn Flats Hut,
+      Routeburn Falls Hut or Lake Howden Hut.
+    </p>
+    
+  <h3>Nearest DOC visitor centre</h3>
+
+  <p>Fiordland National Park Visitor Centre
+  Lakefront Drive<br>
+  Te Anau<br>
+  <a href="tel:+6432498514" class="btn phone"></a>+64 3 249 8514<br>
+  <a href="mailto:greatwalksbookings@doc.govt.nz" class="btn email">Email Booking</a></p>
+
+  <h4>Hours</h4>
+
+  <p>Open daily 8:00 am - 5:00 pm</p>
+
+  <h4>Services</h4>
+
+  <p>Great Walks booking and recreation information for the
+  area.</p>
+</div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header getting-there"><a href="#expand-walk-detail"><span>Getting there</span></a></h2><div class="walk-detail getting-there"><h3>
+     Nearest airports
+    </h3>
+    <ul>
+      <li>
+        Queenstown - 174km / 108mi, 2 hours 30 min
+      </li>
+      <li>
+        Invercargill - 159km / 99mi, 2 hours 20 min
+      </li>
+    </ul>
+    
+    <p>
+      Flights to these airports typically connect from Auckland, Wellington and
+      Christchurch. The above driving times are indicative only - always allow for extra
+      time to get to your destination.
+    </p>
+    <h3>
+      How to get to the
+      trailhead
+    </h3>
+    <p>
+      Access to the Routeburn Track is by road, with the track starting at either
+      the Routeburn Shelter or The Divide. The road distance between each end of the
+      track is 350km / 217mi. Return transport can be pre-arranged to reach either end of the
+      track from nearby towns, Queenstown, <a href="#Te Anau" data-audio="audio/speech-te_anau.mp3" class="audio">Te Anau</a>, Glenorchy and Milford
+      Sound/<a href="#Piopiotahi" data-audio="audio/speech-piopiotahi.mp3" class="audio">Piopiotahi</a>.
+    </p>
+    
+    <h3>
+      Transport and
+      accommodation
+    </h3>
+    <p>
+      <a href=
+      "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/fiordland/northern-fiordland/routeburn-track/plan-and-prepare/guides-and-commercial-tourism-providers/">
+      Guides and commercial tourism providers</a> - find accommodation,
+      transport, and activities in the area.
+    </p>
+</div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header where-to-stay"><a href="#expand-walk-detail"><span>Where to stay</span></a></h2><div class="walk-detail where-to-stay">    <p>
+      DOC provides four huts and two campsites along the Routeburn Track.
+    </p>
+    <h3>
+      Huts
+    </h3>
+    <p>
+      Routeburn Track huts have heating, toilets, bunks,
+      mattresses, cold running water, cooking facilities and solar powered lighting. A
+      DOC ranger is in residence during the Great Walks season (late October to late
+      April). Note: Huts do not provide pots and pans, cooking utensils, hot showers,
+      linen, toilet paper or food and drinks for purchase. Make sure you put these things
+      on your checklist before you go.
+    </p>
+    
+    <ul>
+      <li>
+        Routeburn Flats Hut: 20 bunks
+      </li>
+      <li>
+        Routeburn Falls Hut: 48 bunks
+      </li>
+      <li>
+        Lake Mackenzie Hut: 50 bunks
+      </li>
+      <li>
+        Lake Howden Hut: 28 bunks
+      </li>
+    </ul>
+    
+    <h3>
+      Campsites
+    </h3>
+    <p>
+      The Routeburn Flats and Lake Mackenzie campsites offer basic facilities
+      including a water supply, cooking shelter and toilets. Campers are not permitted to
+      use the hut facilities.
+    </p>
+
+<h3>
+      Cost and booking
+    </h3>
+    <p>
+      Fees are charged per person, per night to stay in huts and campsites.
+    </p>
+    <p>
+      Bookings are essential! Use the <a href="https://booking.doc.govt.nz/Menu.aspx?sg=RBN">DOC online booking system</a> prior to travel or
+      call <a href="tel:0800694732" class="btn phone"></a>0800 NZ GREATWALKS.
+    </p>
+</div>     
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header on-the-track"><a href="#expand-walk-detail"><span>On the track</span></a></h2><div class="walk-detail on-the-track">    <h3>
+      Track description
+    </h3>
+    <p>
+      The Routeburn Track can be walked in either direction. This guide describes
+      an east to west direction, starting the track at the Routeburn Shelter and ending
+      the track at The Divide - the beginning and end of the track are 350km / 217mi
+      apart by road. Return transport can be pre-arranged to reach either end of the
+      track from nearby towns.
+    </p>
+    
+    <p>
+      <a href="map-routeburn-track.html" class="btn">View map</a>
+    </p>
+
+    <h3>
+      Elevation profile
+    </h3>
+    
+        <p><a href="#elevation-profile" id="elevation-profile-button" role="button" data-toggle="modal"><img src="img&#x2F;walks&#x2F;routeburn-track&#x2F;profile.jpg" class="elevation-profile"></a></p>
+
+    
+    <p>
+      The Routeburn Track's highest point is Harris Saddle (1255m / 4117ft) and the lowest
+      point is the Routeburn Shelter (start or finish point of the track) at 458m / 1503ft. At
+      532m / 1745ft, The Divide (start or finish point of the track) is at a similar altitude, so
+      it&rsquo;s often best to start your walk from the Routeburn Shelter so that the
+      first part of your walk is uphill, which means you&rsquo;ll get to enjoy going
+      downhill on the last part of your walk! Note the altitude level when you view the
+      elevation profile.
+    </p>
+    
+    <h3>Walking guide</h3>
+    
+    <h4>
+      Routeburn Shelter to Routeburn Flats Hut
+    </h4>
+    <p><strong>
+      1.5-2.5 hours, 6.5km / 2.5mi</strong>
+    </p>
+    <p>
+      This journey begins at Routeburn Shelter, with a swing bridge crossing to a
+      well-formed track that gently winds beside the crystal clear Route Burn. After
+      passing Sugarloaf Stream, the track climbs to Bridal Veil Waterfall and continues
+      above the gorge. A swing bridge leads to open, grassed flats and the Routeburn
+      Flats Hut and Campsite.
+    </p>
+    
+    <h4>
+Routeburn Flats Hut to Routeburn Falls Hut
+    </h4>
+    <p><strong>
+1-1.5 hours, 2.3km / 0.9mi</strong>
+    </p>
+    <p>
+      From Routeburn Flats Hut, the track climbs steadily through stunning beech
+      forest to Routeburn Falls Hut, situated on the edge of the bush line and close to
+      the impressive Route Burn Falls cascade. Along the way, a recent slip provides an
+      opportunity for views of the Routeburn Flats and the peaks of the Humboldt
+      Mountains. Take care while crossing the slip, especially after heavy rains.
+    </p>
+    
+    <h4>
+Routeburn Falls Hut to Lake Mackenzie Hut
+    </h4>
+    <p><strong>
+4.5-6 hours, 11.3km / 4.4mi</strong>
+    </p>
+    <p>
+      Venture above the bush line and walk amidst the rugged sub-alpine landscape.
+      Climb steadily up the valley, through wetlands and tussock-covered flats, before
+      sidling along the bluffs above Lake Harris to reach the highest point on the track
+      at Tarahaka Whakatipu / Harris Saddle (1255 m). Here a short, steep climb up
+      Conical Hill gives superb views of the Hollyford Valley through to Whakatipu Waitai
+      / Lake McKerrow, Martins Bay and the Tasman Sea. Allow 1 - 2 hours for the
+      return trip back to Harris Saddle. From the saddle, the Routeburn Track descends
+      and traverses along the exposed Hollyford Face, with expansive views over the
+      Darran Mountains and beyond to the Tasman Sea. This section of the track is well
+      known for its impressive array of alpine plants. A steady descent leads to the
+      enchanting Lake Mackenzie. A short distance around the lake is Lake Mackenzie Hut
+      and Campsite.
+    </p>
+    
+    <h4>
+Mackenzie Hut to Howden Hut
+    </h4>
+    <p><strong>
+3-4 hours, 8.6km / 3.3mi</strong>
+    </p>
+    <p>
+      Leaving Lake Mackenzie Hut, the track crosses a small flat before climbing to
+      the bush line. A gradual descent then leads past the &lsquo;Orchard&rsquo;, an open
+      grassy area dotted with ribbonwood trees, to the impressive Earland Falls (174 m).
+      The track continues its gradual descent through beech forest to Lake Howden
+      Hut.
+    </p>
+    
+    <h4>
+Lake Howden Hut to The Divide
+    </h4>
+    <p><strong>
+1-1.5 hours, 3.4km / 1.3mi</strong>
+    </p>
+    <p>
+      The track steadily climbs to meet with the Key Summit Track. Well worth the
+      effort, the side trip to Key Summit heads above the bush line and meanders through
+      an attractive alpine wetland. You will be rewarded with magnificent views of the
+      Darran Mountains, Lake Marian and the Hollyford Valley. From the junction of
+      the two tracks, the gradual downhill walk to The Divide is through charming silver
+      beech forest.
+    </p>
+    </div>     
+    </div>
+</div>
+<div id="elevation-profile" style="width:98%;" class="modal hide fade horizscroll" tabindex="-1" role="dialog">
+  <img src="img/walks/routeburn-track/profile.jpg" style="width:px; height:px; max-width:none; max-height:none">
+</div>
+
+<div id="carousel-walker1-routeburn-river-routeburn-track--_keri-moyle-wwwsignsoflifeconzjpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;routeburn-track&#x2F;carousel-walker1-routeburn-river-routeburn-track--keri-moyle-www.signsoflife.co.nz.jpg" style="width:100%">
+</div>
+<div id="carousel-routeburn-alternative-homejpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;routeburn-track&#x2F;carousel-routeburn-alternative-home.jpg" style="width:100%">
+</div>
+<div id="carousel-routeburn-falls-hut2-routeburn-track--_keri-moyle-wwwsignsoflifeconzjpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;routeburn-track&#x2F;carousel-routeburn-falls-hut2-routeburn-track--keri-moyle-www.signsoflife.co.nz.jpg" style="width:100%">
+</div>
+<div id="carousel-walker-lake-harris-routeburn-track--_keri-moyle-wwwsignsoflifeconzjpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;routeburn-track&#x2F;carousel-walker-lake-harris-routeburn-track--keri-moyle-www.signsoflife.co.nz.jpg" style="width:100%">
+</div>
+
+            </div>
+            <div id="page2">
+            </div>
+        </div>
+        <!-- Why jQuery and not Zepto? Well there's not much difference http://www.codefessions.com/2012/08/performance-of-jquery-compatible-mobile.html -->
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/hammer.js"></script>
+        <script src="js/vendor/jquery.hammer.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

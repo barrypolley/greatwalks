@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>Great Walks - Lake Waikaremoana</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="x-rim-auto-match" content="none">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="cordova.js"></script>
+        <script>
+            var nz_map_dimensions = {"width":752,"height":1056,"ratio":0.7121212121212122};
+            var maps_details = {"whanganui-journey":{"map_id":"whanganui-journey","latitude":-38.864053084012156,"longitude":174.5366521487492,"map_pixel_width":1562,"map_pixel_height":1016,"degrees_per_pixel":0.000632707374232,"extent_latitude":-39.50688377623187,"extent_longitude":175.52494106729958,"map_initial_scale":0.1},"lake-waikaremoana":{"map_id":"lake-waikaremoana","latitude":-38.69996653229696,"longitude":176.95114126114987,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000137073340468,"extent_latitude":-38.84307109974555,"extent_longitude":177.18992302024512,"map_initial_scale":0.1},"tongariro-northern-circuit":{"map_id":"tongariro-northern-circuit","latitude":-39.043598354843745,"longitude":175.44773655679015,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000234666432478,"extent_latitude":-39.288590110350775,"extent_longitude":175.85652548216683,"map_initial_scale":0.1},"rakiura-track---stewart-island":{"map_id":"rakiura-track---stewart-island","latitude":-46.82703931382569,"longitude":167.99939428698806,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000110980608744,"extent_latitude":-46.94290306935443,"extent_longitude":168.19272250742011,"map_initial_scale":0.1},"milford-track":{"map_id":"milford-track","latitude":-44.65180781421633,"longitude":167.65907612771002,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-44.94994232973389,"extent_longitude":168.15653812582457,"map_initial_scale":0.1},"abel-tasman-coast-track":{"map_id":"abel-tasman-coast-track","latitude":-40.77160911578638,"longitude":172.68815992588924,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285453325972,"extent_latitude":-41.06962238810115,"extent_longitude":173.18541961973247,"map_initial_scale":0.1},"heaphy-track":{"map_id":"heaphy-track","latitude":-40.82923160495061,"longitude":172.02760098235598,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-41.12736612046816,"extent_longitude":172.52506298047052,"map_initial_scale":0.1},"wellington":{"map_id":"wellington","latitude":-41.21341136987253,"longitude":174.72217539068876,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000142358133316,"extent_latitude":-41.362033261054435,"extent_longitude":174.97016325892523,"map_initial_scale":0.1},"routeburn-track":{"map_id":"routeburn-track","latitude":-44.68512592255184,"longitude":168.06155744219296,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.00015647401239,"extent_latitude":-44.848484791487,"extent_longitude":168.33413517177635,"map_initial_scale":0.1},"kepler-track":{"map_id":"kepler-track","latitude":-45.34650584038335,"longitude":167.46068593304253,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000174704669218,"extent_latitude":-45.52889751504694,"extent_longitude":167.7650214668203,"map_initial_scale":0.1}};
+        </script>
+    </head>
+    <body class="walk">
+        <input type="checkbox" id="show_slideout_navigation">
+        <div id="wrapper">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a href="index.html" id="logo">Department of Conservation - Great Walks</a>
+                        <ul class="nav">
+                            <li>
+                                <label for="show_slideout_navigation"><span class="header-sprite header-threebar">Menu</span></label>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="info.html"><span class="header-sprite header-info">Info</span></a>
+                            </li>
+                            <li id="share-social">
+                                <a href="#social-share"><span class="header-sprite header-share">Share</span></a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div id="debug"></div>
+
+               </div>
+            </div>
+            <div id="slideout_navigation">
+                <ul class="menu">
+                    <li><label for="show_slideout_navigation">Menu</label></li>
+                    <li><a href="book.html" class="booking">Make a booking</a></li>
+                    <li><a href="offers.html" class="offers">Special offers</a></li>
+                </ul>
+                <ul class="walks">
+                    <li><a href="walk-lake-waikaremoana.html">Lake Waikaremoana</a></li><li><a href="walk-tongariro-northern-circuit.html">Tongariro Northern Circuit</a></li><li><a href="walk-whanganui-journey.html">Whanganui Journey</a></li><li><a href="walk-abel-tasman-coast-track.html">Abel Tasman Coast Track</a></li><li><a href="walk-heaphy-track.html">Heaphy Track</a></li><li><a href="walk-kepler-track.html">Kepler Track</a></li><li><a href="walk-milford-track.html">Milford Track</a></li><li><a href="walk-routeburn-track.html">Routeburn Track</a></li><li><a href="walk-rakiura-track---stewart-island.html">Rakiura Track - Stewart Island</a></li>
+                </ul>
+                <ul class="maps">
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </div>
+            <div id="page1">
+                <div class="social-links">
+                    <a href='mailto:enquiries@doc.govt.nz?subject=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;body=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20http%3A%2F%2Fgreatwalks.co.nz%2F' class='email'>Email</a> <a href='http://www.facebook.com/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fgreatwalks.co.nz%2F&amp;p[title]=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;p[images][0]=http%3A%2F%2Fwww.greatwalks.co.nz%2Fsites%2Fall%2Fthemes%2Fsparks_responsive%2Flogo.png&amp;p[summary]=.' class='facebook'>Facebook</a> <a href='http://twitter.com/share?url=http%3A%2F%2Fbit.ly%2FSLFPlX&amp;text=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20@NZGreatWalks' class='twitter'>Twitter</a>
+                </div>
+                <!--
+                <div id="viewable-area" style="border: solid 2px red"></div>
+                <div id="absolute-map" style="border: solid 2px green"></div>
+                -->
+    	         <div class="text-column1 lake-waikaremoana">
+    <h1>
+      Lake Waikaremoana
+    </h1>
+    <p class="info">
+      <span class="days">3-4 days</span>
+      <span class="duration">46km / 29mi</span>
+      <a href="map-lake-waikaremoana.html" class="icon-map">Map</a>
+    </p>
+    <p class="intro">
+      Trace the shores of the beautiful Lake
+      Waikaremoana, <a href="#" class="icon icon-lake"
+      data-content="Lake Waikaremoana was formed only 2,200 years ago by a huge landslide which blocked a narrow gorge along the Waikaretaheke River. Water backed up behind this landslide to form a lake up to 248m / 814ft deep. The lake edge has since been modified by a hydro electric development which lowered the level by 5m / 16ft in 1946.">
+      </a> the &ldquo;sea of rippling waters&rdquo;. Get a
+      glimpse of how New Zealand used to be: explore the prehistoric rainforests, marvel
+      at the giant podocarps, visit remote beaches and deepen your imagination with this
+      Great Walk&rsquo;s rich spiritual and cultural history. Te Urewera
+      National Park <a href="#" class="icon icon-forest"
+      data-content="Forming a protective green cloak, the vegetation shrouds the countless ridges and valleys. There are more than 650 types of native plant present in the park, some nationally rare. It was the remote nature of Te Urewera that for centuries sheltered the Tūhoe, the local Māori people. It provided an abundant source of food and supplies throughout the year. Tühoe spiritual and cultural traditions are closely linked with the forested hills of the park.">
+      </a> is the home of Ng&#257;i
+      T&#363;hoe. It also offers access to some of New Zealand&rsquo;s most
+      iconic birds, including kiwi, kerer&#363; and k&#257;k&#257;.
+    </p>
+    <div class="youtube" data-youtube-id="gLSi140X_ac"></div>
+    <div id="carousel" class="carousel slide">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+          <div class="item active">
+            <ul>
+              <li><a href="#carousel-img_3554jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/lake-waikaremoana/carousel-img3554.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-lake-waikaremoana-great-walk---20-happy-hiker-vivjpg" role="button" data-toggle="modal" style="background-image: url('img/walks/lake-waikaremoana/carousel-lake-waikaremoana-great-walk---20-happy-hiker-viv.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-lake-waikaremoana_img_1017jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/lake-waikaremoana/carousel-lake-waikaremoanaimg1017.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+          <div class="item ">
+            <ul>
+              <li><a href="#carousel-waikaremoana-new-homejpg" role="button" data-toggle="modal" style="background-image: url('img/walks/lake-waikaremoana/carousel-waikaremoana-new-home.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+      </div>
+      <a class="carousel-control left" href="#carousel" data-slide="prev">&#8249;</a>
+      <a class="carousel-control right" href="#carousel" data-slide="next">&#8250;</a>
+    </div>
+</div>
+<div class="below-fold">
+    <div class="text-column1 lake-waikaremoana">
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header dont-miss"><a href="#expand-walk-detail"><span>Don't miss</span></a></h2><div class="walk-detail dont-miss">    <p>
+      <img src="img/dont-miss-background-paper.png" class="paper" alt="">
+      <img src="img/dont-miss-background-paper-shadow.png" class="shadow" alt="">
+      
+      <a class="counterclockwise" href="#" data-content="Walk the track counter-clockwise. This way you hit the Panekire Bluff, the
+        biggest climb of the walk, when your pack will be lightest and your muscles will
+        be all warmed up and used to the exercise.">
+          <img src="img/walks/lake-waikaremoana/dont-miss-counterclockwise.png" alt="Counterclockwise">
+      </a>
+      <a class="falls" href="#" data-content="The Korokoro Falls are well worth the detour. This spectacular waterfall
+        drops off a sheer cliff amidst native rain forest - very instagrammable!
+        It&rsquo;s a 30 minute walk just before the suspension bridge.">
+          <img src="img/walks/lake-waikaremoana/dont-miss-falls.png" alt="Falls">
+      </a>
+      <a class="awesomeviews" href="#" data-content="It's a 1185 metre climb up to Panekire Hut but you&rsquo;ll be rewarded with views of the ocean and the lake. Watch the sunrise through the goblin forest trees at the top.">
+          <img src="img/walks/lake-waikaremoana/dont-miss-awesomeviews.png" alt="Awesome Views">
+      </a>
+      <a class="notebook" href="#" data-content="If the weather is less than postcard-blue skies, remember that the remote Te Urewera National Park has been home to the Ng&#257;i T&#363;hoe, the local
+        Maori people, who call themselves Nga Tamariki o te Kohu - the children of the
+        mist. If you&rsquo;re spending a rainy evening by the hut fireside, why not take
+        a guidebook and make the most of the opportunity to learn the names of some
+        plants or birds in Te Reo Maori?">
+          <img src="img/walks/lake-waikaremoana/dont-miss-notebook.png" alt="Notebook">
+      </a>
+      <a class="swimming" href="#" data-content="Take your swimming gear! The cool, crystal clear water will be superbly
+        refreshing after a long day&rsquo;s walk. There are plenty of spots, and most of
+        the huts and campsites have great swimming too.">
+          <img src="img/walks/lake-waikaremoana/dont-miss-swimming.png" alt="Swimming">
+      </a>
+      
+
+    </p>
+</div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header offers"><a href="#expand-walk-detail"><span>Offers</span></a></h2><div class="walk-detail offers">    <ul>
+      <li>
+        <a href="http://bookings.bookitsecure.com/pub/supplier.aspx?b=DEPART"><img src="img&#x2F;walks&#x2F;lake-waikaremoana&#x2F;doc-banner1.png" alt=""></a>
+      </li>
+      <li>
+        <a href=
+        "http://www.airnewzealand.co.nz/special-deals-new-zealand#special-deals-great-walks"><img src="img&#x2F;walks&#x2F;lake-waikaremoana&#x2F;airnz-banner1.png" alt=""></a>
+      </li>
+    </ul></div>   
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header before-you-go"><a href="#expand-walk-detail"><span>Before you go</span></a></h2><div class="walk-detail before-you-go">    <p>
+      It is important to plan and prepare
+      so that you are well equipped to enjoy your Great Walk.
+    </p>
+    
+    
+    <p>
+      Before you go, know <strong>The Outdoor Safety Code</strong> - 5 simple rules to help you stay
+      safe:
+    </p>
+    
+    <ol>
+      <li>
+        Plan your trip
+      </li>
+      <li>
+        Tell someone
+      </li>
+      <li>
+        Be aware of the weather
+      </li>
+      <li>
+        Know your limits
+      </li>
+      <li>
+        Take sufficient supplies
+      </li>
+    </ol>
+    <h3>
+      Lake <a href="#Waikaremoana" data-audio="audio/speech-waikaremoana.mp3" class="audio">Waikaremoana</a> safety
+    </h3>
+    <ul>
+      <li>
+        This track is not recommended for children under the age of
+        10 due to the exposed mountainous environment and
+        possible adverse weather conditions.
+      </li>
+      <li>
+        Lake Waikaremoana lies between altitudes of 600-1200m / 3937ft.
+        Cold temperatures, snow, strong winds and heavy rain can occur at any time
+        of the year. You must be self-sufficient and responsible for ensuring your own
+        safety while walking.
+      </li>
+      <li>
+        Cell phone coverage on the track is limited.
+      </li>
+    </ul>
+    <h3>
+      Things to know before you
+      go
+    </h3>
+    <ul>
+      <li>
+        A good level of fitness and the right outdoor clothing and equipment will
+        greatly improve the enjoyment of your trip.
+      </li>
+      <li>
+        Safety is your responsibility - leave your trip details with a trusted
+        contact. Intention forms are available at <a href=
+        "http://adventuresmart.org.nz">adventuresmart.org.nz</a>.
+      </li>
+      <li>
+        Book your trip well in advance including your accommodation, transport and
+        transfers to the start/end of the Great Walk.
+      </li>
+      <li>
+        Pack all necessary equipment, your own food and drinks and any personal
+        items for your trip, including an extra day&rsquo;s supply of food and water.
+        Food and drinks are not available for purchase at Great Walks huts and
+        campsites.
+      </li>
+      <li>
+        For a full list of equipment and preparation required for this walk, plus
+        track updates for Lake Waikaremoana, please visit <a href=
+        "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/east-coast/te-urewera/lake-waikaremoana-great-walk/plan-and-prepare/safety-information/">
+        the DOC website</a>.
+      </li>
+    </ul>
+    <h3>
+      When to go
+    </h3>
+    <p>
+      You can do this walk year-round but if you want to take advantage of the
+      great swimming opportunities, you should go in summer (remember, that&rsquo;s
+      December - February/March).
+    </p>
+    <h3>
+      What to
+      bring 
+    </h3>
+    <p>
+      Your basic equipment needs to include
+    </p>
+    <ul>
+      <li>
+        Backpack
+      </li>
+      <li>
+        Sleeping bag and liner
+      </li>
+      <li>
+        Portable cooking stove
+      </li>
+      <li>
+        Cooking utensils
+      </li>
+      <li>
+        Food, incl. high-energy food
+      </li>
+      <li>
+        Waterproof rain jacket and overtrousers
+      </li>
+      <li>
+        Warm/thermal clothing
+      </li>
+      <li>
+        Hiking boots
+      </li>
+      <li>
+        Map and compass
+      </li>
+      <li>
+        Lighter and matches
+      </li>
+      <li>
+        Drink bottle &amp; water
+      </li>
+    </ul>
+    
+    <p>
+      Add camping gear to your list if you&rsquo;re staying at a
+      campsite.
+    </p>
+    <h3>Travelling with
+      children
+    </h3>
+    <p>
+      Lake Waikaremoana is a moderate walk and suitable for families with children.
+      You can do part of the track on a water taxi or have part of your luggage
+      transported that way.
+    </p>
+    <h3>Nearest DOC visitor
+      centre
+    </h3>
+    <p>
+      <a href="#Aniwaniwa" data-audio="audio/speech-aniwaniwa.mp3" class="audio">Aniwaniwa</a> Visitor Centre
+    </p>
+    <p>
+      <a href="#Te Urewera" data-audio="audio/speech-te_urewera.mp3" class="audio">Te Urewera</a> National Park<br />
+      State Highway 38 RD 5<br />
+      Aniwaniwa<br />
+      <a href="tel:+6468373900" class="btn phone"></a>+64 6 837 3900 (Great Walks bookings)<br>
+      <a href="mailto:urewerainfo@doc.govt.nz" class="btn email">urewerainfo@doc.govt.nz</a>
+    </p>
+    
+    <h4>
+      Hours
+    </h4>
+    <p>
+      Open daily 8:00 am - 5:00 pm
+    </p>
+    <h4>
+      Services
+    </h4>
+    <p>
+      Lake Waikaremoana Great Walks bookings, boat hire, hunting permits and
+      recreation information for the area.
+    </p>
+</div>   
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header getting-there"><a href="#expand-walk-detail"><span>Getting there</span></a></h2><div class="walk-detail getting-there">    <h3>Nearest airports
+    </h3>
+    <ul>
+      <li>
+        Napier - 180km / 112mi, 2 hours
+      </li>
+      <li>
+        Rotorua - 150km / 93mi, 3 hours 30 minutes. Note: The driving time is longer from Rotorua as SH 38
+        is unsealed for approximately 90km / 56mi from Murupara to Aniwaniwa.
+      </li>
+    </ul>
+    
+    <p>
+      Flights to any of these airports typically connect from Auckland or
+      Wellington. The above driving times are indicative only - always allow for extra
+      time to get to your destination.
+    </p>
+    
+    <h3>
+      How to get to the trailhead
+    </h3>
+    <p>
+      The track can be accessed by car or you can arrange shuttle transport through
+      a tour operator.
+    </p>
+    
+    <p>
+      Note: The track is located deep inside Te Urewera National Park, so access to
+      the trailhead is at least partially on windy, narrow, and unsealed roads through
+      the rainforest. The scenery is beautiful - just don&rsquo;t forget that your drive
+      to the trailhead will take considerably longer than on regular roads. Also, note
+      that for much of the Te Urewera Rainforest Route there is no cell phone
+      reception.
+    </p>
+    
+    <p>
+      You can start your walk either from <a href="#Onepoto" data-audio="audio/speech-onepoto.mp3" class="audio">Onepoto</a> or <a href="#Hopuruahine" data-audio="audio/speech-hopuruahine.mp3" class="audio">Hopuruahine</a> along the Te
+      Urewera Rainforest Route (SH38). Both trailheads can also be accessed by water taxi
+      from the Waikaremoana Motor Camp, Aniwaniwa, which has secure car parking and a DOC
+      visitor centre close by.
+    </p>
+    <h3>Transport and accommodation
+    </h3>
+    <p>
+      <a href=
+      "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/east-coast/te-urewera/lake-waikaremoana-great-walk/plan-and-prepare/guides-and-commercial-tourism-providers/">
+      Guides and commercial tourism providers</a> - find accommodation,
+      transport, and activities in the area
+    </p>
+</div>   
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header where-to-stay"><a href="#expand-walk-detail"><span>Where to stay</span></a></h2><div class="walk-detail where-to-stay">    <p>
+      DOC provides five huts and five campsites around Lake Waikaremoana.
+    </p>
+    <h3>
+      Huts
+    </h3>
+    <p>
+      The Lake Waikaremoana huts have bunks, mattresses, heating, cold
+      water, cooking benches and vault toilets. Note: Huts do
+      not provide lighting, pots and pans, cooking facilities, toilet paper, linen or
+      food for purchase. Make sure you put these things on your checklist before you
+      go.
+    </p>
+    
+    <ul>
+      <li>
+        <a href="#Panekire" data-audio="audio/speech-panekire.mp3" class="audio">Panekire</a> Hut: 36 bunks
+      </li>
+      <li>
+        <a href="#Waiopaoa" data-audio="audio/speech-waiopaoa.mp3" class="audio">Waiopaoa</a> Hut: 30 bunks
+      </li>
+      <li>
+        <a href="#Marauiti" data-audio="audio/speech-marauiti.mp3" class="audio">Marauiti</a> Hut: 26 bunks
+      </li>
+      <li>
+        <a href="#Waiharuru" data-audio="audio/speech-waiharuru.mp3" class="audio">Waiharuru</a> Hut: 40 bunks
+      </li>
+      <li>
+        <a href="#Whanganui" data-audio="audio/speech-whanganui.mp3" class="audio">Whanganui</a> Hut: 18 bunks
+      </li>
+    </ul>
+    <h3>
+      Campsites
+    </h3>
+    <p>
+      Lake Waikaremoana campsites have cooking shelters, grassed tent
+      sites, a water supply and toilets. Campers are not permitted to use the hut
+      facilities.
+    </p>
+<h3>
+      Cost and booking
+    </h3>
+    <p>
+      Fees are charged per person, per night to stay in huts and campsites.
+    </p>
+    <p>
+      Bookings are essential! Use the <a href="https://booking.doc.govt.nz/Menu.aspx?sg=LWM">DOC online booking system</a> prior to travel or
+      call <a href="tel:0800694732" class="btn phone"></a>0800 NZ GREATWALKS.
+    </p>
+</div>   
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header on-the-track"><a href="#expand-walk-detail"><span>On the track</span></a></h2><div class="walk-detail on-the-track">    <h3>
+      Track description
+    </h3>
+    <p>
+      Lake Waikaremoana can be walked in either direction. This guide describes a
+      clockwise route from Onepoto to Hopuruahine - however many people
+      prefer walking the track counter-clockwise.
+    </p>
+    
+    <p>
+      There are a number of transport providers to assist you with pickups and
+      dropoffs, either by road or water taxi. Please visit your friendly team at
+      the Te Urewera National Park Visitor Centre or check
+      the <a href=
+      "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/east-coast/te-urewera/lake-waikaremoana-great-walk/plan-and-prepare/guides-and-commercial-tourism-providers/">
+      directory of providers on the DOC website</a>.
+    </p>
+    
+    <p>
+      <a href="map-lake-waikaremoana.html" class="btn">View map</a>
+    </p>
+
+    <h3>
+      Elevation profile
+    </h3>
+    <p>
+      This track has one longer climb up the Panekire Bluff, where you first ascend
+      then descend about 600m / 1969ft. Aside from this, there are only moderate
+      elevation changes. Note the altitude level when you view
+      the elevation profile!
+    </p>
+
+        <p><a href="#elevation-profile" id="elevation-profile-button" role="button" data-toggle="modal"><img src="img&#x2F;walks&#x2F;lake-waikaremoana&#x2F;profile.jpg" class="elevation-profile"></a></p>
+
+    
+    <h3>Walking guide</h3>
+    
+    <h4>
+      Day 1: Onepoto to Panekire Hut
+    </h4>
+    <p><strong>
+      4-6 hours, 9km / 6mi</strong>
+    </p>
+    <p>
+      This is the most strenuous part of the trip. The views from Panekire
+      make it really worthwhile. The track starts from the Onepoto Shelter through the
+      former Armed Constabulary Redoubt and climbs steadily up to the top of Panekire
+      Bluff. It then follows the undulating ridgeline before reaching <a href="#Puketapu" data-audio="audio/speech-puketapu.mp3" class="audio">Puketapu</a> Trig (1180
+      metres) and onto Panekire Hut.
+    </p>
+    
+    <h4>
+      Day 2: Panekire Hut to Waiopaoa Hut
+    </h4>
+    <p><strong>
+      3-4 hours, 8km / 5mi</strong>
+    </p>
+    <p>
+      From Panekire Hut, the track heads south-west down the range to the top of
+      the Panekire descent. From here the track drops steeply off the range into rolling
+      valleys of beech, podocarp and k&#257;mahi forest
+      and the lake. The Waiopaoa Hut makes a good stopping point for lunch. Have a
+      relaxing afternoon and take the short walk up the side track from the Korokoro
+      Campsite to the must-see waterfalls (2 hours return.)
+    </p>
+    
+    <h4>
+      Day 3: Waiopaoa Hut to Marauiti Hut
+    </h4>
+    <p><strong>
+      4-5 hours, 12km / 7mi</strong>
+    </p>
+    <p>
+      Day 3 sees the track head up the Waiopoa Stream a short distance before
+      crossing grassy flats and heading through
+      k&#257;nuka forest on the lake shore. The undulating track
+      weaves up and over a number of small ridges, through young rimu
+      wooded areas and along the lake edge. You can either stay at Marauiti, or
+      push through to Waiharuru Hut - this is a great spot to stop for the night - at
+      dusk go for a walk to the edge of <a href="#Puketukutuku" data-audio="audio/speech-puketukutuku.mp3" class="audio">Puketukutuku</a> Peninsula
+      where you may hear the call of the kiwi.
+    </p>
+    
+    <h4>
+      Day 4: Marauiti Hut to Hopuruahine
+    </h4>
+    <p><strong>
+      4-5 hours, 11km / 7mi</strong>
+    </p>
+    <p>
+      This is another moderate day of walking with plenty of fantastic photo
+      opportunities. The track ends with a classic New Zealand suspension bridge.
+    </p>
+    
+    <h4>
+      Fantastic side trip
+    </h4>
+    <p>
+      Spend an extra day at Waikaremoana and take a stroll up the hill from Te
+      Urewera National Park Visitor Centre to explore another amazing lake - Lake
+      <a href="#Waikareiti" data-audio="audio/speech-waikareiti.mp3" class="audio">Waikareiti</a>. Hire a boat from the Visitor Centre at Aniwaniwa before departing to
+      Lake Waikareiti and spend some time on the water.  Or row out to <a href="#Rahui" data-audio="audio/speech-rahui.mp3" class="audio">Rahui</a> Island
+      where you can take another short walk to enjoy the views of Lake Te
+      Tamaiti-o-Waikaremoana. It&rsquo;s a lake on an island in a lake!
+    </p></div>   
+    </div>
+</div>
+<div id="elevation-profile" style="width:98%;" class="modal hide fade horizscroll" tabindex="-1" role="dialog">
+  <img src="img/walks/lake-waikaremoana/profile.jpg" style="width:px; height:px; max-width:none; max-height:none">
+</div>
+
+<div id="carousel-img_3554jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;lake-waikaremoana&#x2F;carousel-img3554.jpg" style="width:100%">
+</div>
+<div id="carousel-lake-waikaremoana-great-walk---20-happy-hiker-vivjpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;lake-waikaremoana&#x2F;carousel-lake-waikaremoana-great-walk---20-happy-hiker-viv.jpg" style="width:100%">
+</div>
+<div id="carousel-lake-waikaremoana_img_1017jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;lake-waikaremoana&#x2F;carousel-lake-waikaremoanaimg1017.jpg" style="width:100%">
+</div>
+<div id="carousel-waikaremoana-new-homejpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;lake-waikaremoana&#x2F;carousel-waikaremoana-new-home.jpg" style="width:100%">
+</div>
+
+            </div>
+            <div id="page2">
+            </div>
+        </div>
+        <!-- Why jQuery and not Zepto? Well there's not much difference http://www.codefessions.com/2012/08/performance-of-jquery-compatible-mobile.html -->
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/hammer.js"></script>
+        <script src="js/vendor/jquery.hammer.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

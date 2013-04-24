@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>Great Walks - Kepler Track</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="x-rim-auto-match" content="none">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="cordova.js"></script>
+        <script>
+            var nz_map_dimensions = {"width":752,"height":1056,"ratio":0.7121212121212122};
+            var maps_details = {"whanganui-journey":{"map_id":"whanganui-journey","latitude":-38.864053084012156,"longitude":174.5366521487492,"map_pixel_width":1562,"map_pixel_height":1016,"degrees_per_pixel":0.000632707374232,"extent_latitude":-39.50688377623187,"extent_longitude":175.52494106729958,"map_initial_scale":0.1},"lake-waikaremoana":{"map_id":"lake-waikaremoana","latitude":-38.69996653229696,"longitude":176.95114126114987,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000137073340468,"extent_latitude":-38.84307109974555,"extent_longitude":177.18992302024512,"map_initial_scale":0.1},"tongariro-northern-circuit":{"map_id":"tongariro-northern-circuit","latitude":-39.043598354843745,"longitude":175.44773655679015,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000234666432478,"extent_latitude":-39.288590110350775,"extent_longitude":175.85652548216683,"map_initial_scale":0.1},"rakiura-track---stewart-island":{"map_id":"rakiura-track---stewart-island","latitude":-46.82703931382569,"longitude":167.99939428698806,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000110980608744,"extent_latitude":-46.94290306935443,"extent_longitude":168.19272250742011,"map_initial_scale":0.1},"milford-track":{"map_id":"milford-track","latitude":-44.65180781421633,"longitude":167.65907612771002,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-44.94994232973389,"extent_longitude":168.15653812582457,"map_initial_scale":0.1},"abel-tasman-coast-track":{"map_id":"abel-tasman-coast-track","latitude":-40.77160911578638,"longitude":172.68815992588924,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285453325972,"extent_latitude":-41.06962238810115,"extent_longitude":173.18541961973247,"map_initial_scale":0.1},"heaphy-track":{"map_id":"heaphy-track","latitude":-40.82923160495061,"longitude":172.02760098235598,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000285569459308,"extent_latitude":-41.12736612046816,"extent_longitude":172.52506298047052,"map_initial_scale":0.1},"wellington":{"map_id":"wellington","latitude":-41.21341136987253,"longitude":174.72217539068876,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000142358133316,"extent_latitude":-41.362033261054435,"extent_longitude":174.97016325892523,"map_initial_scale":0.1},"routeburn-track":{"map_id":"routeburn-track","latitude":-44.68512592255184,"longitude":168.06155744219296,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.00015647401239,"extent_latitude":-44.848484791487,"extent_longitude":168.33413517177635,"map_initial_scale":0.1},"kepler-track":{"map_id":"kepler-track","latitude":-45.34650584038335,"longitude":167.46068593304253,"map_pixel_width":1742,"map_pixel_height":1044,"degrees_per_pixel":0.000174704669218,"extent_latitude":-45.52889751504694,"extent_longitude":167.7650214668203,"map_initial_scale":0.1}};
+        </script>
+    </head>
+    <body class="walk">
+        <input type="checkbox" id="show_slideout_navigation">
+        <div id="wrapper">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a href="index.html" id="logo">Department of Conservation - Great Walks</a>
+                        <ul class="nav">
+                            <li>
+                                <label for="show_slideout_navigation"><span class="header-sprite header-threebar">Menu</span></label>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="info.html"><span class="header-sprite header-info">Info</span></a>
+                            </li>
+                            <li id="share-social">
+                                <a href="#social-share"><span class="header-sprite header-share">Share</span></a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div id="debug"></div>
+
+               </div>
+            </div>
+            <div id="slideout_navigation">
+                <ul class="menu">
+                    <li><label for="show_slideout_navigation">Menu</label></li>
+                    <li><a href="book.html" class="booking">Make a booking</a></li>
+                    <li><a href="offers.html" class="offers">Special offers</a></li>
+                </ul>
+                <ul class="walks">
+                    <li><a href="walk-lake-waikaremoana.html">Lake Waikaremoana</a></li><li><a href="walk-tongariro-northern-circuit.html">Tongariro Northern Circuit</a></li><li><a href="walk-whanganui-journey.html">Whanganui Journey</a></li><li><a href="walk-abel-tasman-coast-track.html">Abel Tasman Coast Track</a></li><li><a href="walk-heaphy-track.html">Heaphy Track</a></li><li><a href="walk-kepler-track.html">Kepler Track</a></li><li><a href="walk-milford-track.html">Milford Track</a></li><li><a href="walk-routeburn-track.html">Routeburn Track</a></li><li><a href="walk-rakiura-track---stewart-island.html">Rakiura Track - Stewart Island</a></li>
+                </ul>
+                <ul class="maps">
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </div>
+            <div id="page1">
+                <div class="social-links">
+                    <a href='mailto:enquiries@doc.govt.nz?subject=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;body=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20http%3A%2F%2Fgreatwalks.co.nz%2F' class='email'>Email</a> <a href='http://www.facebook.com/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fgreatwalks.co.nz%2F&amp;p[title]=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand&amp;p[images][0]=http%3A%2F%2Fwww.greatwalks.co.nz%2Fsites%2Fall%2Fthemes%2Fsparks_responsive%2Flogo.png&amp;p[summary]=.' class='facebook'>Facebook</a> <a href='http://twitter.com/share?url=http%3A%2F%2Fbit.ly%2FSLFPlX&amp;text=I%27m%20goingn%20a%20Great%20Walk%20in%20New%20Zealand%20@NZGreatWalks' class='twitter'>Twitter</a>
+                </div>
+                <!--
+                <div id="viewable-area" style="border: solid 2px red"></div>
+                <div id="absolute-map" style="border: solid 2px green"></div>
+                -->
+    	        <div class="text-column1 kepler-track">
+  <h1>Kepler Track</h1>
+  <p class="info">
+    <span class="days">3-4 days</span>
+    <span class="duration">60km / 37mi</span>
+    <a href="map-kepler-track.html" class="icon-map">Map</a>
+  </p>
+  <p class="intro">A real adventure above the clouds, from the gentle, beech-forested
+    shores of lakes Te Anau and Manapouri to the tussocky alpine tops and grand Mt Luxmore.
+    On top of the world, you&rsquo;ll be rewarded with marvellous panoramic views of the
+    Kepler Mountains on one side, and lakes, rivers and valleys on the other.</p>
+  <div class="youtube" data-youtube-id="wcoldFQQpws"></div>
+  <div id="carousel" class="carousel slide">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+          <div class="item active">
+            <ul>
+              <li><a href="#carousel-kepler-track-luxmore-hut-397-082jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/kepler-track/carousel-kepler-track-luxmore-hut-397-082.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-kepler-track-340-045jpg" role="button" data-toggle="modal" style="background-image: url('img/walks/kepler-track/carousel-kepler-track-340-045.jpg');"><img src="img/magnify-glass.png"></a></li><li><a href="#carousel-trampers-tops-kepler-track8---keri-moyle-wwwsignsoflifeconzjpg" role="button" data-toggle="modal" style="background-image: url('img/walks/kepler-track/carousel-trampers-tops-kepler-track8---keri-moyle-www.signsoflife.co.nz.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+          <div class="item ">
+            <ul>
+              <li><a href="#carousel-tramper-view-from-tops-kepler-track1---keri-moyle-wwwsignsoflifeconzjpg" role="button" data-toggle="modal" style="background-image: url('img/walks/kepler-track/carousel-tramper-view-from-tops-kepler-track1---keri-moyle-www.signsoflife.co.nz.jpg');"><img src="img/magnify-glass.png"></a></li>
+            </ul>
+          </div>
+      </div>
+      <a class="carousel-control left" href="#carousel" data-slide="prev">&#8249;</a>
+      <a class="carousel-control right" href="#carousel" data-slide="next">&#8250;</a>
+    </div>
+</div>
+<div class="below-fold">
+    <div class="text-column1 kepler-track">
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header dont-miss"><a href="#expand-walk-detail"><span>Don't miss</span></a></h2><div class="walk-detail dont-miss">    <p>
+      <img src="img/dont-miss-background-paper.png" class="paper" alt="">
+      <img src="img/dont-miss-background-paper-shadow.png" class="shadow" alt="">
+      
+      <a class="findkiwi" href="#" data-content="Listen out for the call of NZ&rsquo;s iconic kiwi from Iris
+                Burn Hut. Fiordland tokoeka (kiwi) can be heard on the Kepler Track. Largely nocturnal,
+                it cannot fly, has loose, hair-like feathers and long whiskers.">
+            <img src="img/walks/kepler-track/dont-miss-fiindkiwi.png" alt="findkiwi">
+        </a>
+        <a class="swingbridge" href="#" data-content="Swing bridges make for an entertaining journey over rivers
+        and creeks. The Rainbow Reach swing bridge crosses the Waiau River and is an
+        impressive entry/exit point for the track.">
+            <img src="img/walks/kepler-track/dont-miss-swingbridge.png" alt="swingbridge">
+        </a>
+        <a class="caves" href="#" data-content="Explore an amazing limestone cave! Grab a couple of torches and take a 10 min stroll from Luxmore Hut to Luxmore Caves. Just 30m / 98ft into the cave you&rsquo;ll find stalactites and stalagmites.">
+            <img src="img/walks/kepler-track/dont-miss-caves.png" alt="Caves">
+        </a>
+
+        <a class="awesome-views" href="#" data-content="Watching the sunrise from Luxmore Hut allows you to take in   splendid views of Lake Te Anau right across to the Murchison Mountains.">
+            <img src="img/walks/kepler-track/dont-miss-awesome_views.png" alt="Awesome Views">
+        </a>
+
+        <a class="burnfalls" href="#" data-content="Take a 15 min stroll from Iris Burn Hut to Iris Burn Falls.    The falls are a great place for an icy cold swim to refresh you after a day&rsquo;s walking!">
+            <img src="img/walks/kepler-track/dont-miss-burnfalls.png" alt="Burn Falls">
+        </a>
+
+    </p>
+
+  </div>
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header offers"><a href="#expand-walk-detail"><span>Offers</span></a></h2><div class="walk-detail offers">    <ul>
+      <li>
+        <a href="http://bookings.bookitsecure.com/pub/supplier.aspx?b=DEPART"><img src="img&#x2F;walks&#x2F;kepler-track&#x2F;doc-banner1.png" alt=""></a>
+      </li>
+      <li>
+        <a href=
+        "http://www.airnewzealand.co.nz/special-deals-new-zealand#special-deals-great-walks"><img src="img&#x2F;walks&#x2F;kepler-track&#x2F;airnz-banner1.png" alt=""></a>
+      </li>
+    </ul></div>   
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header before-you-go"><a href="#expand-walk-detail"><span>Before you go</span></a></h2><div class="walk-detail before-you-go"><p>It is important to plan
+  and prepare so that you will be well equipped to enjoy your Great Walk.</p>
+
+  <p>
+      Before you go, know <strong>The Outdoor Safety Code</strong> - 5 simple rules to help you stay
+      safe:
+    </p>
+    
+    <ol>
+      <li>
+        Plan your trip
+      </li>
+      <li>
+        Tell someone
+      </li>
+      <li>
+        Be aware of the weather
+      </li>
+      <li>
+        Know your limits
+      </li>
+      <li>
+        Take sufficient supplies
+      </li>
+    </ol>
+   
+
+
+  <h3>Kepler Track safety</h3>
+
+  <ul >
+    <li>
+      This track is not
+      recommended for children under the age of 10 due to the exposed mountainous
+      environment and often adverse weather conditions. However, an overnight stay at
+      <a href="#Moturau" data-audio="audio/speech-moturau.mp3" class="audio">Moturau</a> Hut is a great way for the whole family to experience part of this
+      track.
+    </li>
+
+    <li>
+      The track may need to be
+      closed for safety reasons (e.g. avalanche danger, flooding or high winds). DOC
+      staff can keep you informed of all issues and options around these
+      situations.
+    </li>
+
+    <li>
+      During the off-peak
+      season (May - October) the track remains open but is subject to weather, track and
+      avalanche conditions. Make sure you are fully prepared before you go. There are no
+      hut wardens during the off-peak season.
+    </li>
+
+    <li>
+      Fiordland National Park
+      lies in an area of predominantly westerly airstreams, which delivers high rainfall
+      and changeable weather patterns to the area. Cold temperatures, snow, strong winds
+      and heavy rain can occur at any time of the year. Contact the
+      Fiordland National Park Visitor Centre for current weather,
+      track and avalanche conditions before departing.
+    </li>
+    
+    <li>There is a risk of Giardia. Boil, filter or chemically treat
+    water if you doubt its purity.</li>
+
+    <li>Cell phone coverage on the track is limited.</li>
+  </ul>
+
+   
+
+  <h3>Things to know before you go</h3>
+
+  <ul>
+    <li>
+      A good level of fitness
+      and the right outdoor clothing and equipment will greatly improve the enjoyment of
+      your trip.
+    </li>
+
+    <li>
+      Safety is your
+      responsibility - cell phone coverage is limited and it is recommended that you
+      leave your trip details with a trusted contact. Intention forms are available
+      at <a 
+      href=
+      "http://adventuresmart.org.nz/Outdoors-Intentions/Default.asp">adventuresmart.org.nz</a>.
+    </li>
+
+    <li>
+      Book your trip well in
+      advance including your accommodation, transport and transfers to the start/end of
+      the Great Walk.
+    </li>
+
+    <li>
+      Pack all necessary
+      equipment, your own food and drinks and any personal items for your trip including
+      an extra day's supply of food and water.
+    </li>
+
+    <li>
+      For a full list of
+      equipment and preparation required for this walk, plus track updates for the Kepler
+      Track, please visit <a href=
+      "http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/fiordland/eastern-fiordland/kepler-track/plan-and-prepare/"> the
+      DOC website</a>.
+    </li>
+  </ul>
+
+  <h3>When to go</h3>
+
+  <p>The best time to walk the Kepler Track is from late October to late April when the weather is warmer and there are more
+  regular transport services to and from the start and end of the track. During the
+  off-peak season (May to October) the Kepler Track remains open but is subject to
+  weather, track and avalanche conditions.</p>
+
+   
+
+  <h3>What to bring </h3>
+
+  <p>Your basic equipment needs to include</p>
+
+  <ul>
+    <li>Backpack</li>
+
+    <li>Sleeping bag and liner</li>
+
+    <li>Portable cooking stove</li>
+
+    <li>Cooking utensils</li>
+
+    <li>Food, incl. high-energy food</li>
+
+    <li>Waterproof rain jacket and overtrousers</li>
+
+    <li>Warm/thermal clothing</li>
+
+    <li>Hiking boots</li>
+
+    <li>Map and compass</li>
+
+    <li>Lighter and matches</li>
+
+    <li>Drink bottle &amp; water</li>
+  </ul>
+
+   
+
+  <p>Add camping gear to your list if you&rsquo;re staying at a
+  campsite.</p>
+
+  <h3>Travelling with children</h3>
+
+  <p>The Kepler Track offers great day walking options from the Kepler
+  car park or Rainbow Reach, for families or those with limited time to explore the area.
+  The walk from Rainbow Reach to Moturau hut on the shores of Lake <a href="#Manapouri" data-audio="audio/speech-manapouri.mp3" class="audio">Manapouri</a> is
+  particularly suitable for family groups.</p>
+
+
+  <h3>Nearest DOC visitor centre</h3>
+
+  <p>Fiordland National Park Visitor Centre
+  Lakefront Drive<br>
+  Te Anau<br>
+  <a href="tel:+6432498514" class="btn phone"></a>+64 3 249 8514<br>
+  <a href="mailto:greatwalksbookings@doc.govt.nz" class="btn email">Email booking</a></p>
+
+  <h4>Hours</h4>
+
+  <p>Open daily 8:00 am - 5:00 pm</p>
+
+  <h4>Services</h4>
+
+  <p>Great Walks booking and recreation information for the
+  area.</p>
+   
+</div>   
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header getting-there"><a href="#expand-walk-detail"><span>Getting there</span></a></h2><div class="walk-detail getting-there"><h3>Nearest
+  airports</h3>
+
+  <ul>
+    <li>Queenstown - 174km / 108mi, 2 hours 30 min</li>
+
+    <li>Invercargill - 159km / 99mi, 2 hours 20 min</li>
+  </ul>
+
+  <p>Flights to these airports typically connect from Auckland,
+  Wellington and Christchurch. The above driving times are indicative only - always allow
+  for extra time to get to your destination.</p>
+
+  <h3>How to get to
+  the trailhead</h3>
+
+  <p>The Kepler Track is easily accessible from the Lake <a href="#Te Anau" data-audio="audio/speech-te_anau.mp3" class="audio">Te Anau</a> control
+  gates, either by road or a 45 minute walk from the Fiordland National Park Visitor
+  Centre in Te Anau, or over the swing bridge across the <a href="#Waiau" data-audio="audio/speech-waiau.mp3" class="audio">Waiau</a> River at Rainbow Reach. A
+  shuttle bus also operates during the summer season to entry and exit points on the
+  track and a scheduled boat service provides access to Brod Bay.</p>
+
+  <h3>Transport and accommodation</h3>
+
+  <p><a href="http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/fiordland/eastern-fiordland/kepler-track/plan-and-prepare/guides-and-commercial-tourism-providers/">Guides and commercial tourism providers</a> - find accommodation, transport, and activities in the area.</p>
+</div>   
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header where-to-stay"><a href="#expand-walk-detail"><span>Where to stay</span></a></h2><div class="walk-detail where-to-stay"><p>DOC provides three huts and two campsites along the Kepler
+  Track.</p>
+
+  <h3>Huts</h3>
+
+  <p>Kepler Track huts have heating, toilets, bunks, mattresses, basic
+  cooking facilities, solar powered lighting and cold running water. Note: Huts do not
+  provide pots and pans, cooking utensils, hot showers, linen, toilet paper or food for
+  purchase. Make sure you put these things on your checklist before you go.</p>
+
+   
+
+  <ul>
+    <li>Luxmore Hut: 54 bunks</li>
+
+    <li>Iris Burn Hut: 50 bunks</li>
+
+    <li>Moturau Hut: 40 bunks</li>
+  </ul>
+
+
+  <h3>Campsites</h3>
+
+  <p>The Brod Bay and Iris Burn campsites have a water supply, cooking
+  shelter and toilets. Open fires are only permitted where fireplaces are provided.
+  Campers are not permitted to use the hut facilities.</p>
+
+<h3>
+      Cost and booking
+    </h3>
+    <p>
+      Fees are charged per person, per night to stay in huts and campsites.
+    </p>
+    <p>
+      Bookings are essential! Use the <a href="https://booking.doc.govt.nz/Menu.aspx?sg=KEP">DOC online booking system</a> prior to travel or
+      call <a href="tel:0800694732" class="btn phone"></a>0800 NZ GREATWALKS.
+    </p>
+
+   
+</div>   
+        <!-- included from build-html.js. Just search for this string --><h2 class="walk-detail-header on-the-track"><a href="#expand-walk-detail"><span>On the track</span></a></h2><div class="walk-detail on-the-track"><h3>Track description</h3>
+
+  <p>The Kepler Track is a circular track that begins and ends at the
+  Kepler Track carpark at the southern end of Lake Te Anau, about 5km / 3mi from Te Anau
+  township. This well-graded track can be walked in either direction.</p>
+
+  <p>Access is either by road or a 50 minute walk from the Fiordland
+  National Park Visitor Centre. Alternatively, there is an entry point at Rainbow Reach,
+  a 10 minute (12km / 7mi) drive from Te Anau.</p>
+
+  <p>Shuttle buses provide a daily service to entry and exit points on
+  the track from late October to late April. A scheduled boat
+  service also offers transport to Brod Bay.</p>
+
+  <p>
+      <a href="map-kepler-track.html" class="btn">View map</a>
+    </p>
+
+  <h3>Elevation profile</h3>
+
+  <p>It is recommended that the track is walked in an anti-clockwise
+  direction, allowing a more gradual climb of 1000m / 3281ft through cool beech forest to the bush
+  line. Note the altitude level when you view the elevation profile.</p>
+  
+    <p><a href="#elevation-profile" id="elevation-profile-button" role="button" data-toggle="modal"><img src="img&#x2F;walks&#x2F;kepler-track&#x2F;profile.jpg" class="elevation-profile"></a></p>
+
+<h3>Walking guide</h3>
+
+  <h4>Day 1: Kepler Track car park to Luxmore Hut</h4>
+
+  <p><strong>5-6 hours, 13.8km / 5.3mi</strong></p>
+
+  <p>Walk alongside the lake shore through a forest of mountain and red
+  beech, a grove of hard tree ferns and crown fern. Continue through to Coal Creek Bridge
+  to arrive at Brod Bay which is a great spot for swimming. Climbing steadily for two hours, the track will lead you to
+  limestone bluffs and a great place to lunch. Another hour&rsquo;s walking will reward
+  you with panoramic views of the Te Anau Basin and the Takitimu, Snowden and Earl
+  Mountains.</p>
+
+  <h4>Luxmore Hut to Iris Burn Hut</h4>
+
+  <p><strong>5-6 hours, 14.6km / 5.6mi</strong></p>
+
+  <p>In heavy rain, strong winds or wintry weather wait at Luxmore Hut
+  until the weather improves. From the hut, a gradual climb will take you to a ridge
+  below the summit of Mount Luxmore and a side track walk of 10 minutes will take you to
+  the 1472 m summit. After a climb over ridges for about 2 hours, the track starts to
+  wind down through beautiful forest. A 20 minute walk from the Iris Burn Hut will lead
+  you to Iris Burns Waterfall.</p>
+
+  <h4>Iris Burn Hut to Moturau Hut</h4>
+
+  <p><strong>5-6 hours, 16.2km / 6.3mi</strong></p>
+
+  <p>Walk through beech forest and a gorge, climb over a low saddle and
+  wander through another mixed species forest on your way to a large natural landslide,
+  which was caused by excessive rain in 1984. As you near Lake Manapouri a left turn
+  takes you through lowland beech and a podocarp forest through to Moturau Hut which is
+  situated beside a beautiful beach.</p>
+
+  <h4>Moturau Hut to Kepler Track car park</h4>
+
+  <p><strong>4-5 hours, 15.5km / 6mi</strong></p>
+
+  <p>A moderate walk will take you through a beech forest across
+  wetland, follows the Waiau River Terrace to the swing bridge at Rainbow Reach. Follow
+  the final part of the Kepler Track through a variety of forest and river views through
+  to the Kepler Track car park. Along here are great opportunities for trout
+  fishing!</p>
+    </div>   
+    </div>
+</div>
+<div id="elevation-profile" style="width:98%;" class="modal hide fade horizscroll" tabindex="-1" role="dialog">
+  <img src="img/walks/kepler-track/profile.jpg" style="width:px; height:px; max-width:none; max-height:none">
+</div>
+
+<div id="carousel-kepler-track-luxmore-hut-397-082jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;kepler-track&#x2F;carousel-kepler-track-luxmore-hut-397-082.jpg" style="width:100%">
+</div>
+<div id="carousel-kepler-track-340-045jpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;kepler-track&#x2F;carousel-kepler-track-340-045.jpg" style="width:100%">
+</div>
+<div id="carousel-trampers-tops-kepler-track8---keri-moyle-wwwsignsoflifeconzjpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;kepler-track&#x2F;carousel-trampers-tops-kepler-track8---keri-moyle-www.signsoflife.co.nz.jpg" style="width:100%">
+</div>
+<div id="carousel-tramper-view-from-tops-kepler-track1---keri-moyle-wwwsignsoflifeconzjpg" style="width:98%;" class="modal hide fade" tabindex="-1" role="dialog">
+  <img src="img&#x2F;walks&#x2F;kepler-track&#x2F;carousel-tramper-view-from-tops-kepler-track1---keri-moyle-www.signsoflife.co.nz.jpg" style="width:100%">
+</div>
+
+            </div>
+            <div id="page2">
+            </div>
+        </div>
+        <!-- Why jQuery and not Zepto? Well there's not much difference http://www.codefessions.com/2012/08/performance-of-jquery-compatible-mobile.html -->
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/hammer.js"></script>
+        <script src="js/vendor/jquery.hammer.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
