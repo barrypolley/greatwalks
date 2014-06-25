@@ -1,5 +1,8 @@
 # GreatWalks
 
+## NOTICE:
+This repo is kept for historical reasons only. Please refer to the (NZ) Department of Conservation github account for current source.
+
 This repo contains all the static files (html/js/css/images/fonts) that comprise the app.
 
 It's generated from the "greatwalks-builder" repo so please don't edit this repo directly.
